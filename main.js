@@ -495,29 +495,41 @@ async function submitForm() {
 
 
 /* ==============================================================
-   CUSTOM CURSOR
+   CUSTOM CURSOR — disabled on touch devices
    ============================================================== */
+const cursorEl   = document.getElementById('cursor');
 const cursorDot  = document.getElementById('cursorDot');
 const cursorRing = document.getElementById('cursorRing');
 let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
 
-document.addEventListener('mousemove', e => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-});
+const isTouchDevice = () =>
+  window.matchMedia('(pointer: coarse)').matches ||
+  navigator.maxTouchPoints > 0;
 
-function animateCursor() {
-  cursorDot.style.left = mouseX + 'px';
-  cursorDot.style.top  = mouseY + 'px';
+if (isTouchDevice()) {
+  // Hide cursor elements and restore default cursor on touch screens
+  if (cursorEl)   cursorEl.style.display = 'none';
+  document.body.style.cursor = 'auto';
+  document.querySelectorAll('a, button').forEach(el => el.style.cursor = 'auto');
+} else {
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
 
-  ringX += (mouseX - ringX) * 0.3;
-  ringY += (mouseY - ringY) * 0.3;
-  cursorRing.style.left = ringX + 'px';
-  cursorRing.style.top  = ringY + 'px';
+  function animateCursor() {
+    cursorDot.style.left = mouseX + 'px';
+    cursorDot.style.top  = mouseY + 'px';
 
-  requestAnimationFrame(animateCursor);
+    ringX += (mouseX - ringX) * 0.3;
+    ringY += (mouseY - ringY) * 0.3;
+    cursorRing.style.left = ringX + 'px';
+    cursorRing.style.top  = ringY + 'px';
+
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
 }
-animateCursor();
 
 
 /* ==============================================================
