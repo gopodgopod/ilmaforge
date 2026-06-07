@@ -122,6 +122,7 @@ const PROJECTS = [
   },
 ];
 
+
 /* ==============================================================
    UTILITY FUNCTIONS
    ============================================================== */
@@ -167,6 +168,11 @@ function navigate(sectionId) {
 
   if (sectionId === 'home')  renderGrid('homeGrid',  'all', 'homeFilterTags');
   if (sectionId === 'works') renderGrid('worksGrid', 'all', 'worksFilterTags');
+
+  // Update URL hash
+  if (sectionId === 'home')    history.pushState(null, '', '/');
+  if (sectionId === 'works')   history.pushState(null, '', '#works');
+  if (sectionId === 'contact') history.pushState(null, '', '#contact');
 }
 
 /** Go back from project detail page */
@@ -196,13 +202,6 @@ function toggleMobileMenu() {
    PROJECT GRID RENDER
    ============================================================== */
 
-/**
- * Renders the project grid and filter tag buttons.
- *
- * @param {string} gridId    - container id for the grid
- * @param {string} activeTag - active filter tag ('all' or a specific tag)
- * @param {string} tagsId    - container id for filter buttons
- */
 function renderGrid(gridId, activeTag, tagsId) {
   renderFilterButtons(tagsId, activeTag, gridId);
 
@@ -264,6 +263,9 @@ function openProject(id, fromSection) {
   `;
   document.getElementById('projNavEl').innerHTML = '';
 
+  // Update URL — shareable link e.g. ilmaforge.com/#project-1
+  history.pushState(null, '', `#project-${project.id}`);
+
   navigate('project');
 }
 
@@ -307,35 +309,30 @@ function buildProjectHeader(p) {
 function buildBlock(block) {
   switch (block.type) {
 
-    /* ── Full-width image, edge to edge (no side padding) ── */
     case 'img-full':
       return `
         <div class="blk-img-full">
           <img src="${block.src}" alt="" loading="lazy">
         </div>`;
 
-    /* ── Full-width image with side padding ── */
     case 'img-padded':
       return `
         <div class="blk-img-padded">
           <img src="${block.src}" alt="" loading="lazy">
         </div>`;
 
-    /* ── Two images side by side ── */
     case 'img-2':
       return `
         <div class="blk-img-2">
           ${block.items.map(src => `<img src="${src}" alt="" loading="lazy">`).join('')}
         </div>`;
 
-    /* ── Three images side by side ── */
     case 'img-3':
       return `
         <div class="blk-img-3">
           ${block.items.map(src => `<img src="${src}" alt="" loading="lazy">`).join('')}
         </div>`;
 
-    /* ── Image LEFT + text RIGHT ── */
     case 'img-text':
       return `
         <div class="blk-split blk-split--img-text">
@@ -348,7 +345,6 @@ function buildBlock(block) {
           </div>
         </div>`;
 
-    /* ── Text LEFT + image RIGHT ── */
     case 'text-img':
       return `
         <div class="blk-split blk-split--text-img">
@@ -361,7 +357,6 @@ function buildBlock(block) {
           </div>
         </div>`;
 
-    /* ── Full-width text block ── */
     case 'text':
       return `
         <div class="blk-text">
@@ -371,7 +366,6 @@ function buildBlock(block) {
           </div>
         </div>`;
 
-    /* ── Centered quote ── */
     case 'quote':
       return `
         <div class="blk-quote">
@@ -381,7 +375,6 @@ function buildBlock(block) {
           </div>
         </div>`;
 
-    /* ── Embedded video (Vimeo / YouTube) ── */
     case 'video-embed':
       return `
         <div class="blk-video">
@@ -389,14 +382,12 @@ function buildBlock(block) {
                   allow="autoplay; fullscreen" allowfullscreen></iframe>
         </div>`;
 
-    /* ── Self-hosted video file ── */
     case 'video-file':
       return `
         <div class="blk-video">
           <video src="${block.src}" controls playsinline></video>
         </div>`;
 
-    /* ── Divider line ── */
     case 'divider':
       return `<div class="blk-divider"></div>`;
 
@@ -453,35 +444,71 @@ async function submitForm() {
 
 
 /* ==============================================================
-   CUSTOM CURSOR
+   CUSTOM CURSOR — disabled on touch devices
    ============================================================== */
+const cursorEl   = document.getElementById('cursor');
 const cursorDot  = document.getElementById('cursorDot');
 const cursorRing = document.getElementById('cursorRing');
 let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
 
-document.addEventListener('mousemove', e => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-});
+const isTouchDevice = () =>
+  window.matchMedia('(pointer: coarse)').matches ||
+  navigator.maxTouchPoints > 0;
 
-function animateCursor() {
-  cursorDot.style.left = mouseX + 'px';
-  cursorDot.style.top  = mouseY + 'px';
+if (isTouchDevice()) {
+  if (cursorEl) cursorEl.style.display = 'none';
+  document.body.style.cursor = 'auto';
+  document.querySelectorAll('a, button').forEach(el => el.style.cursor = 'auto');
+} else {
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
 
-  ringX += (mouseX - ringX) * 0.3;
-  ringY += (mouseY - ringY) * 0.3;
-  cursorRing.style.left = ringX + 'px';
-  cursorRing.style.top  = ringY + 'px';
+  function animateCursor() {
+    cursorDot.style.left = mouseX + 'px';
+    cursorDot.style.top  = mouseY + 'px';
 
-  requestAnimationFrame(animateCursor);
+    ringX += (mouseX - ringX) * 0.3;
+    ringY += (mouseY - ringY) * 0.3;
+    cursorRing.style.left = ringX + 'px';
+    cursorRing.style.top  = ringY + 'px';
+
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
 }
-animateCursor();
 
 
 /* ==============================================================
    INIT
    ============================================================== */
 renderGrid('homeGrid', 'all', 'homeFilterTags');
+
+// Handle direct URL with hash on page load
+(function handleHash() {
+  const hash = window.location.hash;
+  if (!hash) return;
+
+  if (hash === '#works')   { navigate('works');   return; }
+  if (hash === '#contact') { navigate('contact'); return; }
+
+  const projectMatch = hash.match(/^#project-(\d+)$/);
+  if (projectMatch) {
+    openProject(parseInt(projectMatch[1]), 'home');
+  }
+})();
+
+// Handle browser back/forward buttons
+window.addEventListener('popstate', () => {
+  const hash = window.location.hash;
+  if (!hash || hash === '') { navigate('home');    return; }
+  if (hash === '#works')    { navigate('works');   return; }
+  if (hash === '#contact')  { navigate('contact'); return; }
+
+  const projectMatch = hash.match(/^#project-(\d+)$/);
+  if (projectMatch) openProject(parseInt(projectMatch[1]), 'home');
+});
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
