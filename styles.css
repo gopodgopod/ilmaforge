@@ -103,10 +103,12 @@ nav {
    HERO VIDEO
    ============================================================ */
 .hero-wrap {
-  position: relative; width: 100%; height: 60vh;
-  overflow: hidden; background: #000;
-  margin-top: calc(var(--nav-h) * -1);
-  z-index: 1;
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+  background: #000;
+}
 }
 .hero-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
 
