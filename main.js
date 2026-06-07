@@ -52,20 +52,20 @@
 const PROJECTS = [
   {
     id:           1,
-    title:        'Project Title 1',
-    client:       'Client Name',
-    tags:         ['3d', 'product'],
-    year:         2025,
+    title:        'Promo wideo for cosmetic company',
+    client:       'RITUALS',
+    tags:         ['3d', 'product', 'Motion design', 'vizualization'],
+    year:         2023,
     img:          '1.jpg',
     wide:         true,
     description:  'Short description of the project.',
     role:         'CGI, 3D Animation',
     deliverables: 'Product Film',
-    duration:     '4 weeks',
+    duration:     '3 weeks',
     blocks: [
       { type: 'img-full', src: '1.jpg' },
       { type: 'img-2', items: ['2.jpg', '3.jpg'] },
-      { type: 'text', heading: 'About this project', body: 'Describe the project here.' },
+      { type: 'text', heading: 'About this project', body: 'This 3D motion piece for Rituals was created specifically for social media, with a focus on calmness, aesthetics, and sensory experience. The goal was to reflect the brand's philosophy through smooth animations, soft lighting, and a balanced composition. Special attention was given to details, textures, and motion rhythm to enhance the feeling of premium quality and immersion. The project represents a balance between visual expressiveness and minimalism, highlighting the unique identity of the brand.' },
     ],
   },
   {
