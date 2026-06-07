@@ -171,8 +171,8 @@ function navigate(sectionId) {
 
   // Update URL hash
   if (sectionId === 'home')    history.pushState(null, '', '/');
-  if (sectionId === 'works')   history.pushState(null, '', '#works');
-  if (sectionId === 'contact') history.pushState(null, '', '#contact');
+  if (sectionId === 'works')   history.pushState(null, '', '/works');
+  if (sectionId === 'contact') history.pushState(null, '', '/contact');
 }
 
 /** Go back from project detail page */
@@ -264,7 +264,7 @@ function openProject(id, fromSection) {
   document.getElementById('projNavEl').innerHTML = '';
 
   // Update URL — shareable link e.g. ilmaforge.com/#project-1
-  history.pushState(null, '', `#project-${project.id}`);
+  history.pushState(null, '', `/project/${project.id}`);
 
   navigate('project');
 }
@@ -480,20 +480,21 @@ if (isTouchDevice()) {
 }
 
 
+
 /* ==============================================================
    INIT
    ============================================================== */
 renderGrid('homeGrid', 'all', 'homeFilterTags');
 
-// Handle direct URL with hash on page load
-(function handleHash() {
-  const hash = window.location.hash;
-  if (!hash) return;
+// Handle direct URL on page load
+(function handlePath() {
+  const path = window.location.pathname;
+  if (!path || path === '/') return;
 
-  if (hash === '#works')   { navigate('works');   return; }
-  if (hash === '#contact') { navigate('contact'); return; }
+  if (path === '/works')   { navigate('works');   return; }
+  if (path === '/contact') { navigate('contact'); return; }
 
-  const projectMatch = hash.match(/^#project-(\d+)$/);
+  const projectMatch = path.match(/^\/project\/(\d+)$/);
   if (projectMatch) {
     openProject(parseInt(projectMatch[1]), 'home');
   }
@@ -501,12 +502,12 @@ renderGrid('homeGrid', 'all', 'homeFilterTags');
 
 // Handle browser back/forward buttons
 window.addEventListener('popstate', () => {
-  const hash = window.location.hash;
-  if (!hash || hash === '') { navigate('home');    return; }
-  if (hash === '#works')    { navigate('works');   return; }
-  if (hash === '#contact')  { navigate('contact'); return; }
+  const path = window.location.pathname;
+  if (!path || path === '/') { navigate('home');    return; }
+  if (path === '/works')     { navigate('works');   return; }
+  if (path === '/contact')   { navigate('contact'); return; }
 
-  const projectMatch = hash.match(/^#project-(\d+)$/);
+  const projectMatch = path.match(/^\/project\/(\d+)$/);
   if (projectMatch) openProject(parseInt(projectMatch[1]), 'home');
 });
 
