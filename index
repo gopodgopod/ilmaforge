@@ -17,7 +17,7 @@
 
   <!-- NAVIGATION -->
   <nav>
-    <a href="#" class="logo" onclick="navigate('home'); return false;">ILMAFORGE</a>
+    <a href="#" class="logo" onclick="navigate('home'); return false;">ILMA</a>
 
     <ul class="nav-links">
       <!-- <li><a href="#" data-section="works" onclick="navigate('works'); return false;">Works</a></li> -->
