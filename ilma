@@ -20,7 +20,6 @@
     <a href="#" class="logo" onclick="navigate('home'); return false;">ILMAFORGE</a>
 
     <ul class="nav-links">
-      <li><a href="#" class="act" data-section="home"    onclick="navigate('home');    return false;">Home</a></li>
       <!-- <li><a href="#" data-section="works" onclick="navigate('works'); return false;">Works</a></li> -->
       <li><a href="#"             data-section="contact" onclick="navigate('contact'); return false;">Contact</a></li>
     </ul>
