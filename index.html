@@ -3,13 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ILMA — CGI & Motion Design Studio | Worldwide</title>
-  <meta name="description" content="ILMA is a CGI and motion design studio specializing in 3D product visualization, commercial films and visual effects for clients worldwide.">
-  <meta property="og:title" content="ILMA — CGI & Motion Design Studio">
-  <meta property="og:description" content="3D product visualization and motion design studio working with clients worldwide.">
-  <meta property="og:image" content="https://ilmaforge.com/1.jpg">
-  <meta property="og:url" content="https://ilmaforge.com">
-  <meta property="og:type" content="website">
+  <title>ILMA — Creative Studio</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -24,62 +18,67 @@
   <!-- NAVIGATION -->
   <nav>
     <a href="#" class="logo" onclick="navigate('home'); return false;">ILMA</a>
+
     <ul class="nav-links">
-      <li><a href="#" class="act" data-section="home"    onclick="navigate('home');    return false;">About</a></li>
+      <li><a href="#" class="act" data-section="home"    onclick="navigate('home');    return false;">Home</a></li>
+      <!-- <li><a href="#" data-section="works" onclick="navigate('works'); return false;">Works</a></li> -->
       <li><a href="#"             data-section="contact" onclick="navigate('contact'); return false;">Contact</a></li>
     </ul>
+
     <button class="nav-burger" id="navBurger" onclick="toggleMobileMenu()">
-      <span></span><span></span><span></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
   </nav>
 
 
-  <!-- SECTION: HOME (About) -->
+  <!-- SECTION: HOME -->
   <section id="home" class="active">
 
-    <!-- Hero video -->
+    <!-- Hero video. Replace src with your file path -->
     <div class="hero-wrap">
-      <video autoplay muted loop playsinline preload="metadata">
-        <source src="reel_265_5.mp4" type="video/mp4">
+      <video autoplay muted loop playsinline>
+        <source src="Showreel_2025_low.webm" type="video/mp4">
       </video>
     </div>
 
-    <!-- About section — edit text below for SEO -->
+    <!-- Filter tags + project grid (populated by JS) -->
     <div class="about-section">
       <div class="about-inner">
         <div class="about-left">
           <span class="about-label">About ILMA</span>
-          <h1 class="about-heading">We create CGI &amp; motion that moves people.</h1>
+          <h2 class="about-heading">We create CGI&nbsp;&amp; motion that moves people.</h2>
         </div>
         <div class="about-right">
           <p>ILMA is a CGI and motion design studio working with brands worldwide. We specialise in 3D product visualisation, commercial films, and visual effects — delivering work that is precise, cinematic, and built to perform.</p>
           <p>From product launches to brand campaigns, we partner with companies that demand the highest visual standard. Our process is lean, our output is exceptional.</p>
           <div class="about-stats">
-            <div class="about-stat">
+            <div>
               <span class="about-stat-num">50+</span>
               <span class="about-stat-label">Projects delivered</span>
             </div>
-            <div class="about-stat">
+            <div>
               <span class="about-stat-num">8+</span>
               <span class="about-stat-label">Years of experience</span>
             </div>
-            <div class="about-stat">
-              <span class="about-stat-num">Worldwide</span>
-              <span class="about-stat-label">Clients</span>
+            <div>
+              <span class="about-stat-num">∞</span>
+              <span class="about-stat-label">Worldwide Clients</span>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Works grid -->
+    <!-- Filter tags + project grid (populated by JS) -->
     <div class="filter-section">
       <span class="section-title">Works</span>
       <div class="filter-tags" id="homeFilterTags"></div>
     </div>
     <div class="project-grid" id="homeGrid"></div>
 
-    <!-- Footer CTA -->
+    <!-- FOOTER CTA -->
     <div class="footer-cta">
       <a href="#" class="footer-cta-item" onclick="navigate('contact'); return false;">
         <div class="footer-cta-arrow">
@@ -101,6 +100,8 @@
 
     <footer>
       <div class="footer-grid">
+
+        <!-- Column 1: logo + date -->
         <div class="footer-col-brand">
           <span class="footer-logo">ILMA</span>
           <div class="footer-date">
@@ -109,6 +110,8 @@
             <span id="footerYear"></span>
           </div>
         </div>
+
+        <!-- Column 2: social links -->
         <div>
           <span class="footer-col-title">Social</span>
           <div class="footer-col-links">
@@ -118,22 +121,37 @@
             <a href="https://behance.net"   target="_blank" rel="noopener">Behance</a>
           </div>
         </div>
+
+        <!-- Column 3: contact -->
+        <div>
+          <span class="footer-col-title">Inquiries</span>
+          <div class="footer-col-links">
+            <a href="mailto:hello@ilmastudio.co">hello@ilmastudio.co</a>
+            <span>+48 000 000 000</span>
+          </div>
+        </div>
+
+        <!-- Column 4: address -->
         <div>
           <span class="footer-col-title">Headquarters</span>
           <div class="footer-col-links">
-            <span>ILMA Studio</span>
-            <span>Worldwide</span>
+            <span>ILMA</span>
+            <span>Warsaw, Poland</span>
           </div>
         </div>
+
+        <!-- Column 5: navigation -->
         <div>
           <span class="footer-col-title">Navigation</span>
           <div class="footer-col-links">
-            <a href="#" onclick="navigate('home');    return false;">About</a>
+            <a href="#" onclick="navigate('home');    return false;">Home</a>
             <a href="#" onclick="navigate('works');   return false;">Works</a>
             <a href="#" onclick="navigate('contact'); return false;">Contact</a>
           </div>
         </div>
+
       </div>
+
       <div class="footer-bottom">
         <span class="footer-copy">© 2025 ILMA Studio. All rights reserved.</span>
         <span class="footer-made">Made with care</span>
@@ -144,12 +162,14 @@
 
   <!-- SECTION: WORKS -->
   <section id="works">
+
     <div class="filter-section" style="padding-top: calc(var(--nav-h) + 52px);">
       <span class="section-title">Portfolio</span>
       <div class="filter-tags" id="worksFilterTags"></div>
     </div>
     <div class="project-grid" id="worksGrid"></div>
 
+    <!-- FOOTER CTA -->
     <div class="footer-cta">
       <a href="#" class="footer-cta-item" onclick="navigate('contact'); return false;">
         <div class="footer-cta-arrow">
@@ -163,9 +183,9 @@
         <div class="footer-cta-arrow">
           <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </div>
-        <span class="footer-cta-label">About us</span>
-        <div class="footer-cta-title">About</div>
-        <div class="footer-cta-sub">Who we are</div>
+        <span class="footer-cta-label">Back to start</span>
+        <div class="footer-cta-title">Home</div>
+        <div class="footer-cta-sub">See the showreel</div>
       </a>
     </div>
 
@@ -189,16 +209,23 @@
           </div>
         </div>
         <div>
+          <span class="footer-col-title">Inquiries</span>
+          <div class="footer-col-links">
+            <a href="mailto:hello@ilmastudio.co">hello@ilmastudio.co</a>
+            <span>+48 000 000 000</span>
+          </div>
+        </div>
+        <div>
           <span class="footer-col-title">Headquarters</span>
           <div class="footer-col-links">
             <span>ILMA Studio</span>
-            <span>Worldwide</span>
+            <span>Warsaw, Poland</span>
           </div>
         </div>
         <div>
           <span class="footer-col-title">Navigation</span>
           <div class="footer-col-links">
-            <a href="#" onclick="navigate('home');    return false;">About</a>
+            <a href="#" onclick="navigate('home');    return false;">Home</a>
             <a href="#" onclick="navigate('works');   return false;">Works</a>
             <a href="#" onclick="navigate('contact'); return false;">Contact</a>
           </div>
@@ -212,8 +239,10 @@
   </section>
 
 
-  <!-- SECTION: PROJECT (detail, populated by JS) -->
+  <!-- SECTION: PROJECT (detail page, populated by JS) -->
   <section id="project">
+
+    <!-- Top bar: back button + project name -->
     <div class="proj-topbar">
       <button class="proj-back-btn" onclick="goBackToWorks()">
         <svg viewBox="0 0 24 24">
@@ -225,10 +254,13 @@
       <span class="proj-topbar-sep">/</span>
       <span class="proj-topbar-name" id="projTopbarName"></span>
     </div>
+
+    <!-- Project content (populated by JS) -->
     <div id="projHeaderEl"></div>
     <div id="projContentEl"></div>
     <div id="projNavEl"></div>
 
+    <!-- FOOTER CTA -->
     <div class="footer-cta">
       <a href="#" class="footer-cta-item" onclick="navigate('contact'); return false;">
         <div class="footer-cta-arrow">
@@ -268,16 +300,23 @@
           </div>
         </div>
         <div>
+          <span class="footer-col-title">Inquiries</span>
+          <div class="footer-col-links">
+            <a href="mailto:hello@ilmastudio.co">hello@ilmastudio.co</a>
+            <span>+48 000 000 000</span>
+          </div>
+        </div>
+        <div>
           <span class="footer-col-title">Headquarters</span>
           <div class="footer-col-links">
             <span>ILMA Studio</span>
-            <span>Worldwide</span>
+            <span>Warsaw, Poland</span>
           </div>
         </div>
         <div>
           <span class="footer-col-title">Navigation</span>
           <div class="footer-col-links">
-            <a href="#" onclick="navigate('home');    return false;">About</a>
+            <a href="#" onclick="navigate('home');    return false;">Home</a>
             <a href="#" onclick="navigate('works');   return false;">Works</a>
             <a href="#" onclick="navigate('contact'); return false;">Contact</a>
           </div>
@@ -293,32 +332,36 @@
 
   <!-- SECTION: CONTACT -->
   <section id="contact">
+
     <div class="contact-layout">
 
-      <!-- Left column -->
+      <!-- Left column: contact info -->
       <div class="contact-info">
         <div>
           <h2>Let's talk.</h2>
           <p>Have a project in mind? We'd love to hear about it. Send us a message and we'll get back to you as soon as possible.</p>
+
           <div class="contact-details">
             <div>
               <span class="contact-detail-label">Email</span>
-              <span class="contact-detail-value">contact@ilmaforge.com</span>
+              <span class="contact-detail-value">hello@ilmastudio.co</span>
             </div>
             <div>
               <span class="contact-detail-label">Location</span>
-              <span class="contact-detail-value">Worldwide</span>
+              <span class="contact-detail-value">Warsaw, Poland</span>
             </div>
           </div>
         </div>
+
         <p style="font-size: 0.65rem; color: rgba(255,255,255,0.2); letter-spacing: 0.08em;">
           © 2025 ILMA STUDIO
         </p>
       </div>
 
-      <!-- Right column: form -->
+      <!-- Right column: contact form -->
       <div class="contact-form">
         <h3>Send us a message</h3>
+
         <div class="form-row">
           <div class="form-group">
             <label>Name</label>
@@ -329,14 +372,17 @@
             <input type="email" id="ctEmail" placeholder="your@email.com">
           </div>
         </div>
+
         <div class="form-group">
           <label>Subject</label>
           <input type="text" id="ctSubject" placeholder="What is this about?">
         </div>
+
         <div class="form-group">
           <label>Message</label>
           <textarea id="ctMessage" placeholder="Tell us about your project…"></textarea>
         </div>
+
         <button class="send-btn" onclick="submitForm()">Send Message</button>
         <div class="form-success" id="formSuccess">
           Thank you! We'll get back to you within 48 hours.
@@ -345,14 +391,15 @@
 
     </div>
 
+    <!-- FOOTER CTA -->
     <div class="footer-cta">
       <a href="#" class="footer-cta-item" onclick="navigate('home'); return false;">
         <div class="footer-cta-arrow">
           <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </div>
-        <span class="footer-cta-label">Who we are</span>
-        <div class="footer-cta-title">About</div>
-        <div class="footer-cta-sub">Our story</div>
+        <span class="footer-cta-label">Back to start</span>
+        <div class="footer-cta-title">Home</div>
+        <div class="footer-cta-sub">See the showreel</div>
       </a>
       <a href="#" class="footer-cta-item" onclick="navigate('works'); return false;">
         <div class="footer-cta-arrow">
@@ -384,16 +431,23 @@
           </div>
         </div>
         <div>
+          <span class="footer-col-title">Inquiries</span>
+          <div class="footer-col-links">
+            <a href="mailto:hello@ilmastudio.co">hello@ilmastudio.co</a>
+            <span>+48 000 000 000</span>
+          </div>
+        </div>
+        <div>
           <span class="footer-col-title">Headquarters</span>
           <div class="footer-col-links">
             <span>ILMA Studio</span>
-            <span>Worldwide</span>
+            <span>Warsaw, Poland</span>
           </div>
         </div>
         <div>
           <span class="footer-col-title">Navigation</span>
           <div class="footer-col-links">
-            <a href="#" onclick="navigate('home');    return false;">About</a>
+            <a href="#" onclick="navigate('home');    return false;">Home</a>
             <a href="#" onclick="navigate('works');   return false;">Works</a>
             <a href="#" onclick="navigate('contact'); return false;">Contact</a>
           </div>
@@ -407,7 +461,7 @@
   </section>
 
 
-  <!-- Foggy overlay -->
+  <!-- Foggy blur overlay at bottom of screen -->
   <div class="foggy-footer">
     <div class="blur-layer layer-1"></div>
     <div class="blur-layer layer-2"></div>
@@ -415,6 +469,7 @@
     <div class="blur-layer layer-4"></div>
   </div>
 
+  <!-- JavaScript -->
   <script src="main.js"></script>
 
   <!-- Live date in footer -->
@@ -423,9 +478,12 @@
       const now  = new Date();
       const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
       const mons = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
       const dayName = days[now.getDay()];
       const dateStr = mons[now.getMonth()] + ' ' + now.getDate();
       const yearStr = String(now.getFullYear());
+
+      // Populate all four footer instances
       [1, 2, 3, 4].forEach(n => {
         const d = document.getElementById('footerDay'  + (n === 1 ? '' : n));
         const m = document.getElementById('footerDate' + (n === 1 ? '' : n));
