@@ -255,34 +255,20 @@ nav {
 .blk-img-3 img { width: 100%; display: block; aspect-ratio: 1/1; object-fit: cover; }
 
 /* ── Split block: image + text or text + image ── */
-/*
-   The block is a 2-column grid.
-   Left and right columns are independent in height.
-   Image column: fixed tall height (e.g. 70vh).
-   Text column: auto height, vertically centered inside the same row.
-   Since both are in the same row, the row height = max(image, text).
-   Image always wins because it has a min-height set.
-   Text stays compact and centered inside that tall row.
-*/
 .blk-split {
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: grid; grid-template-columns: 1fr 1fr;
   gap: 0;
   margin-bottom: 2px;
+  min-height: 520px;
 }
-
 .blk-split-img {
   overflow: hidden;
-  height: 70vh;
-  min-height: 500px;
-  max-height: 800px;
 }
 .blk-split-img img {
   width: 100%; height: 100%; display: block;
   object-fit: cover;
 }
-
 .blk-split-text {
   display: flex; flex-direction: column; justify-content: center;
   padding: 64px var(--pad);
@@ -528,8 +514,9 @@ footer {
   .project-grid { grid-template-columns: 1fr 1fr; }
   .proj-card.wide { grid-column: span 2; }
   .proj-header { grid-template-columns: 1fr; gap: 28px; }
-  .blk-split { grid-template-columns: 1fr; }
-  .blk-split-img { height: 55vw; min-height: 280px; max-height: none; }
+  .blk-split { grid-template-columns: 1fr; min-height: auto; }
+  .blk-split--img-text .blk-split-img,
+  .blk-split--text-img .blk-split-img { aspect-ratio: 4/3; }
   .blk-split--text-img .blk-split-text { order: -1; }
   .blk-split-text { padding: 40px var(--pad); }
   .contact-layout { grid-template-columns: 1fr; }
