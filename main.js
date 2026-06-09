@@ -63,8 +63,8 @@ const PROJECTS = [
     deliverables: 'Product Film',
     duration:     '3 weeks',
     blocks: [
-      { type: 'img-full', src: '/1.jpg' },
-      { type: 'img-2', items: ['/2.jpg', '/3.jpg'] },
+      { type: 'img-full', src: '1.jpg' },
+      { type: 'img-2', items: ['2.jpg', '3.jpg'] },
       { type: 'text', heading: 'About this project', body: 'This 3D motion piece for Rituals was created specifically for social media, with a focus on calmness, aesthetics, and sensory experience. The goal was to reflect the brand’s philosophy through smooth animations, soft lighting, and a balanced composition.' },
     ],
   },
