@@ -1,3 +1,8 @@
+main.js
+17.96 KB•535 lines
+•
+Formatting may be inconsistent from source
+
 /* ==============================================================
    PROJECT DATA
 
@@ -186,12 +191,6 @@ function toEmbedUrl(url) {
   return url;
 }
 
-/** Resolves image paths to root-relative URLs so they work on any sub-path (e.g. /project/1) */
-function resolveImg(src) {
-  if (!src || src.startsWith('http') || src.startsWith('/') || src.startsWith('data:')) return src;
-  return '/' + src;
-}
-
 
 /* ==============================================================
    SECTION NAVIGATION
@@ -265,7 +264,7 @@ function renderGrid(gridId, activeTag, tagsId) {
     <div class="proj-card ${p.wide ? 'wide' : ''}"
          onclick="openProject(${p.id}, '${origin}')">
       <div class="proj-card-bg"
-           style="background-image: url('${resolveImg(p.img)}'); background-color: #1a1a1a;"></div>
+           style="background-image: url('${p.img}'); background-color: #1a1a1a;"></div>
       <div class="proj-card-overlay">
         <div class="proj-card-meta">
           <span class="proj-card-title">${p.title}</span>
@@ -359,28 +358,28 @@ function buildBlock(block) {
     case 'img-full':
       return `
         <div class="blk-img-full">
-          <img src="${resolveImg(block.src)}" alt="" loading="lazy">
+          <img src="${block.src}" alt="" loading="lazy">
         </div>`;
 
     /* ── Full-width image with side padding ── */
     case 'img-padded':
       return `
         <div class="blk-img-padded">
-          <img src="${resolveImg(block.src)}" alt="" loading="lazy">
+          <img src="${block.src}" alt="" loading="lazy">
         </div>`;
 
     /* ── Two images side by side ── */
     case 'img-2':
       return `
         <div class="blk-img-2">
-          ${block.items.map(src => `<img src="${resolveImg(src)}" alt="" loading="lazy">`).join('')}
+          ${block.items.map(src => `<img src="${src}" alt="" loading="lazy">`).join('')}
         </div>`;
 
     /* ── Three images side by side ── */
     case 'img-3':
       return `
         <div class="blk-img-3">
-          ${block.items.map(src => `<img src="${resolveImg(src)}" alt="" loading="lazy">`).join('')}
+          ${block.items.map(src => `<img src="${src}" alt="" loading="lazy">`).join('')}
         </div>`;
 
     /* ── Image LEFT + text RIGHT ── */
@@ -388,7 +387,7 @@ function buildBlock(block) {
       return `
         <div class="blk-split blk-split--img-text">
           <div class="blk-split-img">
-            <img src="${resolveImg(block.src)}" alt="" loading="lazy">
+            <img src="${block.src}" alt="" loading="lazy">
           </div>
           <div class="blk-split-text">
             ${block.heading ? `<h2>${block.heading}</h2>` : ''}
@@ -405,7 +404,7 @@ function buildBlock(block) {
             ${(block.body || '').split('\n\n').map(p => `<p>${p}</p>`).join('')}
           </div>
           <div class="blk-split-img">
-            <img src="${resolveImg(block.src)}" alt="" loading="lazy">
+            <img src="${block.src}" alt="" loading="lazy">
           </div>
         </div>`;
 
@@ -441,7 +440,7 @@ function buildBlock(block) {
     case 'video-file':
       return `
         <div class="blk-video">
-          <video src="${resolveImg(block.src)}" controls playsinline></video>
+          <video src="${block.src}" controls playsinline></video>
         </div>`;
 
     /* ── Divider line ── */
