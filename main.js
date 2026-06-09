@@ -52,72 +52,113 @@
 const PROJECTS = [
   {
     id:           1,
-    title:        'RITUALS PROMO REEL',
-    client:       'RITUALS',
-    tags:         ['3d', 'product'],
-    year:         2023,
+    title:        'Nord Identity',
+    client:       'Nord Living',
+    tags:         ['brand', 'still'],
+    year:         2024,
     img:          '1.jpg',
     wide:         true,
-    description:  'This 3D motion piece for Rituals was created specifically for social media, with a focus on calmness, aesthetics, and sensory experience. The goal was to reflect the brand’s philosophy through smooth animations, soft lighting, and a balanced composition. Special attention was given to details, textures, and motion rhythm to enhance the feeling of premium quality and immersion. The project represents a balance between visual expressiveness and minimalism, highlighting the unique identity of the brand.',
-    role:         'CGI, 3D Animation',
-    deliverables: 'Product Film',
-    duration:     '3 weeks',
+    description:  'A complete visual identity for a Scandinavian furniture brand.',
+    role:         'Brand Identity, Art Direction',
+    deliverables: 'Logo, Guidelines, Packaging',
+    duration:     '12 weeks',
     blocks: [
+      { type: 'text',
+        heading: 'Redefining Nordic luxury',
+        body: 'We built a visual language around negative space and craftsmanship.\n\nEvery touchpoint carries the same quiet confidence.' },
       { type: 'img-full', src: '1.jpg' },
-      { type: 'img-2', items: ['2.jpg', '3.jpg'] },
-      { type: 'text', heading: 'About this project', body: 'This 3D motion piece for Rituals was created specifically for social media, with a focus on calmness, aesthetics, and sensory experience. The goal was to reflect the brand’s philosophy through smooth animations, soft lighting, and a balanced composition.' },
+      { type: 'text-img',
+        src: '2.jpg',
+        heading: 'Minimal by design',
+        body: 'The identity system strips away everything unnecessary — what remains is form, material, and light. A palette drawn from birch, slate, and raw linen grounds every application in the physical world.' },
+      { type: 'img-text',
+        src: '3.jpg',
+        heading: 'Craft at every scale',
+        body: 'From stationery to signage, each element was considered against the same question: does this feel like it was made by hand? The answer had to always be yes.' },
+      { type: 'img-full', src: '4.jpg' },
+      { type: 'text',
+        body: 'The final system was delivered as a comprehensive brand guidelines document, covering typography, colour, photography direction, motion principles, and packaging specifications across the full product range.' },
+      { type: 'img-3', items: ['1.jpg', '2.jpg', '3.jpg'] },
     ],
   },
   {
     id:           2,
-    title:        'Project Title 2',
-    client:       'Client Name',
+    title:        'Pulse Motion Reel',
+    client:       'Internal',
     tags:         ['motion', 'film'],
-    year:         2025,
-    img:          '4.jpg',
+    year:         2024,
+    img:          '2.jpg',
     wide:         false,
-    description:  'Short description of the project.',
-    role:         'Motion Design',
-    deliverables: '60s Film',
-    duration:     '3 weeks',
+    description:  'An internal showreel exploring kinetic typography and 3D environments.',
+    role:         'Motion Design, 3D',
+    deliverables: '60s Reel',
+    duration:     '8 weeks',
     blocks: [
-      { type: 'img-full', src: '4.jpg' },
-      { type: 'img-2', items: ['5.jpg', '6.jpg'] },
-      { type: 'text', heading: 'About this project', body: 'Describe the project here.' },
+      { type: 'video-embed', url: 'https://vimeo.com/76979871' },
+      { type: 'text',
+        heading: 'Motion as a language',
+        body: 'No brief, no client, no restrictions.\n\nThe result: 60 seconds of pure kinetic energy.' },
+      { type: 'img-full', src: '2.jpg' },
     ],
   },
   {
     id:           3,
-    title:        'Project Title 3',
-    client:       'Client Name',
-    tags:         ['3d', 'still'],
+    title:        'Vessel UI',
+    client:       'Vessel Co.',
+    tags:         ['digital', 'still'],
     year:         2024,
-    img:          '7.jpg',
+    img:          '3.jpg',
     wide:         false,
-    description:  'Short description of the project.',
-    role:         'CGI, Rendering',
-    deliverables: 'Still Images',
-    duration:     '2 weeks',
+    description:  'A mindfulness app built around gesture-driven navigation.',
+    role:         'UI/UX Design',
+    deliverables: 'iOS App, Design System',
+    duration:     '16 weeks',
     blocks: [
-      { type: 'img-full', src: '7.jpg' },
-      { type: 'img-2', items: ['8.jpg', '9.jpg'] },
+      { type: 'img-full', src: '3.jpg' },
+      { type: 'text',
+        heading: 'Stillness, made digital',
+        body: 'We stripped back every pattern that demands attention.' },
+      { type: 'img-2', items: ['4.jpg', '5.jpg'] },
     ],
   },
   {
     id:           4,
-    title:        'Project Title 4',
-    client:       'Client Name',
-    tags:         ['product', 'still'],
-    year:         2024,
-    img:          '10.jpg',
+    title:        'Archaic Campaign',
+    client:       'Archaic Brand',
+    tags:         ['brand', 'film'],
+    year:         2023,
+    img:          '4.jpg',
     wide:         true,
-    description:  'Short description of the project.',
-    role:         'Product Visualization',
-    deliverables: 'CGI Images',
-    duration:     '3 weeks',
+    description:  'A cinematic campaign shot across four landscapes.',
+    role:         'Art Direction, Photography',
+    deliverables: 'Campaign, OOH',
+    duration:     '10 weeks',
     blocks: [
-      { type: 'img-full', src: '10.jpg' },
-      { type: 'img-3', items: ['1.jpg', '2.jpg', '3.jpg'] },
+      { type: 'img-full', src: '4.jpg' },
+      { type: 'text-img',
+        src: '1.jpg',
+        heading: 'Beauty from the ground up',
+        body: 'No studio. No post-processed skies. Just light and earth.' },
+      { type: 'video-file', src: 'campaign.mp4' },
+    ],
+  },
+  {
+    id:           5,
+    title:        'Luminary Film',
+    client:       'Luminary Audio',
+    tags:         ['motion', 'film'],
+    year:         2023,
+    img:          '5.jpg',
+    wide:         true,
+    description:  '60-second product launch film combining live action and 3D.',
+    role:         'Direction, Motion, 3D',
+    deliverables: '60s Film, 15s Cut',
+    duration:     '14 weeks',
+    blocks: [
+      { type: 'video-embed', url: 'https://vimeo.com/1181371097' },
+      { type: 'text',
+        heading: 'Sound you can see',
+        body: 'Particle systems that respond to frequency, colour that shifts with timbre.' },
     ],
   },
 ];
@@ -145,6 +186,12 @@ function toEmbedUrl(url) {
   return url;
 }
 
+/** Resolves image paths to root-relative URLs so they work on any sub-path (e.g. /project/1) */
+function resolveImg(src) {
+  if (!src || src.startsWith('http') || src.startsWith('/') || src.startsWith('data:')) return src;
+  return '/' + src;
+}
+
 
 /* ==============================================================
    SECTION NAVIGATION
@@ -168,12 +215,6 @@ function navigate(sectionId) {
 
   if (sectionId === 'home')  renderGrid('homeGrid',  'all', 'homeFilterTags');
   if (sectionId === 'works') renderGrid('worksGrid', 'all', 'worksFilterTags');
-
-  // Update URL hash
-  if (sectionId === 'home')    history.pushState(null, '', '/');
-  if (sectionId === 'about')   history.pushState(null, '', '/about');
-  if (sectionId === 'works')   history.pushState(null, '', '/works');
-  if (sectionId === 'contact') history.pushState(null, '', '/contact');
 }
 
 /** Go back from project detail page */
@@ -203,6 +244,13 @@ function toggleMobileMenu() {
    PROJECT GRID RENDER
    ============================================================== */
 
+/**
+ * Renders the project grid and filter tag buttons.
+ *
+ * @param {string} gridId    - container id for the grid
+ * @param {string} activeTag - active filter tag ('all' or a specific tag)
+ * @param {string} tagsId    - container id for filter buttons
+ */
 function renderGrid(gridId, activeTag, tagsId) {
   renderFilterButtons(tagsId, activeTag, gridId);
 
@@ -217,7 +265,7 @@ function renderGrid(gridId, activeTag, tagsId) {
     <div class="proj-card ${p.wide ? 'wide' : ''}"
          onclick="openProject(${p.id}, '${origin}')">
       <div class="proj-card-bg"
-           style="background-image: url('${p.img}'); background-color: #1a1a1a;"></div>
+           style="background-image: url('${resolveImg(p.img)}'); background-color: #1a1a1a;"></div>
       <div class="proj-card-overlay">
         <div class="proj-card-meta">
           <span class="proj-card-title">${p.title}</span>
@@ -264,9 +312,6 @@ function openProject(id, fromSection) {
   `;
   document.getElementById('projNavEl').innerHTML = '';
 
-  // Update URL — shareable link e.g. ilmaforge.com/#project-1
-  history.pushState(null, '', `/project/${project.id}`);
-
   navigate('project');
 }
 
@@ -310,35 +355,40 @@ function buildProjectHeader(p) {
 function buildBlock(block) {
   switch (block.type) {
 
+    /* ── Full-width image, edge to edge (no side padding) ── */
     case 'img-full':
       return `
         <div class="blk-img-full">
-          <img src="${block.src}" alt="" loading="lazy">
+          <img src="${resolveImg(block.src)}" alt="" loading="lazy">
         </div>`;
 
+    /* ── Full-width image with side padding ── */
     case 'img-padded':
       return `
         <div class="blk-img-padded">
-          <img src="${block.src}" alt="" loading="lazy">
+          <img src="${resolveImg(block.src)}" alt="" loading="lazy">
         </div>`;
 
+    /* ── Two images side by side ── */
     case 'img-2':
       return `
         <div class="blk-img-2">
-          ${block.items.map(src => `<img src="${src}" alt="" loading="lazy">`).join('')}
+          ${block.items.map(src => `<img src="${resolveImg(src)}" alt="" loading="lazy">`).join('')}
         </div>`;
 
+    /* ── Three images side by side ── */
     case 'img-3':
       return `
         <div class="blk-img-3">
-          ${block.items.map(src => `<img src="${src}" alt="" loading="lazy">`).join('')}
+          ${block.items.map(src => `<img src="${resolveImg(src)}" alt="" loading="lazy">`).join('')}
         </div>`;
 
+    /* ── Image LEFT + text RIGHT ── */
     case 'img-text':
       return `
         <div class="blk-split blk-split--img-text">
           <div class="blk-split-img">
-            <img src="${block.src}" alt="" loading="lazy">
+            <img src="${resolveImg(block.src)}" alt="" loading="lazy">
           </div>
           <div class="blk-split-text">
             ${block.heading ? `<h2>${block.heading}</h2>` : ''}
@@ -346,6 +396,7 @@ function buildBlock(block) {
           </div>
         </div>`;
 
+    /* ── Text LEFT + image RIGHT ── */
     case 'text-img':
       return `
         <div class="blk-split blk-split--text-img">
@@ -354,10 +405,11 @@ function buildBlock(block) {
             ${(block.body || '').split('\n\n').map(p => `<p>${p}</p>`).join('')}
           </div>
           <div class="blk-split-img">
-            <img src="${block.src}" alt="" loading="lazy">
+            <img src="${resolveImg(block.src)}" alt="" loading="lazy">
           </div>
         </div>`;
 
+    /* ── Full-width text block ── */
     case 'text':
       return `
         <div class="blk-text">
@@ -367,6 +419,7 @@ function buildBlock(block) {
           </div>
         </div>`;
 
+    /* ── Centered quote ── */
     case 'quote':
       return `
         <div class="blk-quote">
@@ -376,6 +429,7 @@ function buildBlock(block) {
           </div>
         </div>`;
 
+    /* ── Embedded video (Vimeo / YouTube) ── */
     case 'video-embed':
       return `
         <div class="blk-video">
@@ -383,12 +437,14 @@ function buildBlock(block) {
                   allow="autoplay; fullscreen" allowfullscreen></iframe>
         </div>`;
 
+    /* ── Self-hosted video file ── */
     case 'video-file':
       return `
         <div class="blk-video">
-          <video src="${block.src}" controls playsinline></video>
+          <video src="${resolveImg(block.src)}" controls playsinline></video>
         </div>`;
 
+    /* ── Divider line ── */
     case 'divider':
       return `<div class="blk-divider"></div>`;
 
@@ -445,74 +501,35 @@ async function submitForm() {
 
 
 /* ==============================================================
-   CUSTOM CURSOR — disabled on touch devices
+   CUSTOM CURSOR
    ============================================================== */
-const cursorEl   = document.getElementById('cursor');
 const cursorDot  = document.getElementById('cursorDot');
 const cursorRing = document.getElementById('cursorRing');
 let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
 
-const isTouchDevice = () =>
-  window.matchMedia('(pointer: coarse)').matches ||
-  navigator.maxTouchPoints > 0;
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
 
-if (isTouchDevice()) {
-  if (cursorEl) cursorEl.style.display = 'none';
-  document.body.style.cursor = 'auto';
-  document.querySelectorAll('a, button').forEach(el => el.style.cursor = 'auto');
-} else {
-  document.addEventListener('mousemove', e => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
+function animateCursor() {
+  cursorDot.style.left = mouseX + 'px';
+  cursorDot.style.top  = mouseY + 'px';
 
-  function animateCursor() {
-    cursorDot.style.left = mouseX + 'px';
-    cursorDot.style.top  = mouseY + 'px';
+  ringX += (mouseX - ringX) * 0.3;
+  ringY += (mouseY - ringY) * 0.3;
+  cursorRing.style.left = ringX + 'px';
+  cursorRing.style.top  = ringY + 'px';
 
-    ringX += (mouseX - ringX) * 0.3;
-    ringY += (mouseY - ringY) * 0.3;
-    cursorRing.style.left = ringX + 'px';
-    cursorRing.style.top  = ringY + 'px';
-
-    requestAnimationFrame(animateCursor);
-  }
-  animateCursor();
+  requestAnimationFrame(animateCursor);
 }
-
+animateCursor();
 
 
 /* ==============================================================
    INIT
    ============================================================== */
 renderGrid('homeGrid', 'all', 'homeFilterTags');
-
-// Handle direct URL on page load
-(function handlePath() {
-  const path = window.location.pathname;
-  if (!path || path === '/') return;
-
-  if (path === '/about')   { navigate('about');   return; }
-  if (path === '/works')   { navigate('works');   return; }
-  if (path === '/contact') { navigate('contact'); return; }
-
-  const projectMatch = path.match(/^\/project\/(\d+)$/);
-  if (projectMatch) {
-    openProject(parseInt(projectMatch[1]), 'home');
-  }
-})();
-
-// Handle browser back/forward buttons
-window.addEventListener('popstate', () => {
-  const path = window.location.pathname;
-  if (!path || path === '/') { navigate('home');    return; }
-  if (path === '/about')    { navigate('about');   return; }
-  if (path === '/works')    { navigate('works');   return; }
-  if (path === '/contact')  { navigate('contact'); return; }
-
-  const projectMatch = path.match(/^\/project\/(\d+)$/);
-  if (projectMatch) openProject(parseInt(projectMatch[1]), 'home');
-});
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
