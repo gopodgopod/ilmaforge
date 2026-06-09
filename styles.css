@@ -109,6 +109,93 @@ nav {
   z-index: 1;
 }
 .hero-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-wrap iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 177.78vh;
+  min-width: 100%;
+  height: 56.25vw;
+  min-height: 100%;
+  border: 0;
+  pointer-events: none;
+}
+
+/* ============================================================
+   ABOUT PAGE
+   ============================================================ */
+#about { background: var(--bg); padding-top: var(--nav-h); }
+
+.about-page { padding: 80px var(--pad); }
+
+.about-hero {
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  margin-bottom: 60px;
+}
+.about-label {
+  font-size: 0.55rem; font-weight: 700;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--accent); display: block; margin-bottom: 20px;
+}
+.about-heading {
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 700; color: #fff;
+  line-height: 1.05; letter-spacing: -0.02em;
+}
+.about-body {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+  align-items: start;
+}
+.about-body-left p {
+  font-size: 0.95rem; line-height: 1.9;
+  color: rgba(255,255,255,0.45); margin-bottom: 18px;
+}
+.about-stats {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
+  margin-bottom: 48px;
+}
+.about-stat-num {
+  font-size: 1.8rem; font-weight: 700;
+  color: #fff; display: block; margin-bottom: 4px;
+}
+.about-stat-label {
+  font-size: 0.6rem; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+.about-services { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 32px; }
+.about-services-title {
+  font-size: 0.55rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.2); display: block; margin-bottom: 16px;
+}
+.about-services ul { list-style: none; padding: 0; }
+.about-services ul li {
+  font-size: 0.9rem; color: rgba(255,255,255,0.5);
+  padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: flex; align-items: center; gap: 10px;
+}
+.about-services ul li::before {
+  content: ''; width: 4px; height: 4px;
+  background: var(--accent); border-radius: 50%; flex-shrink: 0;
+}
+
+/* ============================================================
+   ABOUT SECTION (inline on home — kept for compatibility)
+   ============================================================ */
+.about-section {
+  padding: 80px var(--pad);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.about-inner {
+  display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start;
+}
+.about-right p {
+  font-size: 0.92rem; line-height: 1.9;
+  color: rgba(255,255,255,0.45); margin-bottom: 16px; max-width: 560px;
+}
 
 /* ============================================================
    FILTER SECTION
@@ -511,6 +598,8 @@ footer {
   :root { --pad: 6%; }
   .nav-links { display: none; }
   .nav-burger { display: flex; }
+  .about-inner { grid-template-columns: 1fr; gap: 32px; }
+  .about-stats { grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .project-grid { grid-template-columns: 1fr 1fr; }
   .proj-card.wide { grid-column: span 2; }
   .proj-header { grid-template-columns: 1fr; gap: 28px; }
