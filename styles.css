@@ -109,62 +109,6 @@ nav {
   z-index: 1;
 }
 .hero-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
-.hero-wrap iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 177.78vh;
-  min-width: 100%;
-  height: 56.25vw;
-  min-height: 100%;
-  border: 0;
-  pointer-events: none;
-}
-
-/* ============================================================
-   ABOUT SECTION
-   ============================================================ */
-.about-section {
-  padding: 80px var(--pad);
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-}
-.about-inner {
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 80px;
-  align-items: start;
-}
-.about-label {
-  font-size: 0.55rem; font-weight: 700;
-  letter-spacing: 0.25em; text-transform: uppercase;
-  color: var(--accent); display: block; margin-bottom: 20px;
-}
-.about-heading {
-  font-size: clamp(1.8rem, 3vw, 3rem);
-  font-weight: 700; color: #fff;
-  line-height: 1.1; letter-spacing: -0.02em;
-}
-.about-right p {
-  font-size: 0.92rem; line-height: 1.9;
-  color: rgba(255,255,255,0.45);
-  margin-bottom: 16px; max-width: 560px;
-}
-.about-stats {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 32px; margin-top: 40px;
-  padding-top: 32px;
-  border-top: 1px solid rgba(255,255,255,0.07);
-}
-.about-stat-num {
-  font-size: 1.6rem; font-weight: 700;
-  color: #fff; display: block; margin-bottom: 4px;
-}
-.about-stat-label {
-  font-size: 0.6rem; font-weight: 500;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
-}
 
 /* ============================================================
    FILTER SECTION
@@ -311,20 +255,34 @@ nav {
 .blk-img-3 img { width: 100%; display: block; aspect-ratio: 1/1; object-fit: cover; }
 
 /* ── Split block: image + text or text + image ── */
+/*
+   The block is a 2-column grid.
+   Left and right columns are independent in height.
+   Image column: fixed tall height (e.g. 70vh).
+   Text column: auto height, vertically centered inside the same row.
+   Since both are in the same row, the row height = max(image, text).
+   Image always wins because it has a min-height set.
+   Text stays compact and centered inside that tall row.
+*/
 .blk-split {
   width: 100%;
-  display: grid; grid-template-columns: 1fr 1fr;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 0;
   margin-bottom: 2px;
-  min-height: 520px;
 }
+
 .blk-split-img {
   overflow: hidden;
+  height: 70vh;
+  min-height: 500px;
+  max-height: 800px;
 }
 .blk-split-img img {
   width: 100%; height: 100%; display: block;
   object-fit: cover;
 }
+
 .blk-split-text {
   display: flex; flex-direction: column; justify-content: center;
   padding: 64px var(--pad);
@@ -567,14 +525,11 @@ footer {
   :root { --pad: 6%; }
   .nav-links { display: none; }
   .nav-burger { display: flex; }
-  .about-inner { grid-template-columns: 1fr; gap: 32px; }
-  .about-stats { grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .project-grid { grid-template-columns: 1fr 1fr; }
   .proj-card.wide { grid-column: span 2; }
   .proj-header { grid-template-columns: 1fr; gap: 28px; }
-  .blk-split { grid-template-columns: 1fr; min-height: auto; }
-  .blk-split--img-text .blk-split-img,
-  .blk-split--text-img .blk-split-img { aspect-ratio: 4/3; }
+  .blk-split { grid-template-columns: 1fr; }
+  .blk-split-img { height: 55vw; min-height: 280px; max-height: none; }
   .blk-split--text-img .blk-split-text { order: -1; }
   .blk-split-text { padding: 40px var(--pad); }
   .contact-layout { grid-template-columns: 1fr; }
