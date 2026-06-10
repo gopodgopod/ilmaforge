@@ -154,7 +154,8 @@ let previousSection = 'home';
 
 function navigate(sectionId) {
   document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-  document.getElementById(sectionId).classList.add('active');
+  const targetSec = document.getElementById(sectionId);
+  if (targetSec) targetSec.classList.add('active');
 
   document.querySelectorAll('.nav-links a').forEach(a => {
     const isActive =
@@ -169,10 +170,16 @@ function navigate(sectionId) {
   if (sectionId === 'home')  renderGrid('homeGrid',  'all', 'homeFilterTags');
   if (sectionId === 'works') renderGrid('worksGrid', 'all', 'worksFilterTags');
 
-  // Update URL hash
-  if (sectionId === 'home')    history.pushState(null, '', '/');
-  if (sectionId === 'works')   history.pushState(null, '', '/works');
-  if (sectionId === 'contact') history.pushState(null, '', '/contact');
+  // Bezpieczna zmiana URL na wypadek otwierania z pliku lokalnego (file:///)
+  try {
+    if (window.location.protocol !== 'file:') {
+      if (sectionId === 'home')    history.pushState(null, '', '/');
+      if (sectionId === 'works')   history.pushState(null, '', '/works');
+      if (sectionId === 'contact') history.pushState(null, '', '/contact');
+    }
+  } catch (e) {
+    console.warn("History API block avoided on local file run.");
+  }
 }
 
 /** Go back from project detail page */
@@ -185,13 +192,13 @@ let mobileMenuOpen = false;
 function toggleMobileMenu() {
   mobileMenuOpen = !mobileMenuOpen;
   const links = document.querySelector('.nav-links');
-  links.style.display = mobileMenuOpen ? 'flex' : '';
+  if(links) links.style.display = mobileMenuOpen ? 'flex' : '';
 
   const spans = document.querySelectorAll('.nav-burger span');
   if (mobileMenuOpen) {
-    spans[0].style.transform = 'rotate(45deg) translate(4px, 4px)';
-    spans[1].style.opacity   = '0';
-    spans[2].style.transform = 'rotate(-45deg) translate(4px, -4px)';
+    if(spans[0]) spans[0].style.transform = 'rotate(45deg) translate(4px, 4px)';
+    if(spans[1]) spans[1].style.opacity   = '0';
+    if(spans[2]) spans[2].style.transform = 'rotate(-45deg) translate(4px, -4px)';
   } else {
     spans.forEach(s => s.style = '');
   }
@@ -205,7 +212,9 @@ function toggleMobileMenu() {
 function renderGrid(gridId, activeTag, tagsId) {
   renderFilterButtons(tagsId, activeTag, gridId);
 
-  const grid     = document.getElementById(gridId);
+  const grid = document.getElementById(gridId);
+  if (!grid) return;
+
   const filtered = activeTag === 'all'
     ? PROJECTS
     : PROJECTS.filter(p => p.tags.includes(activeTag));
@@ -295,7 +304,7 @@ function openProject(id, fromSection) {
     `;
   }
 
-  // 2. Dynamiczne budowanie bloków zawartości (zdjęcia, teksty itp.)
+  // 2. Dynamiczne budowanie bloków zawartości ze strukturalnymi poprawkami CSS
   const contentEl = document.getElementById('projContentEl');
   if (contentEl) {
     contentEl.innerHTML = `
@@ -319,46 +328,54 @@ function openProject(id, fromSection) {
     `;
   }
 
-  // Update URL — shareable link e.g. ilmaforge.com/project/1
-  history.pushState(null, '', `/project/${project.id}`);
+  // Bezpieczna próba aktualizacji adresu URL
+  try {
+    if (window.location.protocol !== 'file:') {
+      history.pushState(null, '', `/project/${project.id}`);
+    }
+  } catch (e) {
+    console.warn("History API pushState skipped on local workspace.");
+  }
 
   navigate('project');
 }
 
-/** HTML for a single content block */
+/** HTML for a single content block — dostosowane pod plik styles.css */
 function buildBlock(block) {
   switch (block.type) {
 
     case 'img-full':
       return `
         <div class="blk-img-full">
-          <img src="${block.src}" alt="Project image" loading="lazy">
+          <img src="${block.src}" alt="" loading="lazy">
         </div>`;
 
     case 'img-padded':
       return `
         <div class="blk-img-padded">
-          <img src="${block.src}" alt="Project image" loading="lazy">
+          <img src="${block.src}" alt="" loading="lazy">
         </div>`;
 
     case 'img-2':
       return `
         <div class="blk-img-2">
-          ${block.items.map(src => `<img src="${src}" alt="Project detail" loading="lazy">`).join('')}
+          ${block.items.map(src => `<img src="${src}" alt="" loading="lazy">`).join('')}
         </div>`;
 
     case 'img-3':
       return `
         <div class="blk-img-3">
-          ${block.items.map(src => `<img src="${src}" alt="Project detail" loading="lazy">`).join('')}
+          ${block.items.map(src => `<img src="${src}" alt="" loading="lazy">`).join('')}
         </div>`;
 
     case 'img-text':
       return `
         <div class="blk-split blk-split--img-text">
-          <div class="blk-split-img" style="background-image: url('${block.src}')"></div>
+          <div class="blk-split-img">
+            <img src="${block.src}" alt="" loading="lazy">
+          </div>
           <div class="blk-split-text">
-            ${block.heading ? `<h3>${block.heading}</h3>` : ''}
+            ${block.heading ? `<h2>${block.heading}</h2>` : ''}
             ${(block.body || '').split('\n\n').map(p => `<p>${p}</p>`).join('')}
           </div>
         </div>`;
@@ -367,42 +384,48 @@ function buildBlock(block) {
       return `
         <div class="blk-split blk-split--text-img">
           <div class="blk-split-text">
-            ${block.heading ? `<h3>${block.heading}</h3>` : ''}
+            ${block.heading ? `<h2>${block.heading}</h2>` : ''}
             ${(block.body || '').split('\n\n').map(p => `<p>${p}</p>`).join('')}
           </div>
-          <div class="blk-split-img" style="background-image: url('${block.src}')"></div>
+          <div class="blk-split-img">
+            <img src="${block.src}" alt="" loading="lazy">
+          </div>
         </div>`;
 
     case 'text':
       return `
         <div class="blk-text">
-          ${block.heading ? `<h3>${block.heading}</h3>` : ''}
-          <div class="blk-text-body">
-            ${(block.body || '').split('\n\n').map(p => `<p>${p}</p>`).join('')}
+          <div class="blk-text-inner">
+            ${block.heading ? `<h2>${block.heading}</h2>` : ''}
+            <div class="blk-text-body">
+              ${(block.body || '').split('\n\n').map(p => `<p>${p}</p>`).join('')}
+            </div>
           </div>
         </div>`;
 
     case 'quote':
       return `
         <div class="blk-quote">
-          <blockquote>"${block.text}"</blockquote>
-          ${block.author ? `<cite>— ${block.author}</cite>` : ''}
+          <div class="blk-quote-inner">
+            <p class="blk-quote-text">"${block.text}"</p>
+            ${block.author ? `<span class="blk-quote-author">${block.author}</span>` : ''}
+          </div>
         </div>`;
 
     case 'video-embed':
       return `
         <div class="blk-video">
-          <iframe src="${toEmbedUrl(block.url)}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+          <iframe src="${toEmbedUrl(block.url)}" allow="autoplay; fullscreen" allowfullscreen></iframe>
         </div>`;
 
     case 'video-file':
       return `
         <div class="blk-video">
-          <video src="${block.src}" autoplay muted loop playsinline></video>
+          <video src="${block.src}" controls playsinline></video>
         </div>`;
 
     case 'divider':
-      return `<hr class="blk-divider">`;
+      return `<div class="blk-divider"></div>`;
 
     default:
       return '';
@@ -426,6 +449,7 @@ async function submitForm() {
   }
 
   const btn = document.querySelector('.send-btn');
+  if(!btn) return;
   btn.textContent = 'Sending…';
   btn.disabled = true;
 
@@ -437,9 +461,11 @@ async function submitForm() {
     });
 
     if (res.ok) {
-      document.getElementById('formSuccess').classList.add('show');
+      const successEl = document.getElementById('formSuccess');
+      if(successEl) successEl.classList.add('show');
       ['ctName', 'ctEmail', 'ctSubject', 'ctMessage'].forEach(id => {
-        document.getElementById(id).value = '';
+        const el = document.getElementById(id);
+        if(el) el.value = '';
       });
       btn.textContent = 'Sent ✓';
     } else {
@@ -479,13 +505,13 @@ if (isTouchDevice()) {
   });
 
   function animateCursor() {
-    cursorDot.style.left = mouseX + 'px';
-    cursorDot.style.top  = mouseY + 'px';
+    if(cursorDot) cursorDot.style.left = mouseX + 'px';
+    if(cursorDot) cursorDot.style.top  = mouseY + 'px';
 
     ringX += (mouseX - ringX) * 0.3;
     ringY += (mouseY - ringY) * 0.3;
-    cursorRing.style.left = ringX + 'px';
-    cursorRing.style.top  = ringY + 'px';
+    if(cursorRing) cursorRing.style.left = ringX + 'px';
+    if(cursorRing) cursorRing.style.top  = ringY + 'px';
 
     requestAnimationFrame(animateCursor);
   }
@@ -502,7 +528,7 @@ renderGrid('homeGrid', 'all', 'homeFilterTags');
 // Handle direct URL on page load
 (function handlePath() {
   const path = window.location.pathname;
-  if (!path || path === '/') return;
+  if (!path || path === '/' || window.location.protocol === 'file:') return;
 
   if (path === '/works')   { navigate('works');   return; }
   if (path === '/contact') { navigate('contact'); return; }
@@ -515,6 +541,7 @@ renderGrid('homeGrid', 'all', 'homeFilterTags');
 
 // Handle browser back/forward buttons
 window.addEventListener('popstate', () => {
+  if(window.location.protocol === 'file:') return;
   const path = window.location.pathname;
   if (!path || path === '/') { navigate('home');    return; }
   if (path === '/works')    { navigate('works');   return; }
