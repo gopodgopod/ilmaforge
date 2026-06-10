@@ -625,3 +625,49 @@ footer {
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
 }
+/* Kontener dzielący sekcję na pół */
+.hero-split-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dwie równe kolumny po 50% */
+  min-height: 80vh; /* Wysokość dopasowana do ekranu */
+  align-items: center; /* Centrowanie zawartości w pionie */
+  background: var(--bg);
+}
+
+/* Lewa strona z tekstem */
+.hero-split-section .about-hero {
+  padding-left: var(--pad); /* Twój standardowy margines od lewej krawędzi strony */
+  padding-right: 40px; /* Bezpieczny odstęp od wideo */
+  padding-top: 0; /* Reset domyślnego paddingu */
+}
+
+/* Prawa strona (opakowanie wideo) */
+.hero-video-wrap {
+  width: 100%;
+  height: 100%;
+  min-height: 450px; /* Minimalna wysokość na mniejszych ekranach */
+  overflow: hidden;
+}
+
+/* Wideo dopasowane do swojej połowy ekranu */
+.hero-inline-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Wideo wypełnia całą prawą połowę bez zniekształceń */
+}
+
+/* Responsywność dla telefonów — wideo wskakuje pod tekst */
+@media (max-width: 960px) {
+  .hero-split-section {
+    grid-template-columns: 1fr; /* Na telefonach jedna kolumna */
+    gap: 40px;
+    padding-top: 40px;
+  }
+  .hero-split-section .about-hero {
+    padding-right: var(--pad); /* Na telefonie tekst ma margines z obu stron */
+  }
+  .hero-video-wrap {
+    min-height: 300px;
+    aspect-ratio: 16/9; /* Ładne proporcje wideo na telefonie */
+  }
+}
