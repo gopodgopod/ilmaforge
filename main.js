@@ -154,8 +154,7 @@ let previousSection = 'home';
 
 function navigate(sectionId) {
   document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-  const targetSec = document.getElementById(sectionId);
-  if (targetSec) targetSec.classList.add('active');
+  document.getElementById(sectionId).classList.add('active');
 
   document.querySelectorAll('.nav-links a').forEach(a => {
     const isActive =
@@ -170,16 +169,10 @@ function navigate(sectionId) {
   if (sectionId === 'home')  renderGrid('homeGrid',  'all', 'homeFilterTags');
   if (sectionId === 'works') renderGrid('worksGrid', 'all', 'worksFilterTags');
 
-  // Bezpieczna zmiana URL na wypadek otwierania z pliku lokalnego (file:///)
-  try {
-    if (window.location.protocol !== 'file:') {
-      if (sectionId === 'home')    history.pushState(null, '', '/');
-      if (sectionId === 'works')   history.pushState(null, '', '/works');
-      if (sectionId === 'contact') history.pushState(null, '', '/contact');
-    }
-  } catch (e) {
-    console.warn("History API block avoided on local file run.");
-  }
+  // Update URL hash
+  if (sectionId === 'home')    history.pushState(null, '', '/');
+  if (sectionId === 'works')   history.pushState(null, '', '/works');
+  if (sectionId === 'contact') history.pushState(null, '', '/contact');
 }
 
 /** Go back from project detail page */
@@ -192,13 +185,13 @@ let mobileMenuOpen = false;
 function toggleMobileMenu() {
   mobileMenuOpen = !mobileMenuOpen;
   const links = document.querySelector('.nav-links');
-  if(links) links.style.display = mobileMenuOpen ? 'flex' : '';
+  links.style.display = mobileMenuOpen ? 'flex' : '';
 
   const spans = document.querySelectorAll('.nav-burger span');
   if (mobileMenuOpen) {
-    if(spans[0]) spans[0].style.transform = 'rotate(45deg) translate(4px, 4px)';
-    if(spans[1]) spans[1].style.opacity   = '0';
-    if(spans[2]) spans[2].style.transform = 'rotate(-45deg) translate(4px, -4px)';
+    spans[0].style.transform = 'rotate(45deg) translate(4px, 4px)';
+    spans[1].style.opacity   = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(4px, -4px)';
   } else {
     spans.forEach(s => s.style = '');
   }
@@ -212,9 +205,7 @@ function toggleMobileMenu() {
 function renderGrid(gridId, activeTag, tagsId) {
   renderFilterButtons(tagsId, activeTag, gridId);
 
-  const grid = document.getElementById(gridId);
-  if (!grid) return;
-
+  const grid     = document.getElementById(gridId);
   const filtered = activeTag === 'all'
     ? PROJECTS
     : PROJECTS.filter(p => p.tags.includes(activeTag));
@@ -263,84 +254,58 @@ function openProject(id, fromSection) {
 
   previousSection = fromSection || 'works';
 
-  // Ustawienie nazwy projektu w górnym pasku (topbar)
-  const topbarName = document.getElementById('projTopbarName');
-  if (topbarName) topbarName.textContent = project.title;
+  document.getElementById('projTopbarName').textContent = project.title;
+  document.getElementById('projHeaderEl').innerHTML     = buildProjectHeader(project);
+  document.getElementById('projContentEl').innerHTML    = `
+    <div class="proj-content">
+      ${project.blocks.map(b => buildBlock(b)).join('')}
+    </div>
+  `;
+  document.getElementById('projNavEl').innerHTML = '';
 
-  // 1. Dynamiczne budowanie nagłówka projektu na wzór szablonu project-1
-  const headerEl = document.getElementById('projHeaderEl');
-  if (headerEl) {
-    headerEl.innerHTML = `
-      <div class="proj-header">
-        <div class="proj-header-left">
-          <div class="proj-tags-row">
-            ${project.tags.map(t => `<span class="proj-tag">${t}</span>`).join('')}
-          </div>
-          <h1 class="proj-title">${project.title}</h1>
-          <p class="proj-client">${project.client} · ${project.year}</p>
-        </div>
-        <div class="proj-header-right">
-          <p class="proj-desc">${project.description || ''}</p>
-          <div class="proj-meta-grid">
-            <div>
-              <span class="proj-meta-lbl">Role</span>
-              <span class="proj-meta-val">${project.role || 'CGI'}</span>
-            </div>
-            <div>
-              <span class="proj-meta-lbl">Deliverables</span>
-              <span class="proj-meta-val">${project.deliverables || 'Visuals'}</span>
-            </div>
-            <div>
-              <span class="proj-meta-lbl">Duration</span>
-              <span class="proj-meta-val">${project.duration || '—'}</span>
-            </div>
-            <div>
-              <span class="proj-meta-lbl">Year</span>
-              <span class="proj-meta-val">${project.year}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    `;
-  }
-
-  // 2. Dynamiczne budowanie bloków zawartości ze strukturalnymi poprawkami CSS
-  const contentEl = document.getElementById('projContentEl');
-  if (contentEl) {
-    contentEl.innerHTML = `
-      <div class="proj-content">
-        ${(project.blocks || []).map(b => buildBlock(b)).join('')}
-      </div>
-    `;
-  }
-
-  // 3. Dynamiczne budowanie dolnej nawigacji (Przejście do kolejnego projektu)
-  const navEl = document.getElementById('projNavEl');
-  if (navEl) {
-    const currentIndex = PROJECTS.findIndex(p => p.id === id);
-    const nextProject = PROJECTS[(currentIndex + 1) % PROJECTS.length];
-    
-    navEl.innerHTML = `
-      <div class="proj-next-section" onclick="openProject(${nextProject.id}, '${previousSection}')">
-        <span class="proj-next-lbl">Next Project</span>
-        <h2 class="proj-next-title">${nextProject.title}</h2>
-      </div>
-    `;
-  }
-
-  // Bezpieczna próba aktualizacji adresu URL
-  try {
-    if (window.location.protocol !== 'file:') {
-      history.pushState(null, '', `/project/${project.id}`);
-    }
-  } catch (e) {
-    console.warn("History API pushState skipped on local workspace.");
-  }
+  // Update URL — shareable link e.g. ilmaforge.com/#project-1
+  history.pushState(null, '', `/project/${project.id}`);
 
   navigate('project');
 }
 
-/** HTML for a single content block — dostosowane pod plik styles.css */
+/** HTML header for the project detail page */
+function buildProjectHeader(p) {
+  return `
+    <div class="proj-header">
+      <div class="proj-header-left">
+        <div class="proj-tags-row">
+          ${p.tags.map(t => `<span class="proj-tag">${t}</span>`).join('')}
+        </div>
+        <h1 class="proj-title">${p.title}</h1>
+        <p class="proj-client">${p.client} · ${p.year}</p>
+      </div>
+      <div class="proj-header-right">
+        <p class="proj-desc">${p.description}</p>
+        <div class="proj-meta-grid">
+          <div>
+            <span class="proj-meta-lbl">Role</span>
+            <span class="proj-meta-val">${p.role}</span>
+          </div>
+          <div>
+            <span class="proj-meta-lbl">Deliverables</span>
+            <span class="proj-meta-val">${p.deliverables}</span>
+          </div>
+          <div>
+            <span class="proj-meta-lbl">Duration</span>
+            <span class="proj-meta-val">${p.duration}</span>
+          </div>
+          <div>
+            <span class="proj-meta-lbl">Year</span>
+            <span class="proj-meta-val">${p.year}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+/** HTML for a single content block */
 function buildBlock(block) {
   switch (block.type) {
 
@@ -395,11 +360,9 @@ function buildBlock(block) {
     case 'text':
       return `
         <div class="blk-text">
-          <div class="blk-text-inner">
-            ${block.heading ? `<h2>${block.heading}</h2>` : ''}
-            <div class="blk-text-body">
-              ${(block.body || '').split('\n\n').map(p => `<p>${p}</p>`).join('')}
-            </div>
+          ${block.heading ? `<h2>${block.heading}</h2>` : ''}
+          <div class="blk-text-body">
+            ${(block.body || '').split('\n\n').map(p => `<p>${p}</p>`).join('')}
           </div>
         </div>`;
 
@@ -415,7 +378,8 @@ function buildBlock(block) {
     case 'video-embed':
       return `
         <div class="blk-video">
-          <iframe src="${toEmbedUrl(block.url)}" allow="autoplay; fullscreen" allowfullscreen></iframe>
+          <iframe src="${toEmbedUrl(block.url)}"
+                  allow="autoplay; fullscreen" allowfullscreen></iframe>
         </div>`;
 
     case 'video-file':
@@ -449,7 +413,6 @@ async function submitForm() {
   }
 
   const btn = document.querySelector('.send-btn');
-  if(!btn) return;
   btn.textContent = 'Sending…';
   btn.disabled = true;
 
@@ -461,11 +424,9 @@ async function submitForm() {
     });
 
     if (res.ok) {
-      const successEl = document.getElementById('formSuccess');
-      if(successEl) successEl.classList.add('show');
+      document.getElementById('formSuccess').classList.add('show');
       ['ctName', 'ctEmail', 'ctSubject', 'ctMessage'].forEach(id => {
-        const el = document.getElementById(id);
-        if(el) el.value = '';
+        document.getElementById(id).value = '';
       });
       btn.textContent = 'Sent ✓';
     } else {
@@ -505,13 +466,13 @@ if (isTouchDevice()) {
   });
 
   function animateCursor() {
-    if(cursorDot) cursorDot.style.left = mouseX + 'px';
-    if(cursorDot) cursorDot.style.top  = mouseY + 'px';
+    cursorDot.style.left = mouseX + 'px';
+    cursorDot.style.top  = mouseY + 'px';
 
     ringX += (mouseX - ringX) * 0.3;
     ringY += (mouseY - ringY) * 0.3;
-    if(cursorRing) cursorRing.style.left = ringX + 'px';
-    if(cursorRing) cursorRing.style.top  = ringY + 'px';
+    cursorRing.style.left = ringX + 'px';
+    cursorRing.style.top  = ringY + 'px';
 
     requestAnimationFrame(animateCursor);
   }
@@ -528,7 +489,7 @@ renderGrid('homeGrid', 'all', 'homeFilterTags');
 // Handle direct URL on page load
 (function handlePath() {
   const path = window.location.pathname;
-  if (!path || path === '/' || window.location.protocol === 'file:') return;
+  if (!path || path === '/') return;
 
   if (path === '/works')   { navigate('works');   return; }
   if (path === '/contact') { navigate('contact'); return; }
@@ -541,7 +502,6 @@ renderGrid('homeGrid', 'all', 'homeFilterTags');
 
 // Handle browser back/forward buttons
 window.addEventListener('popstate', () => {
-  if(window.location.protocol === 'file:') return;
   const path = window.location.pathname;
   if (!path || path === '/') { navigate('home');    return; }
   if (path === '/works')    { navigate('works');   return; }
