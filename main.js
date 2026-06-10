@@ -254,55 +254,75 @@ function openProject(id, fromSection) {
 
   previousSection = fromSection || 'works';
 
-  document.getElementById('projTopbarName').textContent = project.title;
-  document.getElementById('projHeaderEl').innerHTML     = buildProjectHeader(project);
-  document.getElementById('projContentEl').innerHTML    = `
-    <div class="proj-content">
-      ${project.blocks.map(b => buildBlock(b)).join('')}
-    </div>
-  `;
-  document.getElementById('projNavEl').innerHTML = '';
+  // Ustawienie nazwy projektu w górnym pasku (topbar)
+  const topbarName = document.getElementById('projTopbarName');
+  if (topbarName) topbarName.textContent = project.title;
 
-  // Update URL — shareable link e.g. ilmaforge.com/#project-1
+  // 1. Dynamiczne budowanie nagłówka projektu na wzór szablonu project-1
+  const headerEl = document.getElementById('projHeaderEl');
+  if (headerEl) {
+    headerEl.innerHTML = `
+      <div class="proj-header">
+        <div class="proj-header-left">
+          <div class="proj-tags-row">
+            ${project.tags.map(t => `<span class="proj-tag">${t}</span>`).join('')}
+          </div>
+          <h1 class="proj-title">${project.title}</h1>
+          <p class="proj-client">${project.client} · ${project.year}</p>
+        </div>
+        <div class="proj-header-right">
+          <p class="proj-desc">${project.description || ''}</p>
+          <div class="proj-meta-grid">
+            <div>
+              <span class="proj-meta-lbl">Role</span>
+              <span class="proj-meta-val">${project.role || 'CGI'}</span>
+            </div>
+            <div>
+              <span class="proj-meta-lbl">Deliverables</span>
+              <span class="proj-meta-val">${project.deliverables || 'Visuals'}</span>
+            </div>
+            <div>
+              <span class="proj-meta-lbl">Duration</span>
+              <span class="proj-meta-val">${project.duration || '—'}</span>
+            </div>
+            <div>
+              <span class="proj-meta-lbl">Year</span>
+              <span class="proj-meta-val">${project.year}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // 2. Dynamiczne budowanie bloków zawartości (zdjęcia, teksty itp.)
+  const contentEl = document.getElementById('projContentEl');
+  if (contentEl) {
+    contentEl.innerHTML = `
+      <div class="proj-content">
+        ${(project.blocks || []).map(b => buildBlock(b)).join('')}
+      </div>
+    `;
+  }
+
+  // 3. Dynamiczne budowanie dolnej nawigacji (Przejście do kolejnego projektu)
+  const navEl = document.getElementById('projNavEl');
+  if (navEl) {
+    const currentIndex = PROJECTS.findIndex(p => p.id === id);
+    const nextProject = PROJECTS[(currentIndex + 1) % PROJECTS.length];
+    
+    navEl.innerHTML = `
+      <div class="proj-next-section" onclick="openProject(${nextProject.id}, '${previousSection}')">
+        <span class="proj-next-lbl">Next Project</span>
+        <h2 class="proj-next-title">${nextProject.title}</h2>
+      </div>
+    `;
+  }
+
+  // Update URL — shareable link e.g. ilmaforge.com/project/1
   history.pushState(null, '', `/project/${project.id}`);
 
   navigate('project');
-}
-
-/** HTML header for the project detail page */
-function buildProjectHeader(p) {
-  return `
-    <div class="proj-header">
-      <div class="proj-header-left">
-        <div class="proj-tags-row">
-          ${p.tags.map(t => `<span class="proj-tag">${t}</span>`).join('')}
-        </div>
-        <h1 class="proj-title">${p.title}</h1>
-        <p class="proj-client">${p.client} · ${p.year}</p>
-      </div>
-      <div class="proj-header-right">
-        <p class="proj-desc">${p.description}</p>
-        <div class="proj-meta-grid">
-          <div>
-            <span class="proj-meta-lbl">Role</span>
-            <span class="proj-meta-val">${p.role}</span>
-          </div>
-          <div>
-            <span class="proj-meta-lbl">Deliverables</span>
-            <span class="proj-meta-val">${p.deliverables}</span>
-          </div>
-          <div>
-            <span class="proj-meta-lbl">Duration</span>
-            <span class="proj-meta-val">${p.duration}</span>
-          </div>
-          <div>
-            <span class="proj-meta-lbl">Year</span>
-            <span class="proj-meta-val">${p.year}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
 }
 
 /** HTML for a single content block */
@@ -312,35 +332,33 @@ function buildBlock(block) {
     case 'img-full':
       return `
         <div class="blk-img-full">
-          <img src="${block.src}" alt="" loading="lazy">
+          <img src="${block.src}" alt="Project image" loading="lazy">
         </div>`;
 
     case 'img-padded':
       return `
         <div class="blk-img-padded">
-          <img src="${block.src}" alt="" loading="lazy">
+          <img src="${block.src}" alt="Project image" loading="lazy">
         </div>`;
 
     case 'img-2':
       return `
         <div class="blk-img-2">
-          ${block.items.map(src => `<img src="${src}" alt="" loading="lazy">`).join('')}
+          ${block.items.map(src => `<img src="${src}" alt="Project detail" loading="lazy">`).join('')}
         </div>`;
 
     case 'img-3':
       return `
         <div class="blk-img-3">
-          ${block.items.map(src => `<img src="${src}" alt="" loading="lazy">`).join('')}
+          ${block.items.map(src => `<img src="${src}" alt="Project detail" loading="lazy">`).join('')}
         </div>`;
 
     case 'img-text':
       return `
         <div class="blk-split blk-split--img-text">
-          <div class="blk-split-img">
-            <img src="${block.src}" alt="" loading="lazy">
-          </div>
+          <div class="blk-split-img" style="background-image: url('${block.src}')"></div>
           <div class="blk-split-text">
-            ${block.heading ? `<h2>${block.heading}</h2>` : ''}
+            ${block.heading ? `<h3>${block.heading}</h3>` : ''}
             ${(block.body || '').split('\n\n').map(p => `<p>${p}</p>`).join('')}
           </div>
         </div>`;
@@ -349,18 +367,16 @@ function buildBlock(block) {
       return `
         <div class="blk-split blk-split--text-img">
           <div class="blk-split-text">
-            ${block.heading ? `<h2>${block.heading}</h2>` : ''}
+            ${block.heading ? `<h3>${block.heading}</h3>` : ''}
             ${(block.body || '').split('\n\n').map(p => `<p>${p}</p>`).join('')}
           </div>
-          <div class="blk-split-img">
-            <img src="${block.src}" alt="" loading="lazy">
-          </div>
+          <div class="blk-split-img" style="background-image: url('${block.src}')"></div>
         </div>`;
 
     case 'text':
       return `
         <div class="blk-text">
-          ${block.heading ? `<h2>${block.heading}</h2>` : ''}
+          ${block.heading ? `<h3>${block.heading}</h3>` : ''}
           <div class="blk-text-body">
             ${(block.body || '').split('\n\n').map(p => `<p>${p}</p>`).join('')}
           </div>
@@ -369,27 +385,24 @@ function buildBlock(block) {
     case 'quote':
       return `
         <div class="blk-quote">
-          <div class="blk-quote-inner">
-            <p class="blk-quote-text">"${block.text}"</p>
-            ${block.author ? `<span class="blk-quote-author">${block.author}</span>` : ''}
-          </div>
+          <blockquote>"${block.text}"</blockquote>
+          ${block.author ? `<cite>— ${block.author}</cite>` : ''}
         </div>`;
 
     case 'video-embed':
       return `
         <div class="blk-video">
-          <iframe src="${toEmbedUrl(block.url)}"
-                  allow="autoplay; fullscreen" allowfullscreen></iframe>
+          <iframe src="${toEmbedUrl(block.url)}" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
         </div>`;
 
     case 'video-file':
       return `
         <div class="blk-video">
-          <video src="${block.src}" controls playsinline></video>
+          <video src="${block.src}" autoplay muted loop playsinline></video>
         </div>`;
 
     case 'divider':
-      return `<div class="blk-divider"></div>`;
+      return `<hr class="blk-divider">`;
 
     default:
       return '';
