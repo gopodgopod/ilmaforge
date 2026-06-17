@@ -1,553 +1,915 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ILMA — CGI & Motion Design Studio | Worldwide</title>
-  <meta name="description" content="ILMA is a CGI and motion design studio specializing in 3D product visualization, commercial films and visual effects for clients worldwide.">
-  <meta property="og:title" content="ILMA — CGI & Motion Design Studio">
-  <meta property="og:description" content="3D product visualization and motion design studio working with clients worldwide.">
-  <meta property="og:image" content="https://ilmaforge.com/1.jpg">
-  <meta property="og:url" content="https://ilmaforge.com">
-  <meta property="og:type" content="website">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-  <!-- CUSTOM CURSOR -->
-  <div id="cursor">
-    <div id="cursorDot"></div>
-    <div id="cursorRing"></div>
-  </div>
-
-  <!-- NAVIGATION -->
-  <nav>
-    <a href="#" class="logo" onclick="navigate('home'); return false;">ILMA</a>
-    <ul class="nav-links">
-      <li><a href="#" class="act" data-section="home" onclick="navigate('home'); return false;">About</a></li>
-      <li><a href="#" data-section="contact" onclick="navigate('contact'); return false;">Contact</a></li>
-    </ul>
-    <button class="nav-burger" id="navBurger" onclick="toggleMobileMenu()">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-
-  <!-- SECTION: HOME -->
-  <section id="home" class="active">
-
-    <!-- Hero video -->
-    <div class="hero-wrap">
-      <video autoplay muted loop playsinline preload="metadata">
-        <source src="reel_265_5.mp4" type="video/mp4">
-      </video>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ILMA — CGI & Motion Design Studio | Worldwide</title>
+    <meta
+      name="description"
+      content="ILMA is a CGI and motion design studio specializing in 3D product visualization, commercial films and visual effects for clients worldwide."
+    />
+    <meta property="og:title" content="ILMA — CGI & Motion Design Studio" />
+    <meta
+      property="og:description"
+      content="3D product visualization and motion design studio working with clients worldwide."
+    />
+    <meta property="og:image" content="https://ilmaforge.com/1.jpg" />
+    <meta property="og:url" content="https://ilmaforge.com" />
+    <meta property="og:type" content="website" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- CUSTOM CURSOR -->
+    <div id="cursor">
+      <div id="cursorDot"></div>
+      <div id="cursorRing"></div>
     </div>
 
-    <!-- About content — edit text below for SEO -->
-    <div class="about-page">
-      <div class="about-hero">
-        <span class="about-label">About ILMA</span>
-        <h1 class="about-heading">We create CGI &amp; motion<br>that moves people.</h1>
-      </div>
-      <div class="about-body">
-        <div class="about-body-left">
-          <p>ILMA is a CGI and motion design studio working with brands worldwide. We specialise in 3D product visualisation, commercial films, and visual effects — delivering work that is precise, cinematic, and built to perform.</p>
-          <p>From product launches to brand campaigns, we partner with companies that demand the highest visual standard. Our process is lean, our output is exceptional.</p>
-          <p>We work across industries including consumer electronics, health &amp; beauty, automotive, food &amp; beverage, and technology — bringing the same level of craft and attention to every project regardless of scale.</p>
-        </div>
-        <div class="about-body-right">
-          <div class="about-stats">
-          </div>
-          <div class="about-services">
-            <span class="about-services-title">What we do</span>
-            <ul>
-              <li>3D Product Visualisation</li>
-              <li>CGI Advertising Films</li>
-              <li>Motion Design</li>
-              <li>Visual Effects</li>
-              <li>Brand Identity in Motion</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Works grid -->
-    <div class="filter-section">
-      <span class="section-title">Works</span>
-      <div class="filter-tags" id="homeFilterTags"></div>
-    </div>
-    <div class="project-grid" id="homeGrid"></div>
-
-    <!-- Footer CTA -->
-    <div class="footer-cta">
-      <a href="#" class="footer-cta-item" onclick="navigate('contact'); return false;">
-        <div class="footer-cta-arrow">
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </div>
-        <span class="footer-cta-label">Get in touch</span>
-        <div class="footer-cta-title">Contact</div>
-        <div class="footer-cta-sub">Feel free to reach out</div>
-      </a>
-      <a href="#" class="footer-cta-item" onclick="navigate('works'); return false;">
-        <div class="footer-cta-arrow">
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </div>
-        <span class="footer-cta-label">Explore latest cases</span>
-        <div class="footer-cta-title">Work</div>
-        <div class="footer-cta-sub">Precision in motion</div>
-      </a>
-    </div>
-
-    <footer>
-      <div class="footer-grid">
-        <div class="footer-col-brand">
-          <span class="footer-logo">ILMA</span>
-          <div class="footer-date">
-            <span id="footerDay"></span>
-            <span id="footerDate"></span>
-            <span id="footerYear"></span>
-          </div>
-        </div>
-        <div>
-          <span class="footer-col-title">Social</span>
-          <div class="footer-col-links">
-            <a href="https://linkedin.com"  target="_blank" rel="noopener">LinkedIn</a>
-            <a href="https://vimeo.com"     target="_blank" rel="noopener">Vimeo</a>
-            <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
-            <a href="https://behance.net"   target="_blank" rel="noopener">Behance</a>
-          </div>
-        </div>
-        <div>
-          <span class="footer-col-title">Headquarters</span>
-          <div class="footer-col-links">
-            <span>ILMA Studio</span>
-            <span>Worldwide</span>
-          </div>
-        </div>
-        <div>
-          <span class="footer-col-title">Navigation</span>
-          <div class="footer-col-links">
-            <a href="#" onclick="navigate('home');    return false;">About</a>
-            <a href="#" onclick="navigate('works');   return false;">Works</a>
-            <a href="#" onclick="navigate('contact'); return false;">Contact</a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span class="footer-copy">© 2025 ILMA Studio. All rights reserved.</span>
-        <span class="footer-made">Made with care</span>
-      </div>
-    </footer>
-  </section>
-
-
-  <!-- SECTION: WORKS -->
-  <section id="works">
-    <div class="filter-section" style="padding-top: calc(var(--nav-h) + 52px);">
-      <span class="section-title">Portfolio</span>
-      <div class="filter-tags" id="worksFilterTags"></div>
-    </div>
-    <div class="project-grid" id="worksGrid"></div>
-
-    <div class="footer-cta">
-      <a href="#" class="footer-cta-item" onclick="navigate('contact'); return false;">
-        <div class="footer-cta-arrow">
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </div>
-        <span class="footer-cta-label">Get in touch</span>
-        <div class="footer-cta-title">Contact</div>
-        <div class="footer-cta-sub">Feel free to reach out</div>
-      </a>
-      <a href="#" class="footer-cta-item" onclick="navigate('home'); return false;">
-        <div class="footer-cta-arrow">
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </div>
-        <span class="footer-cta-label">About us</span>
-        <div class="footer-cta-title">About</div>
-        <div class="footer-cta-sub">Who we are</div>
-      </a>
-    </div>
-
-    <footer>
-      <div class="footer-grid">
-        <div class="footer-col-brand">
-          <span class="footer-logo">ILMA</span>
-          <div class="footer-date">
-            <span id="footerDay2"></span>
-            <span id="footerDate2"></span>
-            <span id="footerYear2"></span>
-          </div>
-        </div>
-        <div>
-          <span class="footer-col-title">Social</span>
-          <div class="footer-col-links">
-            <a href="https://linkedin.com"  target="_blank" rel="noopener">LinkedIn</a>
-            <a href="https://vimeo.com"     target="_blank" rel="noopener">Vimeo</a>
-            <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
-            <a href="https://behance.net"   target="_blank" rel="noopener">Behance</a>
-          </div>
-        </div>
-        <div>
-          <span class="footer-col-title">Headquarters</span>
-          <div class="footer-col-links">
-            <span>ILMA Studio</span>
-            <span>Worldwide</span>
-          </div>
-        </div>
-        <div>
-          <span class="footer-col-title">Navigation</span>
-          <div class="footer-col-links">
-            <a href="#" onclick="navigate('home');    return false;">About</a>
-            <a href="#" onclick="navigate('works');   return false;">Works</a>
-            <a href="#" onclick="navigate('contact'); return false;">Contact</a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span class="footer-copy">© 2025 ILMA Studio. All rights reserved.</span>
-        <span class="footer-made">Made with care</span>
-      </div>
-    </footer>
-  </section>
-
-
-  <!-- SECTION: PROJECT (detail, populated by JS) -->
-  <section id="project">
-    <div class="proj-topbar">
-      <button class="proj-back-btn" onclick="goBackToWorks()">
-        <svg viewBox="0 0 24 24">
-          <polyline points="19 12 5 12"/>
-          <polyline points="12 5 5 12 12 19"/>
-        </svg>
-        Works
+    <!-- NAVIGATION -->
+    <nav>
+      <a
+        href="#"
+        class="logo"
+        onclick="
+          navigate('home');
+          return false;
+        "
+        >ILMA</a
+      >
+      <ul class="nav-links">
+        <li>
+          <a
+            href="#"
+            class="act"
+            data-section="home"
+            onclick="
+              navigate('home');
+              return false;
+            "
+            >About</a
+          >
+        </li>
+        <li>
+          <a
+            href="#"
+            data-section="contact"
+            onclick="
+              navigate('contact');
+              return false;
+            "
+            >Contact</a
+          >
+        </li>
+      </ul>
+      <button class="nav-burger" id="navBurger" onclick="toggleMobileMenu()">
+        <span></span><span></span><span></span>
       </button>
-      <span class="proj-topbar-sep">/</span>
-      <span class="proj-topbar-name" id="projTopbarName"></span>
-    </div>
-    <div id="projHeaderEl"></div>
-    <div id="projContentEl"></div>
-    <div id="projNavEl"></div>
+    </nav>
 
-    <div class="footer-cta">
-      <a href="#" class="footer-cta-item" onclick="navigate('contact'); return false;">
-        <div class="footer-cta-arrow">
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </div>
-        <span class="footer-cta-label">Get in touch</span>
-        <div class="footer-cta-title">Contact</div>
-        <div class="footer-cta-sub">Feel free to reach out</div>
-      </a>
-      <a href="#" class="footer-cta-item" onclick="navigate('works'); return false;">
-        <div class="footer-cta-arrow">
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </div>
-        <span class="footer-cta-label">Explore latest cases</span>
-        <div class="footer-cta-title">Work</div>
-        <div class="footer-cta-sub">Precision in motion</div>
-      </a>
-    </div>
-
-    <footer>
-      <div class="footer-grid">
-        <div class="footer-col-brand">
-          <span class="footer-logo">ILMA</span>
-          <div class="footer-date">
-            <span id="footerDay3"></span>
-            <span id="footerDate3"></span>
-            <span id="footerYear3"></span>
-          </div>
-        </div>
-        <div>
-          <span class="footer-col-title">Social</span>
-          <div class="footer-col-links">
-            <a href="https://linkedin.com"  target="_blank" rel="noopener">LinkedIn</a>
-            <a href="https://vimeo.com"     target="_blank" rel="noopener">Vimeo</a>
-            <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
-            <a href="https://behance.net"   target="_blank" rel="noopener">Behance</a>
-          </div>
-        </div>
-        <div>
-          <span class="footer-col-title">Headquarters</span>
-          <div class="footer-col-links">
-            <span>ILMA Studio</span>
-            <span>Worldwide</span>
-          </div>
-        </div>
-        <div>
-          <span class="footer-col-title">Navigation</span>
-          <div class="footer-col-links">
-            <a href="#" onclick="navigate('home');    return false;">About</a>
-            <a href="#" onclick="navigate('works');   return false;">Works</a>
-            <a href="#" onclick="navigate('contact'); return false;">Contact</a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span class="footer-copy">© 2025 ILMA Studio. All rights reserved.</span>
-        <span class="footer-made">Made with care</span>
-      </div>
-    </footer>
-  </section>
-
-
-  <!-- SECTION: ABOUT -->
-  <section id="about">
-    <div class="about-page">
-
-      <!-- Hero text -->
-      <div class="about-hero">
-        <span class="about-label">About ILMA</span>
-        <h1 class="about-heading">We create CGI &amp; motion<br>that moves people.</h1>
+    <!-- SECTION: HOME -->
+    <section id="home" class="active">
+      <!-- Hero video -->
+      <div class="hero-wrap">
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="reel_265_5.mp4" type="video/mp4" />
+        </video>
       </div>
 
-      <!-- Main content — edit this for SEO -->
-      <div class="about-body">
-        <div class="about-body-left">
-          <p>ILMA is a CGI and motion design studio working with brands worldwide. We specialise in 3D product visualisation, commercial films, and visual effects — delivering work that is precise, cinematic, and built to perform.</p>
-          <p>From product launches to brand campaigns, we partner with companies that demand the highest visual standard. Our process is lean, our output is exceptional.</p>
-          <p>We work across industries including consumer electronics, health &amp; beauty, automotive, food &amp; beverage, and technology — bringing the same level of craft and attention to every project regardless of scale.</p>
+      <!-- About content — edit text below for SEO -->
+      <div class="about-page">
+        <div class="about-hero">
+          <span class="about-label">About ILMA</span>
+          <h1 class="about-heading">
+            We create CGI &amp; motion<br />that moves people.
+          </h1>
         </div>
-        <div class="about-body-right">
-          <div class="about-stats">
-            <div class="about-stat">
-              <span class="about-stat-num">50+</span>
-              <span class="about-stat-label">Projects delivered</span>
-            </div>
-            <div class="about-stat">
-              <span class="about-stat-num">8+</span>
-              <span class="about-stat-label">Years of experience</span>
-            </div>
-            <div class="about-stat">
-              <span class="about-stat-num">Worldwide</span>
-              <span class="about-stat-label">Clients</span>
-            </div>
+        <div class="about-body">
+          <div class="about-body-left">
+            <p>
+              ILMA is a CGI and motion design studio working with brands
+              worldwide. We specialise in 3D product visualisation, commercial
+              films, and visual effects — delivering work that is precise,
+              cinematic, and built to perform.
+            </p>
+            <p>
+              From product launches to brand campaigns, we partner with
+              companies that demand the highest visual standard. Our process is
+              lean, our output is exceptional.
+            </p>
+            <p>
+              We work across industries including consumer electronics, health
+              &amp; beauty, automotive, food &amp; beverage, and technology —
+              bringing the same level of craft and attention to every project
+              regardless of scale.
+            </p>
           </div>
-
-          <div class="about-services">
-            <span class="about-services-title">What we do</span>
-            <ul>
-              <li>3D Product Visualisation</li>
-              <li>CGI Advertising Films</li>
-              <li>Motion Design</li>
-              <li>Visual Effects</li>
-              <li>Brand Identity in Motion</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="footer-cta">
-      <a href="#" class="footer-cta-item" onclick="navigate('contact'); return false;">
-        <div class="footer-cta-arrow">
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </div>
-        <span class="footer-cta-label">Get in touch</span>
-        <div class="footer-cta-title">Contact</div>
-        <div class="footer-cta-sub">Feel free to reach out</div>
-      </a>
-      <a href="#" class="footer-cta-item" onclick="navigate('works'); return false;">
-        <div class="footer-cta-arrow">
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </div>
-        <span class="footer-cta-label">Explore latest cases</span>
-        <div class="footer-cta-title">Work</div>
-        <div class="footer-cta-sub">Precision in motion</div>
-      </a>
-    </div>
-
-    <footer>
-      <div class="footer-grid">
-        <div class="footer-col-brand">
-          <span class="footer-logo">ILMA</span>
-          <div class="footer-date">
-            <span id="footerDay5"></span>
-            <span id="footerDate5"></span>
-            <span id="footerYear5"></span>
-          </div>
-        </div>
-        <div>
-          <span class="footer-col-title">Social</span>
-          <div class="footer-col-links">
-            <a href="https://linkedin.com"  target="_blank" rel="noopener">LinkedIn</a>
-            <a href="https://vimeo.com"     target="_blank" rel="noopener">Vimeo</a>
-            <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
-            <a href="https://behance.net"   target="_blank" rel="noopener">Behance</a>
-          </div>
-        </div>
-        <div>
-          <span class="footer-col-title">Headquarters</span>
-          <div class="footer-col-links">
-            <span>ILMA Studio</span>
-            <span>Worldwide</span>
-          </div>
-        </div>
-        <div>
-          <span class="footer-col-title">Navigation</span>
-          <div class="footer-col-links">
-            <a href="#" onclick="navigate('home');    return false;">Home</a>
-            <a href="#" onclick="navigate('about');   return false;">About</a>
-            <a href="#" onclick="navigate('works');   return false;">Works</a>
-            <a href="#" onclick="navigate('contact'); return false;">Contact</a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span class="footer-copy">© 2025 ILMA Studio. All rights reserved.</span>
-        <span class="footer-made">Made with care</span>
-      </div>
-    </footer>
-  </section>
-
-
-  <!-- SECTION: CONTACT -->
-  <section id="contact">
-    <div class="contact-layout">
-
-      <!-- Left column -->
-      <div class="contact-info">
-        <div>
-          <h2>Let's talk.</h2>
-          <p>Have a project in mind? We'd love to hear about it. Send us a message and we'll get back to you as soon as possible.</p>
-          <div class="contact-details">
-            <div>
-              <span class="contact-detail-label">Email</span>
-              <span class="contact-detail-value">contact@ilmaforge.com</span>
-            </div>
-            <div>
-              <span class="contact-detail-label">Location</span>
-              <span class="contact-detail-value">Worldwide</span>
+          <div class="about-body-right">
+            <div class="about-stats"></div>
+            <div class="about-services">
+              <span class="about-services-title">What we do</span>
+              <ul>
+                <li>3D Product Visualisation</li>
+                <li>CGI Advertising Films</li>
+                <li>Motion Design</li>
+                <li>Visual Effects</li>
+                <li>Brand Identity in Motion</li>
+              </ul>
             </div>
           </div>
         </div>
-        <p style="font-size: 0.65rem; color: rgba(255,255,255,0.2); letter-spacing: 0.08em;">
-          © 2025 ILMA STUDIO
-        </p>
       </div>
 
-      <!-- Right column: form -->
-      <div class="contact-form">
-        <h3>Send us a message</h3>
-        <div class="form-row">
+      <!-- Works grid -->
+      <div class="filter-section">
+        <span class="section-title">Works</span>
+        <div class="filter-tags" id="homeFilterTags"></div>
+      </div>
+      <div class="project-grid" id="homeGrid"></div>
+
+      <!-- Footer CTA -->
+      <div class="footer-cta">
+        <a
+          href="#"
+          class="footer-cta-item"
+          onclick="
+            navigate('contact');
+            return false;
+          "
+        >
+          <div class="footer-cta-arrow">
+            <svg viewBox="0 0 24 24">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </div>
+          <span class="footer-cta-label">Get in touch</span>
+          <div class="footer-cta-title">Contact</div>
+          <div class="footer-cta-sub">Feel free to reach out</div>
+        </a>
+        <a
+          href="#"
+          class="footer-cta-item"
+          onclick="
+            navigate('works');
+            return false;
+          "
+        >
+          <div class="footer-cta-arrow">
+            <svg viewBox="0 0 24 24">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </div>
+          <span class="footer-cta-label">Explore latest cases</span>
+          <div class="footer-cta-title">Work</div>
+          <div class="footer-cta-sub">Precision in motion</div>
+        </a>
+      </div>
+
+      <footer>
+        <div class="footer-grid">
+          <div class="footer-col-brand">
+            <span class="footer-logo">ILMA</span>
+            <div class="footer-date">
+              <span id="footerDay"></span>
+              <span id="footerDate"></span>
+              <span id="footerYear"></span>
+            </div>
+          </div>
+          <div>
+            <span class="footer-col-title">Social</span>
+            <div class="footer-col-links">
+              <a href="https://linkedin.com" target="_blank" rel="noopener"
+                >LinkedIn</a
+              >
+              <a href="https://vimeo.com" target="_blank" rel="noopener"
+                >Vimeo</a
+              >
+              <a href="https://instagram.com" target="_blank" rel="noopener"
+                >Instagram</a
+              >
+              <a href="https://behance.net" target="_blank" rel="noopener"
+                >Behance</a
+              >
+            </div>
+          </div>
+          <div>
+            <span class="footer-col-title">Headquarters</span>
+            <div class="footer-col-links">
+              <span>ILMA Studio</span>
+              <span>Worldwide</span>
+            </div>
+          </div>
+          <div>
+            <span class="footer-col-title">Navigation</span>
+            <div class="footer-col-links">
+              <a
+                href="#"
+                onclick="
+                  navigate('home');
+                  return false;
+                "
+                >About</a
+              >
+              <a
+                href="#"
+                onclick="
+                  navigate('works');
+                  return false;
+                "
+                >Works</a
+              >
+              <a
+                href="#"
+                onclick="
+                  navigate('contact');
+                  return false;
+                "
+                >Contact</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span class="footer-copy"
+            >© 2025 ILMA Studio. All rights reserved.</span
+          >
+          <span class="footer-made">Made with care</span>
+        </div>
+      </footer>
+    </section>
+
+    <!-- SECTION: WORKS -->
+    <section id="works">
+      <div
+        class="filter-section"
+        style="padding-top: calc(var(--nav-h) + 52px)"
+      >
+        <span class="section-title">Portfolio</span>
+        <div class="filter-tags" id="worksFilterTags"></div>
+      </div>
+      <div class="project-grid" id="worksGrid"></div>
+
+      <div class="footer-cta">
+        <a
+          href="#"
+          class="footer-cta-item"
+          onclick="
+            navigate('contact');
+            return false;
+          "
+        >
+          <div class="footer-cta-arrow">
+            <svg viewBox="0 0 24 24">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </div>
+          <span class="footer-cta-label">Get in touch</span>
+          <div class="footer-cta-title">Contact</div>
+          <div class="footer-cta-sub">Feel free to reach out</div>
+        </a>
+        <a
+          href="#"
+          class="footer-cta-item"
+          onclick="
+            navigate('home');
+            return false;
+          "
+        >
+          <div class="footer-cta-arrow">
+            <svg viewBox="0 0 24 24">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </div>
+          <span class="footer-cta-label">About us</span>
+          <div class="footer-cta-title">About</div>
+          <div class="footer-cta-sub">Who we are</div>
+        </a>
+      </div>
+
+      <footer>
+        <div class="footer-grid">
+          <div class="footer-col-brand">
+            <span class="footer-logo">ILMA</span>
+            <div class="footer-date">
+              <span id="footerDay2"></span>
+              <span id="footerDate2"></span>
+              <span id="footerYear2"></span>
+            </div>
+          </div>
+          <div>
+            <span class="footer-col-title">Social</span>
+            <div class="footer-col-links">
+              <a href="https://linkedin.com" target="_blank" rel="noopener"
+                >LinkedIn</a
+              >
+              <a href="https://vimeo.com" target="_blank" rel="noopener"
+                >Vimeo</a
+              >
+              <a href="https://instagram.com" target="_blank" rel="noopener"
+                >Instagram</a
+              >
+              <a href="https://behance.net" target="_blank" rel="noopener"
+                >Behance</a
+              >
+            </div>
+          </div>
+          <div>
+            <span class="footer-col-title">Headquarters</span>
+            <div class="footer-col-links">
+              <span>ILMA Studio</span>
+              <span>Worldwide</span>
+            </div>
+          </div>
+          <div>
+            <span class="footer-col-title">Navigation</span>
+            <div class="footer-col-links">
+              <a
+                href="#"
+                onclick="
+                  navigate('home');
+                  return false;
+                "
+                >About</a
+              >
+              <a
+                href="#"
+                onclick="
+                  navigate('works');
+                  return false;
+                "
+                >Works</a
+              >
+              <a
+                href="#"
+                onclick="
+                  navigate('contact');
+                  return false;
+                "
+                >Contact</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span class="footer-copy"
+            >© 2025 ILMA Studio. All rights reserved.</span
+          >
+          <span class="footer-made">Made with care</span>
+        </div>
+      </footer>
+    </section>
+
+    <!-- SECTION: PROJECT (detail, populated by JS) -->
+    <section id="project">
+      <div class="proj-topbar">
+        <button class="proj-back-btn" onclick="goBackToWorks()">
+          <svg viewBox="0 0 24 24">
+            <polyline points="19 12 5 12" />
+            <polyline points="12 5 5 12 12 19" />
+          </svg>
+          Works
+        </button>
+        <span class="proj-topbar-sep">/</span>
+        <span class="proj-topbar-name" id="projTopbarName"></span>
+      </div>
+      <div id="projHeaderEl"></div>
+      <div id="projContentEl"></div>
+      <div id="projNavEl"></div>
+
+      <div class="footer-cta">
+        <a
+          href="#"
+          class="footer-cta-item"
+          onclick="
+            navigate('contact');
+            return false;
+          "
+        >
+          <div class="footer-cta-arrow">
+            <svg viewBox="0 0 24 24">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </div>
+          <span class="footer-cta-label">Get in touch</span>
+          <div class="footer-cta-title">Contact</div>
+          <div class="footer-cta-sub">Feel free to reach out</div>
+        </a>
+        <a
+          href="#"
+          class="footer-cta-item"
+          onclick="
+            navigate('works');
+            return false;
+          "
+        >
+          <div class="footer-cta-arrow">
+            <svg viewBox="0 0 24 24">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </div>
+          <span class="footer-cta-label">Explore latest cases</span>
+          <div class="footer-cta-title">Work</div>
+          <div class="footer-cta-sub">Precision in motion</div>
+        </a>
+      </div>
+
+      <footer>
+        <div class="footer-grid">
+          <div class="footer-col-brand">
+            <span class="footer-logo">ILMA</span>
+            <div class="footer-date">
+              <span id="footerDay3"></span>
+              <span id="footerDate3"></span>
+              <span id="footerYear3"></span>
+            </div>
+          </div>
+          <div>
+            <span class="footer-col-title">Social</span>
+            <div class="footer-col-links">
+              <a href="https://linkedin.com" target="_blank" rel="noopener"
+                >LinkedIn</a
+              >
+              <a href="https://vimeo.com" target="_blank" rel="noopener"
+                >Vimeo</a
+              >
+              <a href="https://instagram.com" target="_blank" rel="noopener"
+                >Instagram</a
+              >
+              <a href="https://behance.net" target="_blank" rel="noopener"
+                >Behance</a
+              >
+            </div>
+          </div>
+          <div>
+            <span class="footer-col-title">Headquarters</span>
+            <div class="footer-col-links">
+              <span>ILMA Studio</span>
+              <span>Worldwide</span>
+            </div>
+          </div>
+          <div>
+            <span class="footer-col-title">Navigation</span>
+            <div class="footer-col-links">
+              <a
+                href="#"
+                onclick="
+                  navigate('home');
+                  return false;
+                "
+                >About</a
+              >
+              <a
+                href="#"
+                onclick="
+                  navigate('works');
+                  return false;
+                "
+                >Works</a
+              >
+              <a
+                href="#"
+                onclick="
+                  navigate('contact');
+                  return false;
+                "
+                >Contact</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span class="footer-copy"
+            >© 2025 ILMA Studio. All rights reserved.</span
+          >
+          <span class="footer-made">Made with care</span>
+        </div>
+      </footer>
+    </section>
+
+    <!-- SECTION: ABOUT -->
+    <section id="about">
+      <div class="about-page">
+        <!-- Hero text -->
+        <div class="about-hero">
+          <span class="about-label">About ILMA</span>
+          <h1 class="about-heading">
+            We create CGI &amp; motion<br />that moves people.
+          </h1>
+        </div>
+
+        <!-- Main content — edit this for SEO -->
+        <div class="about-body">
+          <div class="about-body-left">
+            <p>
+              ILMA is a CGI and motion design studio working with brands
+              worldwide. We specialise in 3D product visualisation, commercial
+              films, and visual effects — delivering work that is precise,
+              cinematic, and built to perform.
+            </p>
+            <p>
+              From product launches to brand campaigns, we partner with
+              companies that demand the highest visual standard. Our process is
+              lean, our output is exceptional.
+            </p>
+            <p>
+              We work across industries including consumer electronics, health
+              &amp; beauty, automotive, food &amp; beverage, and technology —
+              bringing the same level of craft and attention to every project
+              regardless of scale.
+            </p>
+          </div>
+          <div class="about-body-right">
+            <div class="about-stats">
+              <div class="about-stat">
+                <span class="about-stat-num">50+</span>
+                <span class="about-stat-label">Projects delivered</span>
+              </div>
+              <div class="about-stat">
+                <span class="about-stat-num">8+</span>
+                <span class="about-stat-label">Years of experience</span>
+              </div>
+              <div class="about-stat">
+                <span class="about-stat-num">Worldwide</span>
+                <span class="about-stat-label">Clients</span>
+              </div>
+            </div>
+
+            <div class="about-services">
+              <span class="about-services-title">What we do</span>
+              <ul>
+                <li>3D Product Visualisation</li>
+                <li>CGI Advertising Films</li>
+                <li>Motion Design</li>
+                <li>Visual Effects</li>
+                <li>Brand Identity in Motion</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-cta">
+        <a
+          href="#"
+          class="footer-cta-item"
+          onclick="
+            navigate('contact');
+            return false;
+          "
+        >
+          <div class="footer-cta-arrow">
+            <svg viewBox="0 0 24 24">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </div>
+          <span class="footer-cta-label">Get in touch</span>
+          <div class="footer-cta-title">Contact</div>
+          <div class="footer-cta-sub">Feel free to reach out</div>
+        </a>
+        <a
+          href="#"
+          class="footer-cta-item"
+          onclick="
+            navigate('works');
+            return false;
+          "
+        >
+          <div class="footer-cta-arrow">
+            <svg viewBox="0 0 24 24">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </div>
+          <span class="footer-cta-label">Explore latest cases</span>
+          <div class="footer-cta-title">Work</div>
+          <div class="footer-cta-sub">Precision in motion</div>
+        </a>
+      </div>
+
+      <footer>
+        <div class="footer-grid">
+          <div class="footer-col-brand">
+            <span class="footer-logo">ILMA</span>
+            <div class="footer-date">
+              <span id="footerDay5"></span>
+              <span id="footerDate5"></span>
+              <span id="footerYear5"></span>
+            </div>
+          </div>
+          <div>
+            <span class="footer-col-title">Social</span>
+            <div class="footer-col-links">
+              <a href="https://linkedin.com" target="_blank" rel="noopener"
+                >LinkedIn</a
+              >
+              <a href="https://vimeo.com" target="_blank" rel="noopener"
+                >Vimeo</a
+              >
+              <a href="https://instagram.com" target="_blank" rel="noopener"
+                >Instagram</a
+              >
+              <a href="https://behance.net" target="_blank" rel="noopener"
+                >Behance</a
+              >
+            </div>
+          </div>
+          <div>
+            <span class="footer-col-title">Headquarters</span>
+            <div class="footer-col-links">
+              <span>ILMA Studio</span>
+              <span>Worldwide</span>
+            </div>
+          </div>
+          <div>
+            <span class="footer-col-title">Navigation</span>
+            <div class="footer-col-links">
+              <a
+                href="#"
+                onclick="
+                  navigate('home');
+                  return false;
+                "
+                >Home</a
+              >
+              <a
+                href="#"
+                onclick="
+                  navigate('about');
+                  return false;
+                "
+                >About</a
+              >
+              <a
+                href="#"
+                onclick="
+                  navigate('works');
+                  return false;
+                "
+                >Works</a
+              >
+              <a
+                href="#"
+                onclick="
+                  navigate('contact');
+                  return false;
+                "
+                >Contact</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span class="footer-copy"
+            >© 2025 ILMA Studio. All rights reserved.</span
+          >
+          <span class="footer-made">Made with care</span>
+        </div>
+      </footer>
+    </section>
+
+    <!-- SECTION: CONTACT -->
+    <section id="contact">
+      <div class="contact-layout">
+        <!-- Left column -->
+        <div class="contact-info">
+          <div>
+            <h2>Let's talk.</h2>
+            <p>
+              Have a project in mind? We'd love to hear about it. Send us a
+              message and we'll get back to you as soon as possible.
+            </p>
+            <div class="contact-details">
+              <div>
+                <span class="contact-detail-label">Email</span>
+                <span class="contact-detail-value">contact@ilmaforge.com</span>
+              </div>
+              <div>
+                <span class="contact-detail-label">Location</span>
+                <span class="contact-detail-value">Worldwide</span>
+              </div>
+            </div>
+          </div>
+          <p
+            style="
+              font-size: 0.65rem;
+              color: rgba(255, 255, 255, 0.2);
+              letter-spacing: 0.08em;
+            "
+          >
+            © 2025 ILMA STUDIO
+          </p>
+        </div>
+
+        <!-- Right column: form -->
+        <div class="contact-form">
+          <h3>Send us a message</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" id="ctName" placeholder="Your name" />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" id="ctEmail" placeholder="your@email.com" />
+            </div>
+          </div>
           <div class="form-group">
-            <label>Name</label>
-            <input type="text" id="ctName" placeholder="Your name">
+            <label>Subject</label>
+            <input
+              type="text"
+              id="ctSubject"
+              placeholder="What is this about?"
+            />
           </div>
           <div class="form-group">
-            <label>Email</label>
-            <input type="email" id="ctEmail" placeholder="your@email.com">
+            <label>Message</label>
+            <textarea
+              id="ctMessage"
+              placeholder="Tell us about your project…"
+            ></textarea>
           </div>
-        </div>
-        <div class="form-group">
-          <label>Subject</label>
-          <input type="text" id="ctSubject" placeholder="What is this about?">
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea id="ctMessage" placeholder="Tell us about your project…"></textarea>
-        </div>
-        <button class="send-btn" onclick="submitForm()">Send Message</button>
-        <div class="form-success" id="formSuccess">
-          Thank you! We'll get back to you within 48 hours.
+          <button class="send-btn" onclick="submitForm()">Send Message</button>
+          <div class="form-success" id="formSuccess">
+            Thank you! We'll get back to you within 48 hours.
+          </div>
         </div>
       </div>
 
+      <div class="footer-cta">
+        <a
+          href="#"
+          class="footer-cta-item"
+          onclick="
+            navigate('home');
+            return false;
+          "
+        >
+          <div class="footer-cta-arrow">
+            <svg viewBox="0 0 24 24">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </div>
+          <span class="footer-cta-label">Who we are</span>
+          <div class="footer-cta-title">About</div>
+          <div class="footer-cta-sub">Our story</div>
+        </a>
+        <a
+          href="#"
+          class="footer-cta-item"
+          onclick="
+            navigate('works');
+            return false;
+          "
+        >
+          <div class="footer-cta-arrow">
+            <svg viewBox="0 0 24 24">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </div>
+          <span class="footer-cta-label">Explore latest cases</span>
+          <div class="footer-cta-title">Work</div>
+          <div class="footer-cta-sub">Precision in motion</div>
+        </a>
+      </div>
+
+      <footer>
+        <div class="footer-grid">
+          <div class="footer-col-brand">
+            <span class="footer-logo">ILMA</span>
+            <div class="footer-date">
+              <span id="footerDay4"></span>
+              <span id="footerDate4"></span>
+              <span id="footerYear4"></span>
+            </div>
+          </div>
+          <div>
+            <span class="footer-col-title">Social</span>
+            <div class="footer-col-links">
+              <a href="https://linkedin.com" target="_blank" rel="noopener"
+                >LinkedIn</a
+              >
+              <a href="https://vimeo.com" target="_blank" rel="noopener"
+                >Vimeo</a
+              >
+              <a href="https://instagram.com" target="_blank" rel="noopener"
+                >Instagram</a
+              >
+              <a href="https://behance.net" target="_blank" rel="noopener"
+                >Behance</a
+              >
+            </div>
+          </div>
+          <div>
+            <span class="footer-col-title">Headquarters</span>
+            <div class="footer-col-links">
+              <span>ILMA Studio</span>
+              <span>Worldwide</span>
+            </div>
+          </div>
+          <div>
+            <span class="footer-col-title">Navigation</span>
+            <div class="footer-col-links">
+              <a
+                href="#"
+                onclick="
+                  navigate('home');
+                  return false;
+                "
+                >About</a
+              >
+              <a
+                href="#"
+                onclick="
+                  navigate('works');
+                  return false;
+                "
+                >Works</a
+              >
+              <a
+                href="#"
+                onclick="
+                  navigate('contact');
+                  return false;
+                "
+                >Contact</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span class="footer-copy"
+            >© 2025 ILMA Studio. All rights reserved.</span
+          >
+          <span class="footer-made">Made with care</span>
+        </div>
+      </footer>
+    </section>
+
+    <!-- Foggy overlay -->
+    <div class="foggy-footer">
+      <div class="blur-layer layer-1"></div>
+      <div class="blur-layer layer-2"></div>
+      <div class="blur-layer layer-3"></div>
+      <div class="blur-layer layer-4"></div>
     </div>
 
-    <div class="footer-cta">
-      <a href="#" class="footer-cta-item" onclick="navigate('home'); return false;">
-        <div class="footer-cta-arrow">
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </div>
-        <span class="footer-cta-label">Who we are</span>
-        <div class="footer-cta-title">About</div>
-        <div class="footer-cta-sub">Our story</div>
-      </a>
-      <a href="#" class="footer-cta-item" onclick="navigate('works'); return false;">
-        <div class="footer-cta-arrow">
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </div>
-        <span class="footer-cta-label">Explore latest cases</span>
-        <div class="footer-cta-title">Work</div>
-        <div class="footer-cta-sub">Precision in motion</div>
-      </a>
-    </div>
+    <script src="main.js"></script>
 
-    <footer>
-      <div class="footer-grid">
-        <div class="footer-col-brand">
-          <span class="footer-logo">ILMA</span>
-          <div class="footer-date">
-            <span id="footerDay4"></span>
-            <span id="footerDate4"></span>
-            <span id="footerYear4"></span>
-          </div>
-        </div>
-        <div>
-          <span class="footer-col-title">Social</span>
-          <div class="footer-col-links">
-            <a href="https://linkedin.com"  target="_blank" rel="noopener">LinkedIn</a>
-            <a href="https://vimeo.com"     target="_blank" rel="noopener">Vimeo</a>
-            <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
-            <a href="https://behance.net"   target="_blank" rel="noopener">Behance</a>
-          </div>
-        </div>
-        <div>
-          <span class="footer-col-title">Headquarters</span>
-          <div class="footer-col-links">
-            <span>ILMA Studio</span>
-            <span>Worldwide</span>
-          </div>
-        </div>
-        <div>
-          <span class="footer-col-title">Navigation</span>
-          <div class="footer-col-links">
-            <a href="#" onclick="navigate('home');    return false;">About</a>
-            <a href="#" onclick="navigate('works');   return false;">Works</a>
-            <a href="#" onclick="navigate('contact'); return false;">Contact</a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span class="footer-copy">© 2025 ILMA Studio. All rights reserved.</span>
-        <span class="footer-made">Made with care</span>
-      </div>
-    </footer>
-  </section>
+    <!-- Live date in footer -->
+    <script>
+      (function () {
+        const now = new Date();
+        const days = [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ];
+        const mons = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+        const dayName = days[now.getDay()];
+        const dateStr = mons[now.getMonth()] + " " + now.getDate();
+        const yearStr = String(now.getFullYear());
+        [1, 2, 3, 4].forEach((n) => {
+          const d = document.getElementById("footerDay" + (n === 1 ? "" : n));
+          const m = document.getElementById("footerDate" + (n === 1 ? "" : n));
+          const y = document.getElementById("footerYear" + (n === 1 ? "" : n));
+          if (d) d.textContent = dayName;
+          if (m) m.textContent = dateStr;
+          if (y) y.textContent = yearStr;
+        });
+      })();
 
-
-  <!-- Foggy overlay -->
-  <div class="foggy-footer">
-    <div class="blur-layer layer-1"></div>
-    <div class="blur-layer layer-2"></div>
-    <div class="blur-layer layer-3"></div>
-    <div class="blur-layer layer-4"></div>
-  </div>
-
-  <script src="main.js"></script>
-
-  <!-- Live date in footer -->
-  <script>
-    (function () {
-      const now  = new Date();
-      const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-      const mons = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-      const dayName = days[now.getDay()];
-      const dateStr = mons[now.getMonth()] + ' ' + now.getDate();
-      const yearStr = String(now.getFullYear());
-      [1, 2, 3, 4].forEach(n => {
-        const d = document.getElementById('footerDay'  + (n === 1 ? '' : n));
-        const m = document.getElementById('footerDate' + (n === 1 ? '' : n));
-        const y = document.getElementById('footerYear' + (n === 1 ? '' : n));
-        if (d) d.textContent = dayName;
-        if (m) m.textContent = dateStr;
-        if (y) y.textContent = yearStr;
-      });
-    })();
-  </script>
-
-</body>
+      (function () {
+        console.log(window.location.pathname);
+      })();
+    </script>
+  </body>
 </html>
