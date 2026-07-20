@@ -52,7 +52,7 @@
 const PROJECTS = [
   {
     id: 1,
-    title: "Project Title 1",
+    title: "Project Title MAIN TEST",
     client: "Client Name",
     tags: ["3d", "product"],
     year: 2025,
