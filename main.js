@@ -401,21 +401,6 @@ function buildBlock(block) {
           </div>
         </div>`;
 
-    case "text-img-":
-      return `
-        <div class="blk-split blk-split--text-img">
-          <div class="blk-split-text">
-            ${block.heading ? `<h2>${block.heading}</h2>` : ""}
-            ${(block.body || "")
-              .split("\n\n")
-              .map((p) => `<p>${p}</p>`)
-              .join("")}
-          </div>
-          <div class="blk-split-img">
-            <img src="/${block.src}" alt="" loading="lazy">
-          </div>
-        </div>`;
-
     case "text":
       return `
         <div class="blk-text">
