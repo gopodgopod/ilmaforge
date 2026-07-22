@@ -111,10 +111,27 @@ const PROJECTS = [
       { type: "img-2", items: ["8.jpg", "9.jpg"] },
     ],
   },
+  // {
+  //   id: 4,
+  //   title: "Project Title 4",
+  //   client: "Client Name",
+  //   tags: ["product", "still"],
+  //   year: 2024,
+  //   img: "10.jpg",
+  //   wide: true,
+  //   description: "Short description of the project.",
+  //   role: "Product Visualization",
+  //   deliverables: "CGI Images",
+  //   duration: "3 weeks",
+  //   blocks: [
+  //     { type: "img-full", src: "10.jpg" },
+  //     { type: "img-3", items: ["1.jpg", "2.jpg", "3.jpg"] },
+  //   ],
+  // },
   {
-    id: 4,
-    title: "Project Title 4",
-    client: "Client Name",
+    id: 5,
+    title: "Canal",
+    client: "Canal",
     tags: ["product", "still"],
     year: 2024,
     img: "10.jpg",
@@ -124,8 +141,13 @@ const PROJECTS = [
     deliverables: "CGI Images",
     duration: "3 weeks",
     blocks: [
-      { type: "img-full", src: "10.jpg" },
-      { type: "img-3", items: ["1.jpg", "2.jpg", "3.jpg"] },
+      { type: "img-full", src: "canal/Motiond_design_canal_plus_main.jpg" },
+      {
+        type: "text-img",
+        src: "canal/Motiond_design_canal_plus_image_1.png",
+        heading: "About this project",
+        body: "Describe the project here.",
+      },
     ],
   },
 ];
@@ -365,6 +387,21 @@ function buildBlock(block) {
         </div>`;
 
     case "text-img":
+      return `
+        <div class="blk-split blk-split--text-img">
+          <div class="blk-split-text">
+            ${block.heading ? `<h2>${block.heading}</h2>` : ""}
+            ${(block.body || "")
+              .split("\n\n")
+              .map((p) => `<p>${p}</p>`)
+              .join("")}
+          </div>
+          <div class="blk-split-img">
+            <img src="/${block.src}" alt="" loading="lazy">
+          </div>
+        </div>`;
+
+    case "text-img-":
       return `
         <div class="blk-split blk-split--text-img">
           <div class="blk-split-text">
