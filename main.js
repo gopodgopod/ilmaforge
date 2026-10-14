@@ -51,6 +51,15 @@
 
 const PROJECTS = [
   {
+    id: 6,
+    slug: "from-concept-to-campaign",
+    title: "From concept to campaign",
+    tags: ["3d", "motion", "product"],
+    img: "assets/lure/hero.jpg",
+    wide: true,
+    kind: "lure-case-study",
+  },
+  {
     id: 1,
     title: "Project Title",
     client: "Client Name",
@@ -111,30 +120,30 @@ const PROJECTS = [
       { type: "img-2", items: ["8.jpg", "9.jpg"] },
     ],
   },
-  // {
-  //   id: 4,
-  //   title: "Project Title 4",
-  //   client: "Client Name",
-  //   tags: ["product", "still"],
-  //   year: 2024,
-  //   img: "10.jpg",
-  //   wide: true,
-  //   description: "Short description of the project.",
-  //   role: "Product Visualization",
-  //   deliverables: "CGI Images",
-  //   duration: "3 weeks",
-  //   blocks: [
-  //     { type: "img-full", src: "10.jpg" },
-  //     { type: "img-3", items: ["1.jpg", "2.jpg", "3.jpg"] },
-  //   ],
-  // },
+  {
+    id: 4,
+    title: "Project Title 4",
+    client: "Client Name",
+    tags: ["product", "still"],
+    year: 2024,
+    img: "10.jpg",
+    wide: true,
+    description: "Short description of the project.",
+    role: "Product Visualization",
+    deliverables: "CGI Images",
+    duration: "3 weeks",
+    blocks: [
+      { type: "img-full", src: "10.jpg" },
+      { type: "img-3", items: ["1.jpg", "2.jpg", "3.jpg"] },
+    ],
+  },
   {
     id: 5,
     title: "Canal",
     client: "Canal",
     tags: ["product", "still"],
     year: 2024,
-    img: "10.jpg",
+    img: "canal/Motiond_design_canal_plus_main.jpg",
     wide: true,
     description: "Short description of the project.",
     role: "Product Visualization",
@@ -181,7 +190,7 @@ function toEmbedUrl(url) {
 let currentSection = "home";
 let previousSection = "home";
 
-function navigate(sectionId) {
+function navigate(sectionId, updateHistory = true) {
   document
     .querySelectorAll("section")
     .forEach((s) => s.classList.remove("active"));
@@ -195,15 +204,16 @@ function navigate(sectionId) {
   });
 
   currentSection = sectionId;
+  if (sectionId !== "project") document.title = "ILMA — CGI & Motion Design Studio | Worldwide";
   window.scrollTo(0, 0);
 
   if (sectionId === "home") renderGrid("homeGrid", "all", "homeFilterTags");
   if (sectionId === "works") renderGrid("worksGrid", "all", "worksFilterTags");
 
   // Update URL hash
-  if (sectionId === "home") history.pushState(null, "", "/");
-  if (sectionId === "works") history.pushState(null, "", "/works");
-  if (sectionId === "contact") history.pushState(null, "", "/contact");
+  if (updateHistory && sectionId === "home") history.pushState(null, "", "/");
+  if (updateHistory && sectionId === "works") history.pushState(null, "", "/works");
+  if (updateHistory && sectionId === "contact") history.pushState(null, "", "/contact");
 }
 
 /** Go back from project detail page */
@@ -246,8 +256,8 @@ function renderGrid(gridId, activeTag, tagsId) {
   grid.innerHTML = filtered
     .map(
       (p) => `
-    <div class="proj-card ${p.wide ? "wide" : ""}"
-         onclick="openProject(${p.id}, '${origin}')">
+    <a class="proj-card ${p.wide ? "wide" : ""}" href="/project/${p.slug || p.id}"
+         onclick="openProject(${p.id}, '${origin}'); return false;">
       <div class="proj-card-bg"
            style="background-image: url('/${p.img}'); background-color: #1a1a1a;"></div>
       <div class="proj-card-overlay">
@@ -258,7 +268,7 @@ function renderGrid(gridId, activeTag, tagsId) {
           </div>
         </div>
       </div>
-    </div>
+    </a>
   `,
     )
     .join("");
@@ -286,16 +296,18 @@ function renderFilterButtons(containerId, activeTag, gridId) {
    PROJECT DETAIL PAGE
    ============================================================== */
 
-function openProject(id, fromSection) {
-  const project = PROJECTS.find((p) => p.id === id);
+function openProject(id, fromSection, updateHistory = true) {
+  const project = PROJECTS.find((p) => String(p.id) === String(id) || p.slug === id);
   if (!project) return;
 
   previousSection = fromSection || "works";
 
   document.getElementById("projTopbarName").textContent = project.title;
+  const isLure = project.kind === "lure-case-study";
+  document.getElementById("project").classList.toggle("is-lure", isLure);
   document.getElementById("projHeaderEl").innerHTML =
-    buildProjectHeader(project);
-  document.getElementById("projContentEl").innerHTML = `
+    isLure ? "" : buildProjectHeader(project);
+  document.getElementById("projContentEl").innerHTML = isLure ? buildLureCaseStudy() : `
     <div class="proj-content">
       ${project.blocks.map((b) => buildBlock(b)).join("")}
     </div>
@@ -303,7 +315,8 @@ function openProject(id, fromSection) {
   document.getElementById("projNavEl").innerHTML = "";
 
   // Update URL — shareable link e.g. ilmaforge.com/#project-1
-  history.pushState(null, "", `/project/${project.id}`);
+  if (updateHistory) history.pushState(null, "", `/project/${project.slug || project.id}`);
+  document.title = `${project.title} — ILMA`;
 
   navigate("project");
 }
@@ -545,17 +558,17 @@ renderGrid("homeGrid", "all", "homeFilterTags");
   if (!path || path === "/") return;
 
   if (path === "/works") {
-    navigate("works");
+    navigate("works", false);
     return;
   }
   if (path === "/contact") {
-    navigate("contact");
+    navigate("contact", false);
     return;
   }
 
-  const projectMatch = path.match(/^\/project\/(\d+)$/);
+  const projectMatch = path.match(/^\/project\/([a-z0-9-]+)\/?$/);
   if (projectMatch) {
-    openProject(parseInt(projectMatch[1]), "home");
+    openProject(projectMatch[1], "home", false);
   }
 })();
 
@@ -563,20 +576,20 @@ renderGrid("homeGrid", "all", "homeFilterTags");
 window.addEventListener("popstate", () => {
   const path = window.location.pathname;
   if (!path || path === "/") {
-    navigate("home");
+    navigate("home", false);
     return;
   }
   if (path === "/works") {
-    navigate("works");
+    navigate("works", false);
     return;
   }
   if (path === "/contact") {
-    navigate("contact");
+    navigate("contact", false);
     return;
   }
 
-  const projectMatch = path.match(/^\/project\/(\d+)$/);
-  if (projectMatch) openProject(parseInt(projectMatch[1]), "home");
+  const projectMatch = path.match(/^\/project\/([a-z0-9-]+)\/?$/);
+  if (projectMatch) openProject(projectMatch[1], "home", false);
 });
 
 const observer = new IntersectionObserver(
