@@ -1,0 +1,31 @@
+name: Site check
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  build:
+    name: Build static site
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JavaScript syntax
+        run: |
+          node --check main.js
+          node --check project-lure.js
+          node --check scripts/build.mjs
+      - name: Build Cloudflare Pages output
+        run: node scripts/build.mjs
+      - name: Verify published entry points
+        run: |
+          test -s dist/index.html
+          test -s dist/main.js
+          test -s dist/project-lure.js
+          test -s dist/project-lure.css
+          test -s dist/_redirects
