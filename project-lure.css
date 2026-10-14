@@ -39,7 +39,7 @@
 .lure-finish { width: min(279px, calc(100% - 80px)); aspect-ratio: 2367 / 730; margin: 140px auto 0 !important; }
 .lure-mobile-opening, .lure-mobile-sketch, .lure-mobile-flame, .lure-mobile-motion { display: none; }
 .proj-card:focus-visible { outline: 2px solid var(--accent); outline-offset: -4px; }
-.project-grid .proj-card, .project-grid .proj-card.wide { grid-column: span 1; aspect-ratio: 4 / 3; }
+#worksGrid .proj-card, #worksGrid .proj-card.wide { grid-column: span 1; aspect-ratio: 4 / 3; }
 .project-grid .proj-card-meta { opacity: 1; transform: none; }
 .project-grid .proj-card-title { font-size: clamp(1.15rem, 2.2vw, 2rem); }
 .project-grid .proj-card-overlay { background: linear-gradient(transparent 35%, rgba(0,0,0,.75)); padding: 22px; }
