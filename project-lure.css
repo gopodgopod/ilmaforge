@@ -40,6 +40,7 @@
 .lure-mobile-opening, .lure-mobile-sketch, .lure-mobile-flame, .lure-mobile-motion { display: none; }
 .proj-card:focus-visible { outline: 2px solid var(--accent); outline-offset: -4px; }
 #worksGrid .proj-card, #worksGrid .proj-card.wide { grid-column: span 1; aspect-ratio: 4 / 3; }
+@media (min-width: 641px) { #homeGrid .proj-card.wide { aspect-ratio: 2 / 1; } }
 .project-grid .proj-card-meta { opacity: 1; transform: none; }
 .project-grid .proj-card-title { font-size: clamp(1.15rem, 2.2vw, 2rem); }
 .project-grid .proj-card-overlay { background: linear-gradient(transparent 35%, rgba(0,0,0,.75)); padding: 22px; }
