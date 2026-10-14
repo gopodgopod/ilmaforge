@@ -1,5 +1,6 @@
 import { execFileSync } from 'node:child_process';
-import { copyFile, mkdir, rm, stat } from 'node:fs/promises';
+import { copyFile, mkdir, rm, stat, readFile, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -27,4 +28,14 @@ for (const file of assets) {
   await mkdir(path.dirname(destination), { recursive: true });
   await copyFile(path.join(root, file), destination);
 }
+// Pages caches scripts and styles. Refresh their URLs whenever their contents change.
+const versions = new Map();
+for (const file of assets.filter((file) => ['.js', '.css'].includes(path.extname(file)))) {
+  const digest = createHash('sha256').update(await readFile(path.join(output, file))).digest('hex').slice(0, 12);
+  versions.set(`/${file}`, digest);
+}
+const entry = path.join(output, 'index.html');
+const html = await readFile(entry, 'utf8');
+await writeFile(entry, html.replace(/(src|href)="(\/[^"?#]+\.(?:js|css))"/g,
+  (match, attribute, url) => versions.has(url) ? `${attribute}="${url}?v=${versions.get(url)}"` : match));
 console.log(`Prepared ${assets.length} site files in dist/.`);
