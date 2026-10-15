@@ -13,11 +13,12 @@
 .ghx-banner { width: 100%; }
 .ghx-film { margin-top: 70px; aspect-ratio: 16 / 9; background: #101010; }
 .ghx-film iframe { width: 100%; height: 100%; display: block; border: 0; }
-.ghx-process { margin-top: 76px; }
-.ghx-process > h2 { margin-bottom: 40px; text-align: center; }
-.ghx-row { display: grid; gap: 8px; margin-top: 24px; align-items: center; }
+.ghx-process { width: 100%; margin-top: 76px; }
+.ghx-motion:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.ghx-process > h2 { width: min(579px, calc(100% - 40px)); margin: 0 auto 40px; text-align: center; }
+.ghx-row { display: grid; gap: 0; margin-top: 24px; align-items: center; }
 .ghx-three { grid-template-columns: 1fr 1.3fr 1fr; }
-.ghx-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.ghx-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; }
 .ghx-pair video, .ghx-gallery img { aspect-ratio: 16 / 9; object-fit: contain; }
 .ghx-scene-banner { margin-top: 60px !important; }
 .ghx-gallery { margin-top: 60px; }
