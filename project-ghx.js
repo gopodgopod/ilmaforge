@@ -1,6 +1,6 @@
 function buildGhxCaseStudy() {
   const image = (name, alt, width, height) => `<img src="/assets/ghx/${name}.webp" alt="${alt}" width="${width}" height="${height}" loading="lazy" decoding="async">`;
-  const motion = (name, label, width, height, hero = false) => `<video class="ghx-motion${hero ? ' ghx-hero-motion' : ''}"${hero ? ` src="/assets/ghx/${name}.mp4"` : ` data-src="/assets/ghx/${name}.mp4"`} poster="/assets/ghx/${name}-poster.jpg" width="${width}" height="${height}" muted loop playsinline controls preload="${hero ? 'metadata' : 'none'}" aria-label="${label}"></video>`;
+  const motion = (name, label, width, height, hero = false) => `<video class="ghx-motion${hero ? ' ghx-hero-motion' : ''}"${hero ? ` src="/assets/ghx/${name}.mp4"` : ` data-src="/assets/ghx/${name}.mp4"`} poster="/assets/ghx/${name}-poster.jpg" width="${width}" height="${height}" muted loop playsinline tabindex="0" role="button" preload="${hero ? 'metadata' : 'none'}" aria-label="${label} — play or pause animation"></video>`;
   return `<article class="ghx-study" aria-labelledby="ghx-title">
     <div class="ghx-hero">${motion('00-01', 'GHX coins rotating in a red-lit space', 1400, 365, true)}</div>
     <header class="ghx-intro ghx-copy">
@@ -11,7 +11,7 @@ function buildGhxCaseStudy() {
     <div class="ghx-film ghx-contained">
       <iframe src="https://player.vimeo.com/video/1181564766?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1" title="GHX Trailer — full film" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
     </div>
-    <div class="ghx-process ghx-contained" role="region" aria-labelledby="ghx-process-title">
+    <div class="ghx-process" role="region" aria-labelledby="ghx-process-title">
       <h2 id="ghx-process-title">Process</h2>
       <figure class="ghx-process-lead">${motion('05-01', 'Animated camera move through the GHX chamber', 1000, 562)}</figure>
       <div class="ghx-three ghx-row">
@@ -72,13 +72,28 @@ function initGhxMotion() {
   };
   videos.forEach((video) => {
     video.muted = true;
-    video.addEventListener('pointerdown', () => load(video), { once: true });
-    video.addEventListener('keydown', () => load(video), { once: true });
+    const toggle = () => {
+      load(video);
+      if (video.paused) {
+        video.dataset.userPaused = 'false';
+        video.play().catch(() => {});
+      } else {
+        video.dataset.userPaused = 'true';
+        video.pause();
+      }
+    };
+    video.addEventListener('click', toggle);
+    video.addEventListener('keydown', (event) => {
+      if (event.key === ' ' || event.key === 'Enter') {
+        event.preventDefault();
+        toggle();
+      }
+    });
   });
   if (reducedMotion) return;
   ghxMotionObserver = new IntersectionObserver((entries) => {
     entries.forEach(({ target, isIntersecting }) => {
-      if (isIntersecting && document.getElementById('project').classList.contains('active')) {
+      if (isIntersecting && target.dataset.userPaused !== 'true' && document.getElementById('project').classList.contains('active')) {
         load(target);
         target.play().catch(() => {});
       } else {
