@@ -305,7 +305,7 @@ function buildPortfolioStudy(slug) {
       default: return `<div class="study-grid study-grid--${item.type}${item.square ? ' study-grid--square' : ''}">${item.items.map(key => `<figure>${asset(key)}</figure>`).join('')}</div>`;
     }
   };
-  return `<article class="ghx-study portfolio-study" aria-labelledby="study-title">
+  return `<article class="ghx-study portfolio-study" data-theme="${slug === 'nalgene-bottle-outdoor' ? 'light' : 'dark'}" aria-labelledby="study-title">
     <figure class="study-hero">${asset(study.hero, true)}</figure>
     <header class="ghx-intro ghx-copy"><h1 id="study-title">${study.title}</h1>${study.paragraphs.map(text => `<p>${text}</p>`).join('')}</header>
     ${study.blocks.map(block).join('')}
