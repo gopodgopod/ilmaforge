@@ -8,10 +8,10 @@ Portfolio studia ILMA: https://ilmaforge.com
 - `project-lure.js`, `project-lure.css` — projekt „From concept to campaign”.
 - `assets/lure/` — oryginalne obrazy tego projektu.
 - `project-ghx.js`, `project-ghx.css`, `assets/ghx/` — projekt „GHX — Trailer” z Behance, film Vimeo i lokalne pętle animacji.
-- `project-studies.js`, `project-studies.css`, `assets/studies/<projekt>/` — Crypto Coint Generator, Nalgene Bottle Outdoor, PCB board RISC-V Challenge. Każdy projekt ma osobny katalog materiałów i SOURCES.md.
+- `project-studies.js`, `project-studies.css`, `assets/studies/<projekt>/` — Crypto Coint Generator, Nalgene Bottle Outdoor, PCB board RISC-V Challenge, GamerHash. Każdy projekt ma osobny katalog materiałów i SOURCES.md.
 - Pozostałe zdjęcia i katalog `canal/` — materiały wcześniejszych projektów.
 - `scripts/build.mjs` — przygotowanie katalogu `dist/` dla Cloudflare Pages i wersjonowanie plików CSS/JS.
-- `_redirects`, `_headers` — obsługa adresów podstron i nagłówków.
+- `_redirects` — obsługa adresów podstron.
 - `.github/workflows/site-check.yml` — automatyczna kontrola składni i budowania strony.
 
 ## Praca nad zmianami
@@ -33,6 +33,8 @@ Wymagany jest Node.js 22 i Git. Po dodaniu nowych plików do Git uruchom:
 ```sh
 node --check main.js
 node --check project-lure.js
+node --check project-ghx.js
+node --check project-studies.js
 node scripts/build.mjs
 ```
 

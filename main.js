@@ -87,6 +87,18 @@ const PROJECTS = [
     "kind": "portfolio-study"
   },
   {
+    "id": 11,
+    "slug": "gamerhash",
+    "title": "GamerHash",
+    "tags": [
+      "3d",
+      "motion",
+      "film"
+    ],
+    "img": "assets/studies/gamerhash/cover.png",
+    "kind": "portfolio-study"
+  },
+  {
     id: 7,
     slug: "ghx-trailer",
     title: "GHX — Trailer",
