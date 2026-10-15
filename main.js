@@ -63,6 +63,18 @@ const PROJECTS = [
     "kind": "portfolio-study"
   },
   {
+    "id": 9,
+    "slug": "nalgene-bottle-outdoor",
+    "title": "Nalgene Bottle Outdoor",
+    "tags": [
+      "3d",
+      "motion",
+      "product"
+    ],
+    "img": "assets/studies/nalgene-bottle-outdoor/cover.jpg",
+    "kind": "portfolio-study"
+  },
+  {
     id: 7,
     slug: "ghx-trailer",
     title: "GHX — Trailer",
