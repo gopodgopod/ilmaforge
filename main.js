@@ -317,8 +317,8 @@ function renderGrid(gridId, activeTag, tagsId) {
 
   grid.innerHTML = filtered
     .map(
-      (p) => `
-    <a class="proj-card ${p.wide ? "wide" : ""}" href="/project/${p.slug || p.id}"
+      (p, index) => `
+    <a class="proj-card ${index % 4 === 0 || index % 4 === 3 ? "wide" : ""}" href="/project/${p.slug || p.id}"
          onclick="openProject(${p.id}, '${origin}'); return false;">
       <div class="proj-card-bg"
            style="background-image: url('/${p.img}'); background-color: #1a1a1a;"></div>
