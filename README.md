@@ -8,6 +8,7 @@ Portfolio studia ILMA: https://ilmaforge.com
 - `project-lure.js`, `project-lure.css` — projekt „From concept to campaign”.
 - `assets/lure/` — oryginalne obrazy tego projektu.
 - `project-ghx.js`, `project-ghx.css`, `assets/ghx/` — projekt „GHX — Trailer” z Behance, film Vimeo i lokalne pętle animacji.
+- `project-studies.js`, `project-studies.css`, `assets/studies/` — Crypto Coint Generator, Nalgene Bottle Outdoor, PCB board RISC-V Challenge i GamerHash; opisy są tekstem HTML, a animacje używają lokalnych pętli bez pasków odtwarzania.
 - Pozostałe zdjęcia i katalog `canal/` — materiały wcześniejszych projektów.
 - `scripts/build.mjs` — przygotowanie katalogu `dist/` dla Cloudflare Pages i wersjonowanie plików CSS/JS.
 - `_redirects`, `_headers` — obsługa adresów podstron i nagłówków.

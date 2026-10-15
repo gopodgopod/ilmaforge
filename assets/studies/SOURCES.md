@@ -1,0 +1,72 @@
+# Portfolio media sources
+
+Original creator: Maksym Kuznietsov. PCB design credit: Cillé Malan.
+
+Static files retain their downloaded image bytes. Animated GIFs are converted to silent H.264 loops (CRF 22) with posters. Titles, descriptions, section headings and credits are HTML text. Nalgene’s bottle detail uses a CSS crop to exclude text baked into the source panel.
+
+- Crypto Coint Generator: https://www.behance.net/gallery/247231811/Crypto-Coint-Generator
+- Nalgene Bottle Outdoor: https://www.behance.net/gallery/246767903/Nalgene-Bottle-Outdoor
+- PCB board RISC-V Challenge: https://www.behance.net/gallery/246305987/PCB-board-RISC-V-Challenge
+- Gamerhash: https://www.behance.net/gallery/214049827/Gamerhash
+
+- crypto-coin-generator/00-01.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/f7c447247231811.69d65a8567a8c.jpg
+- crypto-coin-generator/01-01.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/e7587c247231811.69d64ea764c92.jpg
+- crypto-coin-generator/02-01.gif: https://mir-s3-cdn-cf.behance.net/project_modules/1400/eccbca247231811.69d64ea1bfc98.gif
+- crypto-coin-generator/02-02.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/387968247231811.69d64ea1bf677.jpg
+- crypto-coin-generator/03-01.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/3ccbce247231811.69d64ea374aec.jpg
+- crypto-coin-generator/03-02.gif: https://mir-s3-cdn-cf.behance.net/project_modules/1400/c75db8247231811.69d64ea3750d3.gif
+- crypto-coin-generator/04-01.gif: https://mir-s3-cdn-cf.behance.net/project_modules/1400/0a962b247231811.69d659c41ba38.gif
+- crypto-coin-generator/04-02.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/348c27247231811.69d659c41bd8d.jpg
+- crypto-coin-generator/05-01.gif: https://mir-s3-cdn-cf.behance.net/project_modules/1400/e4d9b7247231811.69d659c5d2deb.gif
+- crypto-coin-generator/05-02.gif: https://mir-s3-cdn-cf.behance.net/project_modules/1400/3d2f03247231811.69d659c5d369f.gif
+- crypto-coin-generator/05-03.gif: https://mir-s3-cdn-cf.behance.net/project_modules/1400/0f42e5247231811.69d659c5d3f0d.gif
+- crypto-coin-generator/06-01.gif: https://mir-s3-cdn-cf.behance.net/project_modules/disp/edd6bf247231811.69d650e717780.gif
+- crypto-coin-generator/06-02.gif: https://mir-s3-cdn-cf.behance.net/project_modules/disp/d976ad247231811.69d650e717bc2.gif
+- crypto-coin-generator/06-03.gif: https://mir-s3-cdn-cf.behance.net/project_modules/disp/2b815f247231811.69d650e717359.gif
+- crypto-coin-generator/07-01.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/46b994247231811.69d650e7a4b1e.jpg
+- crypto-coin-generator/08-01.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/0fac0b247231811.69d659c831e01.jpg
+- crypto-coin-generator/cover.jpg: https://mir-s3-cdn-cf.behance.net/projects/max_808/3a08a7247231811.Y3JvcCw4MTEsNjM0LDE1NzEsNDQ0.jpg
+- nalgene-bottle-outdoor/00-01.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/6d1052246767903.69cce4f7d9462.jpg
+- nalgene-bottle-outdoor/01-01.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/55b096246767903.69cd4c9b31565.jpg
+- nalgene-bottle-outdoor/02-01.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/8611e9246767903.69cd4c9b30e1a.jpg
+- nalgene-bottle-outdoor/03-01.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/15782e246767903.69cbcadc55611.jpg
+- nalgene-bottle-outdoor/04-01.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/db934d246767903.69cd83e90503b.jpg
+- nalgene-bottle-outdoor/06-01.gif: https://mir-s3-cdn-cf.behance.net/project_modules/1400/79fe0a246767903.69cd83e66bf69.gif
+- nalgene-bottle-outdoor/06-02.gif: https://mir-s3-cdn-cf.behance.net/project_modules/1400/aa7a16246767903.69cd83e66bbd1.gif
+- nalgene-bottle-outdoor/06-03.gif: https://mir-s3-cdn-cf.behance.net/project_modules/1400/a72bc1246767903.69cd83e66b670.gif
+- nalgene-bottle-outdoor/07-01.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/bddf81246767903.69cd83e904b1b.jpg
+- nalgene-bottle-outdoor/10-01.png: https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/20cd43246767903.69ce60f111859.png
+- nalgene-bottle-outdoor/cover.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/1400/15782e246767903.69cbcadc55611.jpg
+- pcb-risc-v-challenge/00-01.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/9a102a246305987.69c2bed7693fc.jpg
+- pcb-risc-v-challenge/01-01.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/a77aca246305987.69c2bed768daf.jpg
+- pcb-risc-v-challenge/03-01.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/10e9ca246305987.69c1c26757ca8.jpg
+- pcb-risc-v-challenge/04-01.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/99435a246305987.69c1c266d5e0c.jpg
+- pcb-risc-v-challenge/04-02.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/f13556246305987.69c1c266d6507.jpg
+- pcb-risc-v-challenge/05-01.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/1d349f246305987.69c2bed769a51.jpg
+- pcb-risc-v-challenge/06-01.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/ce8909246305987.69c39d2ac5120.jpg
+- pcb-risc-v-challenge/08-01.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/f0b892246305987.69c2c419882ff.jpg
+- pcb-risc-v-challenge/10-01.gif: https://mir-s3-cdn-cf.behance.net/project_modules/1400/668f60246305987.69c2b344007fa.gif
+- pcb-risc-v-challenge/10-02.gif: https://mir-s3-cdn-cf.behance.net/project_modules/1400/d21db5246305987.69c2b34400bff.gif
+- pcb-risc-v-challenge/10-03.gif: https://mir-s3-cdn-cf.behance.net/project_modules/1400/d5df9c246305987.69c2bed5bdeff.gif
+- pcb-risc-v-challenge/11-01.gif: https://mir-s3-cdn-cf.behance.net/project_modules/1400/3d0709246305987.69c298f08393c.gif
+- pcb-risc-v-challenge/12-01.gif: https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/d689bd246305987.69c298f083487.gif
+- pcb-risc-v-challenge/13-01.gif: https://mir-s3-cdn-cf.behance.net/project_modules/1400/fe14b5246305987.69c2b34126518.gif
+- pcb-risc-v-challenge/13-02.gif: https://mir-s3-cdn-cf.behance.net/project_modules/disp/45feba246305987.69c298efaf006.gif
+- pcb-risc-v-challenge/14-01.gif: https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/fd2120246305987.69c298f082ebc.gif
+- pcb-risc-v-challenge/15-01.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/45ddbb246305987.69c2c2681058b.jpg
+- pcb-risc-v-challenge/cover.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/1400/10e9ca246305987.69c1c26757ca8.jpg
+- gamerhash/00-01.png: https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/d2175e214049827.6758a80860f1e.png
+- gamerhash/04-01.gif: https://mir-s3-cdn-cf.behance.net/project_modules/source/ab5226214049827.6759891e24ca7.gif
+- gamerhash/06-01.gif: https://mir-s3-cdn-cf.behance.net/project_modules/disp/2ac85e214049827.6759891b78b6b.gif
+- gamerhash/06-02.gif: https://mir-s3-cdn-cf.behance.net/project_modules/disp/cf841e214049827.6759891b7921e.gif
+- gamerhash/06-03.gif: https://mir-s3-cdn-cf.behance.net/project_modules/disp/705deb214049827.6759891b79cf3.gif
+- gamerhash/06-04.gif: https://mir-s3-cdn-cf.behance.net/project_modules/disp/d2eefe214049827.6759891b7962b.gif
+- gamerhash/06-05.gif: https://mir-s3-cdn-cf.behance.net/project_modules/disp/e92731214049827.6759891b78495.gif
+- gamerhash/08-01.gif: https://mir-s3-cdn-cf.behance.net/project_modules/source/e95121214049827.675342ae5566f.gif
+- gamerhash/10-01.gif: https://mir-s3-cdn-cf.behance.net/project_modules/disp_webp/5a895c214049827.6750eeee2da58.gif
+- gamerhash/10-02.gif: https://mir-s3-cdn-cf.behance.net/project_modules/disp_webp/a824da214049827.6750e8cd284c3.gif
+- gamerhash/10-03.gif: https://mir-s3-cdn-cf.behance.net/project_modules/disp_webp/ae2aac214049827.6750e8cd290c0.gif
+- gamerhash/10-04.gif: https://mir-s3-cdn-cf.behance.net/project_modules/disp_webp/ed8c84214049827.675341c215086.gif
+- gamerhash/12-01.gif: https://mir-s3-cdn-cf.behance.net/project_modules/disp_webp/66bdc4214049827.675341c327d30.gif
+- gamerhash/14-01.gif: https://mir-s3-cdn-cf.behance.net/project_modules/source/794098214049827.675342ae550d5.gif
+- gamerhash/cover.png: https://mir-s3-cdn-cf.behance.net/projects/max_808/89566a214049827.Y3JvcCwxMzgwLDEwODAsMTcsMA.png

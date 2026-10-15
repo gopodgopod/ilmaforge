@@ -51,6 +51,38 @@
 
 const PROJECTS = [
   {
+    id: 8,
+    slug: "crypto-coin-generator",
+    title: "Crypto Coint Generator",
+    tags: ["3d", "motion", "product"],
+    img: "assets/studies/crypto-coin-generator-cover.jpg",
+    kind: "portfolio-study",
+  },
+  {
+    id: 9,
+    slug: "nalgene-bottle-outdoor",
+    title: "Nalgene Bottle Outdoor",
+    tags: ["3d", "motion", "product"],
+    img: "assets/studies/nalgene-bottle-outdoor-cover.jpg",
+    kind: "portfolio-study",
+  },
+  {
+    id: 10,
+    slug: "pcb-risc-v-challenge",
+    title: "PCB board RISC-V Challenge",
+    tags: ["3d", "motion", "product"],
+    img: "assets/studies/pcb-risc-v-challenge-cover.jpg",
+    kind: "portfolio-study",
+  },
+  {
+    id: 11,
+    slug: "gamerhash",
+    title: "GamerHash",
+    tags: ["3d", "motion", "film"],
+    img: "assets/studies/gamerhash-cover.png",
+    kind: "portfolio-study",
+  },
+  {
     id: 7,
     slug: "ghx-trailer",
     title: "GHX — Trailer",
@@ -202,8 +234,7 @@ let previousSection = "home";
 function navigate(sectionId, updateHistory = true) {
   document.querySelectorAll(".ghx-motion").forEach((video) => video.pause());
   if (sectionId !== "project") {
-    const ghxFilm = document.querySelector(".ghx-film iframe");
-    if (ghxFilm) ghxFilm.removeAttribute("src");
+    document.querySelectorAll(".ghx-film iframe").forEach((film) => film.removeAttribute("src"));
   }
   document
     .querySelectorAll("section")
@@ -320,11 +351,13 @@ function openProject(id, fromSection, updateHistory = true) {
   document.getElementById("projTopbarName").textContent = project.title;
   const isLure = project.kind === "lure-case-study";
   const isGhx = project.kind === "ghx-case-study";
+  const isStudy = project.kind === "portfolio-study";
   document.getElementById("project").classList.toggle("is-lure", isLure);
   document.getElementById("project").classList.toggle("is-ghx", isGhx);
+  document.getElementById("project").classList.toggle("is-study", isStudy);
   document.getElementById("projHeaderEl").innerHTML =
-    isLure || isGhx ? "" : buildProjectHeader(project);
-  document.getElementById("projContentEl").innerHTML = isLure ? buildLureCaseStudy() : isGhx ? buildGhxCaseStudy() : `
+    isLure || isGhx || isStudy ? "" : buildProjectHeader(project);
+  document.getElementById("projContentEl").innerHTML = isLure ? buildLureCaseStudy() : isGhx ? buildGhxCaseStudy() : isStudy ? buildPortfolioStudy(project.slug) : `
     <div class="proj-content">
       ${project.blocks.map((b) => buildBlock(b)).join("")}
     </div>
