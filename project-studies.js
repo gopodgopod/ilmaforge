@@ -100,6 +100,65 @@ const PORTFOLIO_MEDIA = {
       "height": 632,
       "kind": "image"
     }
+  },
+  "nalgene-bottle-outdoor": {
+    "01-01": {
+      "file": "nalgene-bottle-outdoor/01-01.webp",
+      "width": 1400,
+      "height": 209,
+      "kind": "image"
+    },
+    "02-01": {
+      "file": "nalgene-bottle-outdoor/02-01.webp",
+      "width": 1400,
+      "height": 209,
+      "kind": "image"
+    },
+    "03-01": {
+      "file": "nalgene-bottle-outdoor/03-01.webp",
+      "width": 1200,
+      "height": 675,
+      "kind": "image"
+    },
+    "04-01": {
+      "file": "nalgene-bottle-outdoor/04-01.webp",
+      "width": 1400,
+      "height": 209,
+      "kind": "image"
+    },
+    "06-01": {
+      "file": "nalgene-bottle-outdoor/06-01.mp4",
+      "width": 1400,
+      "height": 790,
+      "kind": "motion",
+      "poster": "nalgene-bottle-outdoor/06-01-poster.jpg"
+    },
+    "06-02": {
+      "file": "nalgene-bottle-outdoor/06-02.mp4",
+      "width": 1400,
+      "height": 790,
+      "kind": "motion",
+      "poster": "nalgene-bottle-outdoor/06-02-poster.jpg"
+    },
+    "06-03": {
+      "file": "nalgene-bottle-outdoor/06-03.mp4",
+      "width": 1400,
+      "height": 790,
+      "kind": "motion",
+      "poster": "nalgene-bottle-outdoor/06-03-poster.jpg"
+    },
+    "07-01": {
+      "file": "nalgene-bottle-outdoor/07-01.webp",
+      "width": 1400,
+      "height": 189,
+      "kind": "image"
+    },
+    "cover": {
+      "file": "nalgene-bottle-outdoor/cover.jpg",
+      "width": 1400,
+      "height": 788,
+      "kind": "image"
+    }
   }
 };
 const PORTFOLIO_STUDIES = {
@@ -168,6 +227,61 @@ const PORTFOLIO_STUDIES = {
       "Lighting",
       "Compositing"
     ]
+  },
+  "nalgene-bottle-outdoor": {
+    "title": "Nalgene Bottle Outdoor",
+    "hero": "02-01",
+    "paragraphs": [
+      "This project focuses on the visualization and animation of Nalgene bottles, combining rhythmic motion with clean product aesthetics. I created a series of animations in 1:1, 16:9, and 9:16 formats to ensure consistency across different social media platforms.",
+      "The core concept is based on geometric multiplication: the animation starts with a single bottle, then expands to 2, 4, 8, and so on. As the number of bottles increases, different colors are introduced, showcasing the variety of the product line while creating a dynamic and engaging visual sequence."
+    ],
+    "blocks": [
+      {
+        "type": "crop",
+        "item": "01-01"
+      },
+      {
+        "type": "media",
+        "item": "03-01"
+      },
+      {
+        "type": "media",
+        "item": "04-01"
+      },
+      {
+        "type": "film",
+        "id": "1179164941",
+        "title": "Nalgene bottle animation"
+      },
+      {
+        "type": "heading",
+        "text": "Process"
+      },
+      {
+        "type": "three",
+        "items": [
+          "06-01",
+          "06-02",
+          "06-03"
+        ]
+      },
+      {
+        "type": "media",
+        "item": "07-01"
+      },
+      {
+        "type": "film",
+        "id": "1179152629",
+        "title": "Nalgene bottle cap animation"
+      }
+    ],
+    "roles": [
+      "Modeling",
+      "Animation",
+      "Lighting",
+      "Compositing"
+    ],
+    "year": "2024"
   }
 };
 
