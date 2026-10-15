@@ -351,6 +351,7 @@ const PORTFOLIO_STUDIES = {
       {
         "type": "film",
         "id": "1179164941",
+        "ratio": "100 / 28.64",
         "title": "Nalgene bottle animation"
       },
       {
@@ -474,13 +475,13 @@ function buildPortfolioStudy(slug) {
   const block = (item) => {
     switch (item.type) {
       case 'heading': return `<h2 class="study-heading ghx-copy">${item.text}</h2>`;
-      case 'film': return `<div class="ghx-film ghx-contained"><iframe src="https://player.vimeo.com/video/${item.id}?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1" title="${item.title}" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>`;
+      case 'film': return `<div class="ghx-film ghx-contained" style="aspect-ratio: ${item.ratio || '16 / 9'}"><iframe src="https://player.vimeo.com/video/${item.id}?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1" title="${item.title}" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>`;
       case 'crop': return `<figure class="study-bottle-detail">${asset(item.item)}</figure>`;
       case 'media': return `<figure class="study-full">${asset(item.item)}</figure>`;
       default: return `<div class="study-grid study-grid--${item.type}${item.square ? ' study-grid--square' : ''}">${item.items.map(key => `<figure>${asset(key)}</figure>`).join('')}</div>`;
     }
   };
-  return `<article class="ghx-study portfolio-study" aria-labelledby="study-title">
+  return `<article class="ghx-study portfolio-study" data-theme="${slug === 'nalgene-bottle-outdoor' ? 'light' : 'dark'}" aria-labelledby="study-title">
     <figure class="study-hero">${asset(study.hero, true)}</figure>
     <header class="ghx-intro ghx-copy"><h1 id="study-title">${study.title}</h1>${study.paragraphs.map(text => `<p>${text}</p>`).join('')}</header>
     ${study.blocks.map(block).join('')}
