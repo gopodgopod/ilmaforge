@@ -159,6 +159,106 @@ const PORTFOLIO_MEDIA = {
       "height": 788,
       "kind": "image"
     }
+  },
+  "pcb-risc-v-challenge": {
+    "00-01": {
+      "file": "pcb-risc-v-challenge/00-01.webp",
+      "width": 1400,
+      "height": 302,
+      "kind": "image"
+    },
+    "03-01": {
+      "file": "pcb-risc-v-challenge/03-01.webp",
+      "width": 1400,
+      "height": 788,
+      "kind": "image"
+    },
+    "04-01": {
+      "file": "pcb-risc-v-challenge/04-01.webp",
+      "width": 1400,
+      "height": 788,
+      "kind": "image"
+    },
+    "04-02": {
+      "file": "pcb-risc-v-challenge/04-02.webp",
+      "width": 1400,
+      "height": 788,
+      "kind": "image"
+    },
+    "05-01": {
+      "file": "pcb-risc-v-challenge/05-01.webp",
+      "width": 1400,
+      "height": 1135,
+      "kind": "image"
+    },
+    "08-01": {
+      "file": "pcb-risc-v-challenge/08-01.webp",
+      "width": 1400,
+      "height": 583,
+      "kind": "image"
+    },
+    "10-01": {
+      "file": "pcb-risc-v-challenge/10-01.mp4",
+      "width": 1400,
+      "height": 782,
+      "kind": "motion",
+      "poster": "pcb-risc-v-challenge/10-01-poster.jpg"
+    },
+    "10-02": {
+      "file": "pcb-risc-v-challenge/10-02.mp4",
+      "width": 1400,
+      "height": 788,
+      "kind": "motion",
+      "poster": "pcb-risc-v-challenge/10-02-poster.jpg"
+    },
+    "10-03": {
+      "file": "pcb-risc-v-challenge/10-03.mp4",
+      "width": 1400,
+      "height": 789,
+      "kind": "motion",
+      "poster": "pcb-risc-v-challenge/10-03-poster.jpg"
+    },
+    "11-01": {
+      "file": "pcb-risc-v-challenge/11-01.mp4",
+      "width": 1400,
+      "height": 787,
+      "kind": "motion",
+      "poster": "pcb-risc-v-challenge/11-01-poster.jpg"
+    },
+    "12-01": {
+      "file": "pcb-risc-v-challenge/12-01.mp4",
+      "width": 1200,
+      "height": 500,
+      "kind": "motion",
+      "poster": "pcb-risc-v-challenge/12-01-poster.jpg"
+    },
+    "13-01": {
+      "file": "pcb-risc-v-challenge/13-01.mp4",
+      "width": 1400,
+      "height": 785,
+      "kind": "motion",
+      "poster": "pcb-risc-v-challenge/13-01-poster.jpg"
+    },
+    "13-02": {
+      "file": "pcb-risc-v-challenge/13-02.mp4",
+      "width": 600,
+      "height": 600,
+      "kind": "motion",
+      "poster": "pcb-risc-v-challenge/13-02-poster.jpg"
+    },
+    "14-01": {
+      "file": "pcb-risc-v-challenge/14-01.mp4",
+      "width": 1200,
+      "height": 500,
+      "kind": "motion",
+      "poster": "pcb-risc-v-challenge/14-01-poster.jpg"
+    },
+    "cover": {
+      "file": "pcb-risc-v-challenge/cover.jpg",
+      "width": 1400,
+      "height": 788,
+      "kind": "image"
+    }
   }
 };
 const PORTFOLIO_STUDIES = {
@@ -282,6 +382,81 @@ const PORTFOLIO_STUDIES = {
       "Compositing"
     ],
     "year": "2024"
+  },
+  "pcb-risc-v-challenge": {
+    "title": "PCB board RISC-V Challenge",
+    "hero": "00-01",
+    "paragraphs": [
+      "3D visualization of a power hardware module developed for the Thales RISC-V Challenge.",
+      "Created a high-fidelity visualization and an animation that highlights the element’s digital essence, all based on technical drawings and hardware specifications. This involved transforming a participant’s engineering schematic into a photorealistic model, meticulously detailing surface textures, electronic component labeling, and assembly accuracy."
+    ],
+    "blocks": [
+      {
+        "type": "film",
+        "id": "1176620859",
+        "title": "PCB board RISC-V Challenge — full film"
+      },
+      {
+        "type": "media",
+        "item": "03-01"
+      },
+      {
+        "type": "pair",
+        "items": [
+          "04-01",
+          "04-02"
+        ]
+      },
+      {
+        "type": "media",
+        "item": "05-01"
+      },
+      {
+        "type": "heading",
+        "text": "Process"
+      },
+      {
+        "type": "media",
+        "item": "08-01"
+      },
+      {
+        "type": "three",
+        "items": [
+          "10-01",
+          "10-02",
+          "10-03"
+        ]
+      },
+      {
+        "type": "media",
+        "item": "11-01"
+      },
+      {
+        "type": "media",
+        "item": "12-01"
+      },
+      {
+        "type": "pair",
+        "items": [
+          "13-01",
+          "13-02"
+        ]
+      },
+      {
+        "type": "media",
+        "item": "14-01"
+      }
+    ],
+    "roles": [
+      "Modeling",
+      "Animation",
+      "Lighting",
+      "Compositing"
+    ],
+    "extraCredit": {
+      "label": "PCB project",
+      "name": "Cillé Malan"
+    }
   }
 };
 
