@@ -1,0 +1,21 @@
+#project.is-study { background: #000; }
+#project.is-study .proj-topbar, #project.is-study #projHeaderEl { display: none; }
+.portfolio-study .ghx-intro p + p { margin-top: 14px; }
+.portfolio-study .study-hero { width: 100%; }
+.portfolio-study .study-full { width: 100%; margin-top: 60px; }
+.portfolio-study .study-heading { margin-top: 76px; margin-bottom: 40px; text-align: center; }
+.study-grid { display: grid; gap: 0; width: 100%; margin-top: 40px; align-items: start; }
+.study-grid--pair, .study-grid--gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.study-grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.study-grid--gallery > figure:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.study-grid--square img, .study-grid--square video { aspect-ratio: 1; height: auto; object-fit: cover; }
+.study-grid--pair:not(.study-grid--square) img, .study-grid--pair:not(.study-grid--square) video { aspect-ratio: 16 / 9; height: auto; object-fit: cover; }
+.portfolio-study .study-bottle-detail { width: 50%; margin-left: auto; overflow: hidden; }
+.portfolio-study .study-bottle-detail img { width: 250%; max-width: none; margin-left: -150%; }
+.study-extra-credit { margin-top: 32px; }
+@media (max-width: 640px) {
+  .study-grid--pair, .study-grid--three, .study-grid--gallery { grid-template-columns: 1fr; }
+  .portfolio-study .study-full { margin-top: 40px; }
+  .portfolio-study .study-heading { margin-top: 50px; margin-bottom: 30px; text-align: left; }
+  .portfolio-study .study-bottle-detail { width: 100%; }
+}
