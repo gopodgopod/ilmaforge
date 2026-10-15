@@ -45,6 +45,7 @@
   #homeGrid { grid-template-columns: repeat(3, 1fr); grid-auto-flow: row; }
   #homeGrid .proj-card, #homeGrid .proj-card.wide { grid-column: span 1; aspect-ratio: 1; }
   #homeGrid .proj-card:nth-child(4n + 1), #homeGrid .proj-card:nth-child(4n + 4) { grid-column: span 2; aspect-ratio: 2 / 1; }
+  #homeGrid .proj-card:last-child:nth-child(odd) { grid-column: 1 / -1; aspect-ratio: 2 / 1; }
 }
 .project-grid .proj-card-meta { opacity: 1; transform: none; }
 .project-grid .proj-card-title { font-size: clamp(1.15rem, 2.2vw, 2rem); }
