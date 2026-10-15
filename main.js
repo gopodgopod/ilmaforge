@@ -51,6 +51,15 @@
 
 const PROJECTS = [
   {
+    id: 7,
+    slug: "ghx-trailer",
+    title: "GHX — Trailer",
+    tags: ["3d", "motion", "film"],
+    img: "assets/ghx/14-04.webp",
+    wide: true,
+    kind: "ghx-case-study",
+  },
+  {
     id: 6,
     slug: "from-concept-to-campaign",
     title: "From concept to campaign",
@@ -191,6 +200,11 @@ let currentSection = "home";
 let previousSection = "home";
 
 function navigate(sectionId, updateHistory = true) {
+  document.querySelectorAll(".ghx-motion").forEach((video) => video.pause());
+  if (sectionId !== "project") {
+    const ghxFilm = document.querySelector(".ghx-film iframe");
+    if (ghxFilm) ghxFilm.removeAttribute("src");
+  }
   document
     .querySelectorAll("section")
     .forEach((s) => s.classList.remove("active"));
@@ -214,6 +228,7 @@ function navigate(sectionId, updateHistory = true) {
   if (updateHistory && sectionId === "home") history.pushState(null, "", "/");
   if (updateHistory && sectionId === "works") history.pushState(null, "", "/works");
   if (updateHistory && sectionId === "contact") history.pushState(null, "", "/contact");
+  if (sectionId === "project") initGhxMotion();
 }
 
 /** Go back from project detail page */
@@ -304,10 +319,12 @@ function openProject(id, fromSection, updateHistory = true) {
 
   document.getElementById("projTopbarName").textContent = project.title;
   const isLure = project.kind === "lure-case-study";
+  const isGhx = project.kind === "ghx-case-study";
   document.getElementById("project").classList.toggle("is-lure", isLure);
+  document.getElementById("project").classList.toggle("is-ghx", isGhx);
   document.getElementById("projHeaderEl").innerHTML =
-    isLure ? "" : buildProjectHeader(project);
-  document.getElementById("projContentEl").innerHTML = isLure ? buildLureCaseStudy() : `
+    isLure || isGhx ? "" : buildProjectHeader(project);
+  document.getElementById("projContentEl").innerHTML = isLure ? buildLureCaseStudy() : isGhx ? buildGhxCaseStudy() : `
     <div class="proj-content">
       ${project.blocks.map((b) => buildBlock(b)).join("")}
     </div>

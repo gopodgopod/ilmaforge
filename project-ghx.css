@@ -1,0 +1,47 @@
+/* GHX follows the existing black case-study layout and uses local media. */
+#project.is-ghx { background: #000; }
+#project.is-ghx .proj-topbar, #project.is-ghx #projHeaderEl { display: none; }
+.ghx-study { color: #fff; background: #000; font-family: Arial, sans-serif; padding-bottom: 76px; }
+.ghx-study figure { margin: 0; min-width: 0; }
+.ghx-study img, .ghx-study video { display: block; width: 100%; height: auto; background: #000; }
+.ghx-study h1, .ghx-study h2 { font-size: 30px; line-height: 1.2; font-weight: 400; text-transform: uppercase; margin: 0 0 24px; }
+.ghx-study p { font-size: 13px; line-height: 24px; margin: 0; }
+.ghx-contained { width: min(880px, calc(100% - 40px)); margin-inline: auto; }
+.ghx-copy { width: min(579px, calc(100% - 40px)); margin-inline: auto; }
+.ghx-hero { width: 100%; }
+.ghx-intro { margin-top: 76px; margin-bottom: 76px; text-align: center; }
+.ghx-banner { width: 100%; }
+.ghx-film { margin-top: 70px; aspect-ratio: 16 / 9; background: #101010; }
+.ghx-film iframe { width: 100%; height: 100%; display: block; border: 0; }
+.ghx-process { margin-top: 76px; }
+.ghx-process > h2 { margin-bottom: 40px; text-align: center; }
+.ghx-row { display: grid; gap: 8px; margin-top: 24px; align-items: center; }
+.ghx-three { grid-template-columns: 1fr 1.3fr 1fr; }
+.ghx-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.ghx-pair video, .ghx-gallery img { aspect-ratio: 16 / 9; object-fit: contain; }
+.ghx-scene-banner { margin-top: 60px !important; }
+.ghx-gallery { margin-top: 60px; }
+.ghx-study .ghx-credits { background: #000; border: 0; padding: 0; margin-top: 76px; }
+.ghx-credits > div { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.ghx-credits h2 { font-size: 16px; font-weight: 700; }
+.ghx-credits p { text-transform: uppercase; }
+.ghx-credits .ghx-year { margin-top: 60px; color: #999; text-align: center; }
+.ghx-credits > a { display: block; width: fit-content; margin: 40px auto 0; padding: 12px 0; font-size: 13px; }
+.ghx-credits > a:focus-visible { outline: 2px solid var(--accent); outline-offset: 6px; }
+@media (min-width: 1440px) {
+  .ghx-contained { width: min(1040px, calc(100% - 40px)); }
+  .ghx-copy { width: min(680px, calc(100% - 40px)); }
+  .ghx-study p { font-size: 15px; line-height: 26px; }
+}
+@media (max-width: 640px) {
+  .ghx-study { padding-bottom: 60px; }
+  .ghx-intro { margin-block: 40px 50px; text-align: left; }
+  .ghx-film { margin-top: 50px; }
+  .ghx-process { margin-top: 50px; }
+  .ghx-process > h2 { margin-bottom: 30px; text-align: left; }
+  .ghx-three, .ghx-pair { grid-template-columns: 1fr; gap: 24px; }
+  .ghx-row { margin-top: 24px; }
+  .ghx-scene-banner, .ghx-gallery { margin-top: 40px !important; }
+  .ghx-study .ghx-credits { margin-top: 50px; }
+  .ghx-credits > div { grid-template-columns: 1fr; gap: 0; }
+}
