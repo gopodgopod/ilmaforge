@@ -20,6 +20,7 @@ jobs:
           node --check main.js
           node --check project-lure.js
           node --check project-ghx.js
+          node --check project-studies.js
           node --check scripts/build.mjs
       - name: Build Cloudflare Pages output
         run: node scripts/build.mjs
@@ -31,4 +32,6 @@ jobs:
           test -s dist/project-lure.css
           test -s dist/project-ghx.js
           test -s dist/project-ghx.css
+          test -s dist/project-studies.js
+          test -s dist/project-studies.css
           test -s dist/_redirects

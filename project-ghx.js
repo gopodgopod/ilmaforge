@@ -60,7 +60,8 @@ function buildGhxCaseStudy() {
 let ghxMotionObserver;
 function initGhxMotion() {
   if (ghxMotionObserver) ghxMotionObserver.disconnect();
-  if (!document.getElementById('project').classList.contains('is-ghx')) return;
+  const projectPage = document.getElementById('project');
+  if (!projectPage.classList.contains('is-ghx') && !projectPage.classList.contains('is-study')) return;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const videos = document.querySelectorAll('.ghx-motion');
   const load = (video) => {
