@@ -19,3 +19,13 @@
   .portfolio-study .study-heading { margin-top: 50px; margin-bottom: 30px; text-align: left; }
   .portfolio-study .study-bottle-detail { width: 100%; }
 }
+
+/* Nalgene uses a white case-study canvas. */
+#project:has(.portfolio-study[data-theme="light"]),
+.portfolio-study[data-theme="light"],
+.portfolio-study[data-theme="light"] .ghx-credits { background: #fff; color: #111; }
+.portfolio-study[data-theme="light"] img,
+.portfolio-study[data-theme="light"] video { background: #fff; }
+.portfolio-study[data-theme="light"] .ghx-year { color: #666; }
+
+.portfolio-study[data-theme="light"] .ghx-film { width: 100%; margin-inline: 0; background: #fff; }
