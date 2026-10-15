@@ -51,36 +51,16 @@
 
 const PROJECTS = [
   {
-    id: 8,
-    slug: "crypto-coin-generator",
-    title: "Crypto Coint Generator",
-    tags: ["3d", "motion", "product"],
-    img: "assets/studies/crypto-coin-generator-cover.jpg",
-    kind: "portfolio-study",
-  },
-  {
-    id: 9,
-    slug: "nalgene-bottle-outdoor",
-    title: "Nalgene Bottle Outdoor",
-    tags: ["3d", "motion", "product"],
-    img: "assets/studies/nalgene-bottle-outdoor-cover.jpg",
-    kind: "portfolio-study",
-  },
-  {
-    id: 10,
-    slug: "pcb-risc-v-challenge",
-    title: "PCB board RISC-V Challenge",
-    tags: ["3d", "motion", "product"],
-    img: "assets/studies/pcb-risc-v-challenge-cover.jpg",
-    kind: "portfolio-study",
-  },
-  {
-    id: 11,
-    slug: "gamerhash",
-    title: "GamerHash",
-    tags: ["3d", "motion", "film"],
-    img: "assets/studies/gamerhash-cover.png",
-    kind: "portfolio-study",
+    "id": 8,
+    "slug": "crypto-coin-generator",
+    "title": "Crypto Coint Generator",
+    "tags": [
+      "3d",
+      "motion",
+      "product"
+    ],
+    "img": "assets/studies/crypto-coin-generator/cover.jpg",
+    "kind": "portfolio-study"
   },
   {
     id: 7,
