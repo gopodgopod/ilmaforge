@@ -75,6 +75,18 @@ const PROJECTS = [
     "kind": "portfolio-study"
   },
   {
+    "id": 10,
+    "slug": "pcb-risc-v-challenge",
+    "title": "PCB board RISC-V Challenge",
+    "tags": [
+      "3d",
+      "motion",
+      "product"
+    ],
+    "img": "assets/studies/pcb-risc-v-challenge/cover.jpg",
+    "kind": "portfolio-study"
+  },
+  {
     id: 7,
     slug: "ghx-trailer",
     title: "GHX — Trailer",
