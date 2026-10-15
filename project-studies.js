@@ -259,6 +259,90 @@ const PORTFOLIO_MEDIA = {
       "height": 788,
       "kind": "image"
     }
+  },
+  "gamerhash": {
+    "00-01": {
+      "file": "gamerhash/00-01.webp",
+      "width": 1400,
+      "height": 508,
+      "kind": "image"
+    },
+    "06-01": {
+      "file": "gamerhash/06-01.mp4",
+      "width": 600,
+      "height": 335,
+      "kind": "motion",
+      "poster": "gamerhash/06-01-poster.jpg"
+    },
+    "06-02": {
+      "file": "gamerhash/06-02.mp4",
+      "width": 600,
+      "height": 335,
+      "kind": "motion",
+      "poster": "gamerhash/06-02-poster.jpg"
+    },
+    "06-03": {
+      "file": "gamerhash/06-03.mp4",
+      "width": 600,
+      "height": 335,
+      "kind": "motion",
+      "poster": "gamerhash/06-03-poster.jpg"
+    },
+    "06-04": {
+      "file": "gamerhash/06-04.mp4",
+      "width": 600,
+      "height": 335,
+      "kind": "motion",
+      "poster": "gamerhash/06-04-poster.jpg"
+    },
+    "06-05": {
+      "file": "gamerhash/06-05.mp4",
+      "width": 600,
+      "height": 335,
+      "kind": "motion",
+      "poster": "gamerhash/06-05-poster.jpg"
+    },
+    "10-01": {
+      "file": "gamerhash/10-01.mp4",
+      "width": 600,
+      "height": 338,
+      "kind": "motion",
+      "poster": "gamerhash/10-01-poster.jpg"
+    },
+    "10-02": {
+      "file": "gamerhash/10-02.mp4",
+      "width": 600,
+      "height": 338,
+      "kind": "motion",
+      "poster": "gamerhash/10-02-poster.jpg"
+    },
+    "10-03": {
+      "file": "gamerhash/10-03.mp4",
+      "width": 600,
+      "height": 338,
+      "kind": "motion",
+      "poster": "gamerhash/10-03-poster.jpg"
+    },
+    "10-04": {
+      "file": "gamerhash/10-04.mp4",
+      "width": 600,
+      "height": 338,
+      "kind": "motion",
+      "poster": "gamerhash/10-04-poster.jpg"
+    },
+    "12-01": {
+      "file": "gamerhash/12-01.mp4",
+      "width": 600,
+      "height": 338,
+      "kind": "motion",
+      "poster": "gamerhash/12-01-poster.jpg"
+    },
+    "cover": {
+      "file": "gamerhash/cover.png",
+      "width": 808,
+      "height": 632,
+      "kind": "image"
+    }
   }
 };
 const PORTFOLIO_STUDIES = {
@@ -458,6 +542,61 @@ const PORTFOLIO_STUDIES = {
       "label": "PCB project",
       "name": "Cillé Malan"
     }
+  },
+  "gamerhash": {
+    "title": "GamerHash",
+    "hero": "00-01",
+    "paragraphs": [
+      "This video for the GamerHash AI brand showcases the features and functionality of their service, which allows gamers to earn passive income by utilizing their idle gaming PCs for cryptocurrency mining and AI-based tasks.",
+      "The video highlights how easily and efficiently users can connect their devices to earn rewards, while also gaining access to premium features like AI Chatbot and AI Image Generator models. It emphasizes the synergy between gaming, mining and AI, which offers a unique way for individuals to profit through the growing world of cryptocurrencies and new technologies."
+    ],
+    "blocks": [
+      {
+        "type": "film",
+        "id": "1036442251",
+        "title": "GamerHash AI — full film"
+      },
+      {
+        "type": "heading",
+        "text": "Blocking"
+      },
+      {
+        "type": "gallery",
+        "items": [
+          "06-01",
+          "06-02",
+          "06-03",
+          "06-04",
+          "06-05"
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Process"
+      },
+      {
+        "type": "gallery",
+        "items": [
+          "10-01",
+          "10-02",
+          "10-03",
+          "10-04"
+        ]
+      },
+      {
+        "type": "media",
+        "item": "12-01"
+      },
+      {
+        "type": "heading",
+        "text": "Thanks for watching"
+      }
+    ],
+    "roles": [
+      "Modeling",
+      "Texturing",
+      "Compositing"
+    ]
   }
 };
 
