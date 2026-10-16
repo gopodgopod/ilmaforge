@@ -39,7 +39,7 @@ function buildPosnordCaseStudy() {
     <section class="posnord-summary posnord-contained" aria-labelledby="posnord-summary-title"><div><h2 id="posnord-summary-title">Project summary</h2>
       <p>For Posnord, we created a complete CGI product animation that transforms a technical object into an engaging visual presentation. By recreating and animating every individual component, we were able to show the product's structure and design in a clear and memorable way.</p>
     </div></section>
-    <figure class="posnord-finish posnord-contained">${image('10-construction-detail.png', 'Close-up of the table leg connection and assembly screw')}</figure>
+    <figure class="posnord-finish">${image('10-construction-detail.png', 'Close-up of the table leg connection and assembly screw')}</figure>
     <footer class="posnord-signoff"><div class="case-brand"><a class="logo" href="/" onclick="navigate('home'); return false;" aria-label="ILMA — home">ILMA</a></div><a href="/works" onclick="navigate('works'); return false;">Back to projects <span aria-hidden="true">↗</span></a></footer>
   </article>`;
 }
