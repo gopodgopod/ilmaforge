@@ -19,6 +19,8 @@ Portfolio studia ILMA: https://ilmaforge.com
 
 - `project-canal.js`, `project-canal.css`, `assets/canal-plus/` — CANAL+ według dostarczonego layoutu. Miejsce na film pozostaje do uzupełnienia. Stare adresy projektu i materiałów przekierowują do aktualnych plików.
 
+- `project-favorite.js`, `project-favorite.css`, `assets/favorite/` — Favorite X1 według dostarczonego layoutu, tekst w HTML i film Vimeo. Pasek klatek używa lekkich miniatur WebP.
+
 ## Praca nad zmianami
 
 `main` zawiera aktualną wersję produkcyjną. Dla każdej zmiany utwórz krótkotrwałą gałąź od `main`, np. `feature/nazwa`, `bugfix/nazwa` lub `chore/nazwa`. Zmiany wykonywane przez Codex używają prefiksu `codex/`.
