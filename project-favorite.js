@@ -37,19 +37,3 @@ function buildFavoriteCaseStudy() {
     <footer class="favorite-signoff"><div class="case-brand"><a class="logo" href="/" onclick="navigate('home'); return false;" aria-label="ILMA — home">ILMA</a></div><a href="/works" onclick="navigate('works'); return false;">Back to projects <span aria-hidden="true">↗</span></a></footer>
   </article>`;
 }
-
-let favoriteFilmObserver;
-function initFavoriteFilm() {
-  favoriteFilmObserver?.disconnect();
-  const container = document.querySelector('#project.is-favorite.active .favorite-video');
-  if (!container) return;
-  const frame = container.querySelector('iframe');
-  favoriteFilmObserver = new IntersectionObserver(([entry]) => {
-    if (entry.isIntersecting && entry.intersectionRatio >= 0.15) {
-      if (!frame.hasAttribute('src')) frame.src = frame.dataset.src;
-    } else {
-      frame.removeAttribute('src');
-    }
-  }, { threshold: [0, 0.15] });
-  favoriteFilmObserver.observe(container);
-}

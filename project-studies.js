@@ -610,7 +610,11 @@ function buildPortfolioStudy(slug) {
   const block = (item) => {
     switch (item.type) {
       case 'heading': return `<h2 class="study-heading ghx-copy">${item.text}</h2>`;
-      case 'film': return `<div class="ghx-film ghx-contained" style="aspect-ratio: ${item.ratio || '16 / 9'}"><iframe src="https://player.vimeo.com/video/${item.id}?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1" title="${item.title}" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>`;
+      case 'film': {
+        const onScroll = slug === 'nalgene-bottle-outdoor';
+        const playback = onScroll ? '&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;playsinline=1&amp;background=1&amp;controls=0&amp;badge=0' : '';
+        return `<div class="ghx-film ghx-contained${onScroll ? ' nalgene-film' : ''}" style="aspect-ratio: ${item.ratio || '16 / 9'}"><iframe ${onScroll ? 'data-src' : 'src'}="https://player.vimeo.com/video/${item.id}?title=0&amp;byline=0&amp;portrait=0&amp;dnt=1${playback}" title="${item.title}" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>`;
+      }
       case 'crop': return `<figure class="study-bottle-detail">${asset(item.item)}</figure>`;
       case 'media': return `<figure class="study-full">${asset(item.item)}</figure>`;
       default: return `<div class="study-grid study-grid--${item.type}${item.square ? ' study-grid--square' : ''}">${item.items.map(key => `<figure>${asset(key)}</figure>`).join('')}</div>`;

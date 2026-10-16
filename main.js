@@ -244,6 +244,25 @@ function toEmbedUrl(url) {
 let currentSection = "home";
 let previousSection = "home";
 
+// Start each muted embedded film only while it is visible in the active project.
+let viewportFilmObserver;
+function initViewportFilms() {
+  viewportFilmObserver?.disconnect();
+  const frames = document.querySelectorAll('#project.active .favorite-video iframe[data-src], #project.active .nalgene-film iframe[data-src]');
+  if (!frames.length) return;
+  viewportFilmObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const frame = entry.target;
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.15) {
+        if (!frame.hasAttribute('src')) frame.src = frame.dataset.src;
+      } else {
+        frame.removeAttribute('src');
+      }
+    });
+  }, { threshold: [0, 0.15] });
+  frames.forEach((frame) => viewportFilmObserver.observe(frame));
+}
+
 function navigate(sectionId, updateHistory = true) {
   document.querySelectorAll(".ghx-motion").forEach((video) => video.pause());
   if (sectionId !== "project") {
@@ -273,7 +292,7 @@ function navigate(sectionId, updateHistory = true) {
   if (updateHistory && sectionId === "works") history.pushState(null, "", "/works");
   if (updateHistory && sectionId === "contact") history.pushState(null, "", "/contact");
   if (sectionId === "project") initGhxMotion();
-  initFavoriteFilm();
+  initViewportFilms();
 }
 
 /** Go back from project detail page */
