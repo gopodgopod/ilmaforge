@@ -21,6 +21,8 @@ Portfolio studia ILMA: https://ilmaforge.com
 
 - `project-favorite.js`, `project-favorite.css`, `assets/favorite/` — Favorite X1 według dostarczonego layoutu, tekst w HTML i film Vimeo. Pasek klatek używa lekkich miniatur WebP.
 
+- `project-posnord.js`, `project-posnord.css`, `assets/posnord/` — Posnord według dostarczonego layoutu, tekst w HTML, oryginalne grafiki i miejsce na film do późniejszego uzupełnienia.
+
 ## Praca nad zmianami
 
 `main` zawiera aktualną wersję produkcyjną. Dla każdej zmiany utwórz krótkotrwałą gałąź od `main`, np. `feature/nazwa`, `bugfix/nazwa` lub `chore/nazwa`. Zmiany wykonywane przez Codex używają prefiksu `codex/`.
