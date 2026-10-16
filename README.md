@@ -14,6 +14,9 @@ Portfolio studia ILMA: https://ilmaforge.com
 - `_redirects` — obsługa adresów podstron.
 - `.github/workflows/site-check.yml` — automatyczna kontrola składni i budowania strony.
 
+- `project-duolife.js`, `project-duolife.css`, `assets/duolife/` — projekt DuoLife zgodny z dostarczonym layoutem, tekst w HTML i oryginalne materiały.
+- `assets/brand/ilma-wordmark.svg` — wektorowy znak ILMA używany jako podpis projektów.
+
 ## Praca nad zmianami
 
 `main` zawiera aktualną wersję produkcyjną. Dla każdej zmiany utwórz krótkotrwałą gałąź od `main`, np. `feature/nazwa`, `bugfix/nazwa` lub `chore/nazwa`. Zmiany wykonywane przez Codex używają prefiksu `codex/`.

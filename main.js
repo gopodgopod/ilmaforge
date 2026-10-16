@@ -51,6 +51,12 @@
 
 const PROJECTS = [
   {
+    id: 12, slug: "duolife", title: "DuoLife",
+    tags: ["3d", "motion", "product"],
+    img: "assets/duolife/02-boreliss-fern.jpg",
+    kind: "duolife-case-study",
+  },
+  {
     "id": 8,
     "slug": "crypto-coin-generator",
     "title": "Crypto Coint Generator",
@@ -365,6 +371,8 @@ function openProject(id, fromSection, updateHistory = true) {
   previousSection = fromSection || "works";
 
   document.getElementById("projTopbarName").textContent = project.title;
+  const isDuoLife = project.kind === "duolife-case-study";
+  document.getElementById("project").classList.toggle("is-duolife", isDuoLife);
   const isLure = project.kind === "lure-case-study";
   const isGhx = project.kind === "ghx-case-study";
   const isStudy = project.kind === "portfolio-study";
@@ -372,8 +380,8 @@ function openProject(id, fromSection, updateHistory = true) {
   document.getElementById("project").classList.toggle("is-ghx", isGhx);
   document.getElementById("project").classList.toggle("is-study", isStudy);
   document.getElementById("projHeaderEl").innerHTML =
-    isLure || isGhx || isStudy ? "" : buildProjectHeader(project);
-  document.getElementById("projContentEl").innerHTML = isLure ? buildLureCaseStudy() : isGhx ? buildGhxCaseStudy() : isStudy ? buildPortfolioStudy(project.slug) : `
+    isDuoLife || isLure || isGhx || isStudy ? "" : buildProjectHeader(project);
+  document.getElementById("projContentEl").innerHTML = isDuoLife ? buildDuoLifeCaseStudy() : isLure ? buildLureCaseStudy() : isGhx ? buildGhxCaseStudy() : isStudy ? buildPortfolioStudy(project.slug) : `
     <div class="proj-content">
       ${project.blocks.map((b) => buildBlock(b)).join("")}
     </div>

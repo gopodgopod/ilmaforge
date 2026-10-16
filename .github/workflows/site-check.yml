@@ -21,6 +21,7 @@ jobs:
           node --check project-lure.js
           node --check project-ghx.js
           node --check project-studies.js
+          node --check project-duolife.js
           node --check scripts/build.mjs
       - name: Build Cloudflare Pages output
         run: node scripts/build.mjs
@@ -34,4 +35,7 @@ jobs:
           test -s dist/project-ghx.css
           test -s dist/project-studies.js
           test -s dist/project-studies.css
+          test -s dist/project-duolife.js
+          test -s dist/project-duolife.css
+          test -s dist/assets/brand/ilma-wordmark.svg
           test -s dist/_redirects
