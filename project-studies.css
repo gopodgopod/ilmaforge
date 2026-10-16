@@ -29,3 +29,9 @@
 .portfolio-study[data-theme="light"] .ghx-year { color: #666; }
 
 .portfolio-study[data-theme="light"] .ghx-film { width: 100%; margin-inline: 0; background: #fff; }
+
+/* One studio signature across case studies. */
+.ghx-study .ghx-credits > .case-brand, .case-brand { display: flex; justify-content: center; }
+.case-brand .ilma-wordmark { display: block; width: 156px; height: 36px; object-fit: contain; background: transparent; filter: invert(1); }
+.portfolio-study[data-theme="light"] .case-brand .ilma-wordmark { filter: none; background: transparent; }
+.lure-brand { margin: 76px auto 0; }

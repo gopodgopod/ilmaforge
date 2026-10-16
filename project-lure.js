@@ -53,5 +53,6 @@ function buildLureCaseStudy() {
       <p>Fusion 360 (product modeling and prototyping), Cinema 4D + Redshift (modeling, 3D rendering, animation), Adobe After Effects (compositing, post-production, editing).</p>
     </div>
     <figure class="lure-finish">${image('finished-lure.png', 'Final rendered fishing lure')}</figure>
+    <div class="case-brand lure-brand"><img class="ilma-wordmark" src="/assets/brand/ilma-wordmark.svg" alt="ILMA" width="156" height="36" loading="lazy"></div>
   </article>`;
 }

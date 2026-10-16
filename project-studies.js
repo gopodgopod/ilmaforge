@@ -624,7 +624,7 @@ function buildPortfolioStudy(slug) {
     <figure class="study-hero">${asset(study.hero, true)}</figure>
     <header class="ghx-intro ghx-copy"><h1 id="study-title">${study.title}</h1>${study.paragraphs.map(text => `<p>${text}</p>`).join('')}</header>
     ${study.blocks.map(block).join('')}
-    <footer class="ghx-credits ghx-contained"><div><h2>Maksym Kuznietsov</h2><p>${study.roles.join('<br>')}</p></div>
+    <footer class="ghx-credits ghx-contained"><div class="case-brand"><img class="ilma-wordmark" src="/assets/brand/ilma-wordmark.svg" alt="ILMA" width="156" height="36" loading="lazy"></div>
       ${study.extraCredit ? `<div class="study-extra-credit"><h2>${study.extraCredit.label}</h2><p>${study.extraCredit.name}</p></div>` : ''}
       ${study.year ? `<p class="ghx-year">${study.year}</p>` : ''}
       <a href="/works" onclick="navigate('works'); return false;">Back to projects <span aria-hidden="true">↗</span></a>
