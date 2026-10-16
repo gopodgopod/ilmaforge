@@ -9,13 +9,15 @@ Portfolio studia ILMA: https://ilmaforge.com
 - `assets/lure/` — oryginalne obrazy tego projektu.
 - `project-ghx.js`, `project-ghx.css`, `assets/ghx/` — projekt „GHX — Trailer” z Behance, film Vimeo i lokalne pętle animacji.
 - `project-studies.js`, `project-studies.css`, `assets/studies/<projekt>/` — Crypto Coint Generator, Nalgene Bottle Outdoor, PCB board RISC-V Challenge, GamerHash. Każdy projekt ma osobny katalog materiałów i SOURCES.md.
-- Pozostałe zdjęcia i katalog `canal/` — materiały wcześniejszych projektów.
+- Pozostałe zdjęcia w katalogu głównym — materiały wcześniejszych projektów.
 - `scripts/build.mjs` — przygotowanie katalogu `dist/` dla Cloudflare Pages i wersjonowanie plików CSS/JS.
 - `_redirects` — obsługa adresów podstron.
 - `.github/workflows/site-check.yml` — automatyczna kontrola składni i budowania strony.
 
 - `project-duolife.js`, `project-duolife.css`, `assets/duolife/` — projekt DuoLife zgodny z dostarczonym layoutem, tekst w HTML i oryginalne materiały.
 - Podpis każdego projektu używa tego samego logotypu ILMA i stylu `.logo` co lewy górny róg nawigacji.
+
+- `project-canal.js`, `project-canal.css`, `assets/canal-plus/` — CANAL+ według dostarczonego layoutu. Miejsce na film pozostaje do uzupełnienia. Stare adresy projektu i materiałów przekierowują do aktualnych plików.
 
 ## Praca nad zmianami
 

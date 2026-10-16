@@ -51,6 +51,12 @@
 
 const PROJECTS = [
   {
+    id: 5, slug: "canal-plus", title: "CANAL+",
+    tags: ["3d", "motion", "film"],
+    img: "assets/canal-plus/01-speedway-hero.jpg",
+    kind: "canal-case-study",
+  },
+  {
     id: 12, slug: "duolife", title: "DuoLife",
     tags: ["3d", "motion", "product"],
     img: "assets/duolife/02-boreliss-fern.jpg",
@@ -200,28 +206,7 @@ const PROJECTS = [
       { type: "img-3", items: ["1.jpg", "2.jpg", "3.jpg"] },
     ],
   },
-  {
-    id: 5,
-    title: "Canal",
-    client: "Canal",
-    tags: ["product", "still"],
-    year: 2024,
-    img: "canal/Motiond_design_canal_plus_main.jpg",
-    wide: true,
-    description: "Short description of the project.",
-    role: "Product Visualization",
-    deliverables: "CGI Images",
-    duration: "3 weeks",
-    blocks: [
-      { type: "img-full", src: "canal/Motiond_design_canal_plus_main.jpg" },
-      {
-        type: "text-img",
-        src: "canal/Motiond_design_canal_plus_image_1.png",
-        heading: "About this project",
-        body: "Describe the project here.",
-      },
-    ],
-  },
+
 ];
 
 /* ==============================================================
@@ -371,6 +356,8 @@ function openProject(id, fromSection, updateHistory = true) {
   previousSection = fromSection || "works";
 
   document.getElementById("projTopbarName").textContent = project.title;
+  const isCanal = project.kind === "canal-case-study";
+  document.getElementById("project").classList.toggle("is-canal", isCanal);
   const isDuoLife = project.kind === "duolife-case-study";
   document.getElementById("project").classList.toggle("is-duolife", isDuoLife);
   const isLure = project.kind === "lure-case-study";
@@ -380,8 +367,8 @@ function openProject(id, fromSection, updateHistory = true) {
   document.getElementById("project").classList.toggle("is-ghx", isGhx);
   document.getElementById("project").classList.toggle("is-study", isStudy);
   document.getElementById("projHeaderEl").innerHTML =
-    isDuoLife || isLure || isGhx || isStudy ? "" : buildProjectHeader(project);
-  document.getElementById("projContentEl").innerHTML = isDuoLife ? buildDuoLifeCaseStudy() : isLure ? buildLureCaseStudy() : isGhx ? buildGhxCaseStudy() : isStudy ? buildPortfolioStudy(project.slug) : `
+    isCanal || isDuoLife || isLure || isGhx || isStudy ? "" : buildProjectHeader(project);
+  document.getElementById("projContentEl").innerHTML = isCanal ? buildCanalCaseStudy() : isDuoLife ? buildDuoLifeCaseStudy() : isLure ? buildLureCaseStudy() : isGhx ? buildGhxCaseStudy() : isStudy ? buildPortfolioStudy(project.slug) : `
     <div class="proj-content">
       ${project.blocks.map((b) => buildBlock(b)).join("")}
       <div class="case-brand generic-brand"><a class="logo" href="/" onclick="navigate('home'); return false;" aria-label="ILMA — home">ILMA</a></div>
