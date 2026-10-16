@@ -14,6 +14,7 @@
 .canal-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); gap: 7vw; align-items: center; padding-top: clamp(55px, 6vw, 120px); }
 .canal-about { margin-top: clamp(76px, 10vw, 200px); }
 .canal-film-placeholder { position: relative; aspect-ratio: 16 / 9; background: #111; margin-top: clamp(45px, 6vw, 120px) !important; }
+.canal-study .canal-film-placeholder { margin-inline: auto; }
 .canal-film-placeholder img { height: 100%; object-fit: cover; opacity: .5; }
 .canal-film-placeholder figcaption { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 13px; text-transform: uppercase; letter-spacing: .16em; color: #fff; }
 .canal-panorama { margin-block: clamp(65px, 8vw, 160px) !important; }
