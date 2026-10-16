@@ -247,7 +247,7 @@ let previousSection = "home";
 function navigate(sectionId, updateHistory = true) {
   document.querySelectorAll(".ghx-motion").forEach((video) => video.pause());
   if (sectionId !== "project") {
-    document.querySelectorAll(".ghx-film iframe").forEach((film) => film.removeAttribute("src"));
+    document.querySelectorAll(".ghx-film iframe, .favorite-video iframe").forEach((film) => film.removeAttribute("src"));
   }
   document
     .querySelectorAll("section")
