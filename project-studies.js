@@ -537,11 +537,7 @@ const PORTFOLIO_STUDIES = {
       "Animation",
       "Lighting",
       "Compositing"
-    ],
-    "extraCredit": {
-      "label": "PCB project",
-      "name": "Cillé Malan"
-    }
+    ]
   },
   "gamerhash": {
     "title": "GamerHash",
@@ -631,3 +627,4 @@ function buildPortfolioStudy(slug) {
     </footer>
   </article>`;
 }
+
