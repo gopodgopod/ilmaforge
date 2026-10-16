@@ -55,7 +55,7 @@ function buildDuoLifeCaseStudy() {
       <figure>${image('13-boreliss-sunlight.jpg', 'DuoLife BorelissPro bottle on a stone pedestal in warm sunlight')}</figure>
     </section>
     <figure class="duo-finish">${image('15-dropper.png', 'DuoLife amber glass dropper bottle')}</figure>
-    <footer class="duo-signoff"><img class="ilma-wordmark" src="/assets/brand/ilma-wordmark.svg" alt="ILMA" width="156" height="36" loading="lazy"><a href="/works" onclick="navigate('works'); return false;">Back to projects <span aria-hidden="true">↗</span></a></footer>
+    <footer class="duo-signoff"><a class="logo" href="/" onclick="navigate('home'); return false;" aria-label="ILMA — home">ILMA</a><a href="/works" onclick="navigate('works'); return false;">Back to projects <span aria-hidden="true">↗</span></a></footer>
   </article>`;
 }
 

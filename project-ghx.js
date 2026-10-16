@@ -50,7 +50,7 @@ function buildGhxCaseStudy() {
       </div>
     </div>
     <footer class="ghx-credits ghx-contained">
-      <div class="case-brand"><img class="ilma-wordmark" src="/assets/brand/ilma-wordmark.svg" alt="ILMA" width="156" height="36" loading="lazy"></div>
+      <div class="case-brand"><a class="logo" href="/" onclick="navigate('home'); return false;" aria-label="ILMA — home">ILMA</a></div>
       <p class="ghx-year">2025</p>
       <a href="/works" onclick="navigate('works'); return false;">Back to projects <span aria-hidden="true">↗</span></a>
     </footer>

@@ -28,7 +28,7 @@
 .duo-tools > figure { align-self: start; }
 .duo-finish { width: min(420px, 40%); margin: clamp(70px, 9vw, 180px) auto 60px !important; }
 .duo-signoff { display: flex; align-items: center; flex-direction: column; gap: 30px; font-size: 13px; }
-.duo-study .duo-signoff .ilma-wordmark { width: 156px; height: 36px; object-fit: contain; }
+.duo-signoff .logo { color: #111; }
 @media (max-width: 760px) {
   .duo-contained { width: calc(100% - 40px); }
   .duo-study h1, .duo-study h2 { font-size: clamp(27px, 5.4vw, 40px); line-height: 1.1; margin-bottom: 24px; }
@@ -45,3 +45,6 @@
   .duo-finish { width: min(300px, 65%); }
 }
 
+
+/* Keep the white layout clear of the shared dark viewport overlay. */
+body:has(#project.is-duolife.active) .foggy-footer { display: none; }

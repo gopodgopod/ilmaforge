@@ -384,6 +384,7 @@ function openProject(id, fromSection, updateHistory = true) {
   document.getElementById("projContentEl").innerHTML = isDuoLife ? buildDuoLifeCaseStudy() : isLure ? buildLureCaseStudy() : isGhx ? buildGhxCaseStudy() : isStudy ? buildPortfolioStudy(project.slug) : `
     <div class="proj-content">
       ${project.blocks.map((b) => buildBlock(b)).join("")}
+      <div class="case-brand generic-brand"><a class="logo" href="/" onclick="navigate('home'); return false;" aria-label="ILMA — home">ILMA</a></div>
     </div>
   `;
   document.getElementById("projNavEl").innerHTML = "";
