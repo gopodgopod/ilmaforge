@@ -9,7 +9,9 @@ The matching local originals in D:/Favorite_strona were used without recompressi
 - 03-braid-spool.jpg: Favorite_spool_render_3.jpg
 - 04-label-detail.jpg: Favorite_spool_render_4.jpg
 - 05-spool-finish.png: spool_footer.png
-- frames/spool-0023.webp through spool-0143.webp: 256px WebP thumbnails of spool_R0023.png through spool_R0143.png, in supplied sequence order.
+- frames/spool-0023.webp through spool-0153.webp: 256px WebP thumbnails of spool_R0023.png through spool_R0153.png, in supplied sequence order.
 
 All editorial copy is selectable HTML transcribed from the layout.
 Film supplied by the owner: https://player.vimeo.com/video/1181739226?h=8c4b55d62e
+
+The final spool_R0153.png frame was supplied by the owner after the initial release.
