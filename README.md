@@ -15,7 +15,7 @@ Portfolio studia ILMA: https://ilmaforge.com
 - `.github/workflows/site-check.yml` — automatyczna kontrola składni i budowania strony.
 
 - `project-duolife.js`, `project-duolife.css`, `assets/duolife/` — projekt DuoLife zgodny z dostarczonym layoutem, tekst w HTML i oryginalne materiały.
-- `assets/brand/ilma-wordmark.svg` — wektorowy znak ILMA używany jako podpis projektów.
+- Podpis każdego projektu używa tego samego logotypu ILMA i stylu `.logo` co lewy górny róg nawigacji.
 
 ## Praca nad zmianami
 

@@ -37,5 +37,4 @@ jobs:
           test -s dist/project-studies.css
           test -s dist/project-duolife.js
           test -s dist/project-duolife.css
-          test -s dist/assets/brand/ilma-wordmark.svg
           test -s dist/_redirects

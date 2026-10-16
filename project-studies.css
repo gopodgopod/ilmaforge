@@ -30,8 +30,8 @@
 
 .portfolio-study[data-theme="light"] .ghx-film { width: 100%; margin-inline: 0; background: #fff; }
 
-/* One studio signature across case studies. */
+/* Reuse the same ILMA wordmark as the site's top-left navigation. */
 .ghx-study .ghx-credits > .case-brand, .case-brand { display: flex; justify-content: center; }
-.case-brand .ilma-wordmark { display: block; width: 156px; height: 36px; object-fit: contain; background: transparent; filter: invert(1); }
-.portfolio-study[data-theme="light"] .case-brand .ilma-wordmark { filter: none; background: transparent; }
-.lure-brand { margin: 76px auto 0; }
+.case-brand .logo { display: inline-block; color: #fff; }
+.portfolio-study[data-theme="light"] .case-brand .logo { color: #111; }
+.lure-brand, .generic-brand { margin: 76px auto 0; }
