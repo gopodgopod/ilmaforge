@@ -51,6 +51,12 @@
 
 const PROJECTS = [
   {
+    id: 13, slug: "favorite", title: "Favorite",
+    tags: ["3d", "motion", "product"],
+    img: "assets/favorite/01-hero.jpg",
+    kind: "favorite-case-study",
+  },
+  {
     id: 5, slug: "canal-plus", title: "CANAL+",
     tags: ["3d", "motion", "film"],
     img: "assets/canal-plus/01-speedway-hero.jpg",
@@ -241,7 +247,7 @@ let previousSection = "home";
 function navigate(sectionId, updateHistory = true) {
   document.querySelectorAll(".ghx-motion").forEach((video) => video.pause());
   if (sectionId !== "project") {
-    document.querySelectorAll(".ghx-film iframe").forEach((film) => film.removeAttribute("src"));
+    document.querySelectorAll(".ghx-film iframe, .favorite-video iframe").forEach((film) => film.removeAttribute("src"));
   }
   document
     .querySelectorAll("section")
@@ -356,6 +362,8 @@ function openProject(id, fromSection, updateHistory = true) {
   previousSection = fromSection || "works";
 
   document.getElementById("projTopbarName").textContent = project.title;
+  const isFavorite = project.kind === "favorite-case-study";
+  document.getElementById("project").classList.toggle("is-favorite", isFavorite);
   const isCanal = project.kind === "canal-case-study";
   document.getElementById("project").classList.toggle("is-canal", isCanal);
   const isDuoLife = project.kind === "duolife-case-study";
@@ -367,8 +375,8 @@ function openProject(id, fromSection, updateHistory = true) {
   document.getElementById("project").classList.toggle("is-ghx", isGhx);
   document.getElementById("project").classList.toggle("is-study", isStudy);
   document.getElementById("projHeaderEl").innerHTML =
-    isCanal || isDuoLife || isLure || isGhx || isStudy ? "" : buildProjectHeader(project);
-  document.getElementById("projContentEl").innerHTML = isCanal ? buildCanalCaseStudy() : isDuoLife ? buildDuoLifeCaseStudy() : isLure ? buildLureCaseStudy() : isGhx ? buildGhxCaseStudy() : isStudy ? buildPortfolioStudy(project.slug) : `
+    isFavorite || isCanal || isDuoLife || isLure || isGhx || isStudy ? "" : buildProjectHeader(project);
+  document.getElementById("projContentEl").innerHTML = isFavorite ? buildFavoriteCaseStudy() : isCanal ? buildCanalCaseStudy() : isDuoLife ? buildDuoLifeCaseStudy() : isLure ? buildLureCaseStudy() : isGhx ? buildGhxCaseStudy() : isStudy ? buildPortfolioStudy(project.slug) : `
     <div class="proj-content">
       ${project.blocks.map((b) => buildBlock(b)).join("")}
       <div class="case-brand generic-brand"><a class="logo" href="/" onclick="navigate('home'); return false;" aria-label="ILMA — home">ILMA</a></div>

@@ -23,6 +23,7 @@ jobs:
           node --check project-studies.js
           node --check project-duolife.js
           node --check project-canal.js
+          node --check project-favorite.js
           node --check scripts/build.mjs
       - name: Build Cloudflare Pages output
         run: node scripts/build.mjs
@@ -40,4 +41,6 @@ jobs:
           test -s dist/project-duolife.css
           test -s dist/project-canal.js
           test -s dist/project-canal.css
+          test -s dist/project-favorite.js
+          test -s dist/project-favorite.css
           test -s dist/_redirects
