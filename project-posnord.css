@@ -1,0 +1,37 @@
+#project.is-posnord { background: #000; }
+#project.is-posnord .proj-topbar, #project.is-posnord #projHeaderEl { display: none; }
+.posnord-study { --posnord-gap: clamp(55px, 7vw, 140px); background: #000; color: #fff; font-family: Arial, sans-serif; padding-bottom: 70px; }
+.posnord-study :where(section) { display: block; width: auto; min-height: 0; }
+.posnord-study figure { margin: 0; min-width: 0; }
+.posnord-study img { display: block; width: 100%; height: auto; }
+.posnord-study h1, .posnord-study h2 { font-size: clamp(27px, 3.05vw, 60px); line-height: 1.04; font-weight: 700; text-transform: uppercase; margin: 0 0 28px; }
+.posnord-study p { font-size: clamp(13px, 1vw, 18px); line-height: 1.6; margin: 0; }
+.posnord-study p + p { margin-top: 22px; }
+.posnord-contained { width: 80%; max-width: 1620px; margin-inline: auto; }
+.posnord-hero { aspect-ratio: 3840 / 1500; }
+.posnord-opening { position: relative; isolation: isolate; padding-top: var(--posnord-gap); }
+.posnord-opening::before { content: ''; position: absolute; inset: 0; z-index: -1; width: 57%; background: url('/assets/posnord/07-model-wireframe.png') left top / 100% auto no-repeat; filter: invert(1); opacity: .15; mask-image: linear-gradient(#000, transparent 90%); pointer-events: none; }
+.posnord-intro > div { width: 51%; }
+.posnord-products { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5vw; margin-top: var(--posnord-gap); }
+.posnord-about { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5vw; margin-top: var(--posnord-gap); align-items: start; }
+.posnord-model, .posnord-story { display: grid; grid-template-columns: 1fr 2.06fr; gap: 1.5vw; align-items: center; margin-top: var(--posnord-gap); }
+.posnord-film { position: relative; margin-top: var(--posnord-gap) !important; }
+.posnord-study .posnord-film, .posnord-study .posnord-finish { margin-inline: auto; }
+.posnord-film figcaption { position: absolute; inset: auto 0 0; padding: 14px; background: rgba(0,0,0,.75); text-align: center; font-size: 13px; letter-spacing: .16em; text-transform: uppercase; }
+.posnord-summary { margin-top: var(--posnord-gap); }
+.posnord-summary > div { width: 64%; }
+.posnord-finish { margin-top: var(--posnord-gap) !important; }
+.posnord-signoff { display: flex; flex-direction: column; align-items: center; gap: 30px; margin-top: var(--posnord-gap); font-size: 13px; }
+body:has(#project.is-posnord.active) .foggy-footer { display: none; }
+@media (max-width: 760px) {
+  .posnord-contained { width: calc(100% - 40px); }
+  .posnord-study h1, .posnord-study h2 { font-size: clamp(27px, 5.4vw, 40px); line-height: 1.1; margin-bottom: 24px; }
+  .posnord-intro > div, .posnord-summary > div { width: 100%; }
+  .posnord-products { grid-template-columns: 1fr; gap: 20px; }
+  .posnord-about { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .posnord-about > div { grid-column: 1 / -1; }
+  .posnord-model, .posnord-story { grid-template-columns: 1fr; gap: 30px; }
+  .posnord-model > figure { width: 70%; margin-inline: auto; }
+  .posnord-story figure { width: 100%; }
+  .posnord-opening::before { width: 100%; opacity: .1; }
+}

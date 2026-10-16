@@ -51,6 +51,12 @@
 
 const PROJECTS = [
   {
+    id: 14, slug: "posnord", title: "Posnord",
+    tags: ["3d", "motion", "product"],
+    img: "assets/posnord/01-hero.png",
+    kind: "posnord-case-study",
+  },
+  {
     id: 13, slug: "favorite", title: "Favorite",
     tags: ["3d", "motion", "product"],
     img: "assets/favorite/01-hero.jpg",
@@ -382,6 +388,8 @@ function openProject(id, fromSection, updateHistory = true) {
   previousSection = fromSection || "works";
 
   document.getElementById("projTopbarName").textContent = project.title;
+  const isPosnord = project.kind === "posnord-case-study";
+  document.getElementById("project").classList.toggle("is-posnord", isPosnord);
   const isFavorite = project.kind === "favorite-case-study";
   document.getElementById("project").classList.toggle("is-favorite", isFavorite);
   const isCanal = project.kind === "canal-case-study";
@@ -395,8 +403,8 @@ function openProject(id, fromSection, updateHistory = true) {
   document.getElementById("project").classList.toggle("is-ghx", isGhx);
   document.getElementById("project").classList.toggle("is-study", isStudy);
   document.getElementById("projHeaderEl").innerHTML =
-    isFavorite || isCanal || isDuoLife || isLure || isGhx || isStudy ? "" : buildProjectHeader(project);
-  document.getElementById("projContentEl").innerHTML = isFavorite ? buildFavoriteCaseStudy() : isCanal ? buildCanalCaseStudy() : isDuoLife ? buildDuoLifeCaseStudy() : isLure ? buildLureCaseStudy() : isGhx ? buildGhxCaseStudy() : isStudy ? buildPortfolioStudy(project.slug) : `
+    isPosnord || isFavorite || isCanal || isDuoLife || isLure || isGhx || isStudy ? "" : buildProjectHeader(project);
+  document.getElementById("projContentEl").innerHTML = isPosnord ? buildPosnordCaseStudy() : isFavorite ? buildFavoriteCaseStudy() : isCanal ? buildCanalCaseStudy() : isDuoLife ? buildDuoLifeCaseStudy() : isLure ? buildLureCaseStudy() : isGhx ? buildGhxCaseStudy() : isStudy ? buildPortfolioStudy(project.slug) : `
     <div class="proj-content">
       ${project.blocks.map((b) => buildBlock(b)).join("")}
       <div class="case-brand generic-brand"><a class="logo" href="/" onclick="navigate('home'); return false;" aria-label="ILMA — home">ILMA</a></div>
