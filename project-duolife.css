@@ -45,3 +45,6 @@
   .duo-finish { width: min(300px, 65%); }
 }
 
+
+/* The white case study has no dark viewport fog over its copy. */
+body:has(#project.is-duolife.active) .foggy-footer { display: none; }
