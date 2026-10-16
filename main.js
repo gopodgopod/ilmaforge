@@ -273,6 +273,7 @@ function navigate(sectionId, updateHistory = true) {
   if (updateHistory && sectionId === "works") history.pushState(null, "", "/works");
   if (updateHistory && sectionId === "contact") history.pushState(null, "", "/contact");
   if (sectionId === "project") initGhxMotion();
+  initFavoriteFilm();
 }
 
 /** Go back from project detail page */
