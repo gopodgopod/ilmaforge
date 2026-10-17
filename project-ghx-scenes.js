@@ -3,7 +3,7 @@ function buildGhxScenesCaseStudy() {
   const motion = (name, label, width = 800, height = 450) => `<figure><video class="ghx-motion" data-src="/assets/ghx-scenes/${name}.mp4" poster="/assets/ghx-scenes/${name}-poster.jpg" width="${width}" height="${height}" muted loop playsinline preload="none" tabindex="0" role="button" aria-label="${label} — play or pause animation"></video><figcaption>${label}</figcaption></figure>`;
   const pair = (scene, title) => `<div class="ghxs-comparison" role="group" aria-label="${title}">${motion(scene + '-viewport', 'Viewport preview — ' + title)}${motion(scene + '-final', 'Final render — ' + title)}</div>`;
   return `<article class="ghxs-study" aria-labelledby="ghxs-title">
-    <div class="ghxs-hero">${image('Hero_ghx_main', 'GHX coin inside a red illuminated futuristic chamber', 2512, 1413, true)}<span class="ghxs-wordmark">GAMERHASH</span></div>
+    <div class="ghxs-hero">${image('Hero_ghx_main', 'GHX coin inside a red illuminated futuristic chamber', 2512, 1413, true)}</div>
     <div class="ghxs-body">
       <header class="ghxs-copy"><h1 id="ghxs-title">GHX — Trailer</h1><p>A set of 3D scenes and motion design produced for a promotional video of GHX, one of GamerHash's products.</p></header>
       <figure>${image('Tunel_coin_render_3d_1', 'GHX coin moving through a tunnel of red light', 1400, 491)}</figure>
