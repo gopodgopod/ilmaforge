@@ -51,6 +51,12 @@
 
 const PROJECTS = [
   {
+    id: 16, slug: "gamerhash-ai-new-model-hub", title: "GamerHash AI — New Model Hub",
+    tags: ["3d", "motion", "film"],
+    img: "assets/gamerhash-ai/Gamerhash_AI_3d_app_animation_6.png",
+    kind: "gamerhash-ai-case-study",
+  },
+  {
     id: 15, slug: "ghx-3d-scenes", title: "GHX — 3D Scenes",
     tags: ["3d", "motion", "film"],
     img: "assets/ghx-scenes/Hero_ghx_main.jpg",
@@ -403,6 +409,8 @@ function openProject(id, fromSection, updateHistory = true) {
   const isDuoLife = project.kind === "duolife-case-study";
   document.getElementById("project").classList.toggle("is-duolife", isDuoLife);
   const isLure = project.kind === "lure-case-study";
+  const isGamerhashAi = project.kind === "gamerhash-ai-case-study";
+  document.getElementById("project").classList.toggle("is-gamerhash-ai", isGamerhashAi);
   const isGhxScenes = project.kind === "ghx-scenes-case-study";
   document.getElementById("project").classList.toggle("is-ghx-scenes", isGhxScenes);
   const isGhx = project.kind === "ghx-case-study";
@@ -411,8 +419,8 @@ function openProject(id, fromSection, updateHistory = true) {
   document.getElementById("project").classList.toggle("is-ghx", isGhx);
   document.getElementById("project").classList.toggle("is-study", isStudy);
   document.getElementById("projHeaderEl").innerHTML =
-    isPosnord || isFavorite || isCanal || isDuoLife || isLure || isGhx || isGhxScenes || isStudy ? "" : buildProjectHeader(project);
-  document.getElementById("projContentEl").innerHTML = isPosnord ? buildPosnordCaseStudy() : isFavorite ? buildFavoriteCaseStudy() : isCanal ? buildCanalCaseStudy() : isDuoLife ? buildDuoLifeCaseStudy() : isLure ? buildLureCaseStudy() : isGhxScenes ? buildGhxScenesCaseStudy() : isGhx ? buildGhxCaseStudy() : isStudy ? buildPortfolioStudy(project.slug) : `
+    isPosnord || isFavorite || isCanal || isDuoLife || isLure || isGhx || isGhxScenes || isGamerhashAi || isStudy ? "" : buildProjectHeader(project);
+  document.getElementById("projContentEl").innerHTML = isPosnord ? buildPosnordCaseStudy() : isFavorite ? buildFavoriteCaseStudy() : isCanal ? buildCanalCaseStudy() : isDuoLife ? buildDuoLifeCaseStudy() : isLure ? buildLureCaseStudy() : isGamerhashAi ? buildGamerhashAiCaseStudy() : isGhxScenes ? buildGhxScenesCaseStudy() : isGhx ? buildGhxCaseStudy() : isStudy ? buildPortfolioStudy(project.slug) : `
     <div class="proj-content">
       ${project.blocks.map((b) => buildBlock(b)).join("")}
       <div class="case-brand generic-brand"><a class="logo" href="/" onclick="navigate('home'); return false;" aria-label="ILMA — home">ILMA</a></div>

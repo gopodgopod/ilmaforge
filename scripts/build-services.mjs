@@ -84,7 +84,7 @@ export async function buildServicePages({ root, output, versions }) {
     await mkdir(destination, { recursive:true });
     await writeFile(path.join(destination, 'index.html'), html);
   }
-  const projectSlugs = ['ghx-3d-scenes','posnord','favorite','canal-plus','duolife','crypto-coin-generator','nalgene-bottle-outdoor','pcb-risc-v-challenge','gamerhash','ghx-trailer','from-concept-to-campaign'];
+  const projectSlugs = ['gamerhash-ai-new-model-hub','ghx-3d-scenes','posnord','favorite','canal-plus','duolife','crypto-coin-generator','nalgene-bottle-outdoor','pcb-risc-v-challenge','gamerhash','ghx-trailer','from-concept-to-campaign'];
   const routes = ['/', '/works', '/contact', ...projectSlugs.map((slug) => `/project/${slug}`), ...services.map(urlFor)];
   await writeFile(path.join(output, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${routes.map((route) => `  <url><loc>${site}${route}</loc></url>`).join('\n')}\n</urlset>\n`);
   console.log(`Prepared ${services.length} service articles and sitemap.xml.`);
