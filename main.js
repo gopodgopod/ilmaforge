@@ -233,6 +233,9 @@ const PROJECTS = [
 
 ];
 
+// Homepage selection, in the order requested by the site owner.
+const HOME_PROJECT_ORDER = [15, 10, 6, 1, 9, 5, 8];
+
 /* ==============================================================
    UTILITY FUNCTIONS
    ============================================================== */
@@ -343,17 +346,23 @@ function renderGrid(gridId, activeTag, tagsId) {
   renderFilterButtons(tagsId, activeTag, gridId);
 
   const grid = document.getElementById(gridId);
+  const projects = gridId === "homeGrid"
+    ? [
+        ...HOME_PROJECT_ORDER.map((id) => PROJECTS.find((project) => project.id === id)).filter(Boolean),
+        ...PROJECTS.filter((project) => !HOME_PROJECT_ORDER.includes(project.id)),
+      ]
+    : PROJECTS;
   const filtered =
     activeTag === "all"
-      ? PROJECTS
-      : PROJECTS.filter((p) => p.tags.includes(activeTag));
+      ? projects
+      : projects.filter((p) => p.tags.includes(activeTag));
 
   const origin = gridId === "homeGrid" ? "home" : "works";
 
   grid.innerHTML = filtered
     .map(
-      (p) => `
-    <a class="proj-card ${p.wide ? "wide" : ""}" href="/project/${p.slug || p.id}"
+      (p, index) => `
+    <a class="proj-card ${(gridId === "homeGrid" ? index % 4 === 0 || index % 4 === 3 : p.wide) ? "wide" : ""}" href="/project/${p.slug || p.id}"
          onclick="openProject(${p.id}, '${origin}'); return false;">
       <div class="proj-card-bg"
            style="background-image: url('/${p.img}'); background-color: #1a1a1a;"></div>
