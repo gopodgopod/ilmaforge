@@ -56,3 +56,7 @@ node scripts/build.mjs
 Cloudflare Pages jest połączony z tym repozytorium i automatycznie publikuje zmiany z `main`. Polecenie budowania: `node scripts/build.mjs`. Katalog wynikowy: `dist`. Nie dodawaj `dist/` do repozytorium i nie twórz drugiego procesu wdrażania przez GitHub Actions.
 
 Układ kafelków strony głównej jest naprzemienny: szeroki–mały, mały–szeroki. Na telefonie kafelki tworzą jedną kolumnę.
+
+## GHX — 3D Scenes
+
+`project-ghx-scenes.js`, `project-ghx-scenes.css` and `assets/ghx-scenes/` contain the separate GHX scenes case study at `/project/ghx-3d-scenes`. The original `/project/ghx-trailer` remains available. Motion assets play on entering the viewport and pause outside it; reduced motion preferences are respected. The full film is pending. Asset provenance and conversion details are in `assets/ghx-scenes/SOURCES.md`.

@@ -22,7 +22,7 @@ function buildGhxScenesCaseStudy() {
       <section class="ghxs-copy"><h2>Our approach</h2><p>We focused on designing scenes that explain the product's mechanics in a simple, visual way, rather than relying solely on text or voiceover. The aesthetics and editing pace were aligned with GamerHash's brand style, known for its tech-driven, gaming-focused visual communication.</p></section>
       <figure>${image('Coin_render_3d_1', 'Final render of the animated GHX coins')}</figure>
       <div class="ghxs-process" aria-label="Viewport and final render comparisons">
-        ${pair('ai', 'Light trails')}${pair('globe', 'Globe')}${pair('coins', 'Coins')}
+        ${pair('ai', 'Light trails')}<div class="ghxs-comparison" role="group" aria-label="Globe animation variants">${motion('globe-viewport', 'Globe — particle trails')}${motion('globe-final', 'Globe — final lighting')}</div>${pair('coins', 'Coins')}
         <div class="ghxs-three" role="group" aria-label="Chamber scene development">${motion('room-layout', 'Scene layout — Chamber', 800, 454)}${motion('room-viewport', 'Viewport preview — Chamber', 1000, 562)}${motion('room-final', 'Final render — Chamber', 1000, 562)}</div>
       </div>
       <section class="ghxs-copy"><h2>Tools and scope<br>of work</h2><p>The 3D scenes and animation were built in Cinema 4D with the Redshift render engine, with compositing and editing done in Adobe After Effects. The scope of work covered the design and animation of 3D scenes used in the product's promotional video.</p></section>
