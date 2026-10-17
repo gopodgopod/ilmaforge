@@ -17,7 +17,7 @@
 .ghai-approach figure img { aspect-ratio: 1.4; object-fit: cover; }
 .ghai-icons { padding-block: 24px; opacity: .25; }
 .ghai-tools { text-align: center; max-width: 580px; margin-inline: auto; }
-.ghai-footer { width: 80%; max-width: 1600px; margin-inline: auto; padding-block: var(--ghai-space); display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.ghai-footer { width: 80%; max-width: 1600px; margin-inline: auto; padding-block: var(--ghai-space); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 24px; }
 .ghai-footer > a:last-child { color: #aaa; font-size: 13px; }
 @media (max-width: 700px) {
   .ghai-body, .ghai-footer { width: 90%; }

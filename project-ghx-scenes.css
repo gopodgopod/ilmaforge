@@ -23,7 +23,7 @@
 .ghxs-process video:focus-visible { outline: 2px solid #e37e38; outline-offset: 3px; }
 .ghxs-process figcaption { font-size: 12px; line-height: 1.5; color: #a4a4a4; padding-top: 10px; }
 .ghxs-ending img { max-height: 70vh; object-fit: cover; }
-.ghxs-footer { width: 80%; max-width: 1600px; margin-inline: auto; padding-block: var(--ghxs-space); display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.ghxs-footer { width: 80%; max-width: 1600px; margin-inline: auto; padding-block: var(--ghxs-space); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 24px; }
 .ghxs-footer > a:last-child { color: #aaa; font-size: 13px; }
 @media (max-width: 700px) {
   .ghxs-body, .ghxs-footer { width: 90%; }
