@@ -1,0 +1,155 @@
+{
+  "AI_render_3d_1.jpg": {
+    "width": 2512,
+    "height": 1413,
+    "kind": "image",
+    "bytes": 1835506
+  },
+  "Coin_render_3d_1.jpg": {
+    "width": 2512,
+    "height": 1413,
+    "kind": "image",
+    "bytes": 1108318
+  },
+  "computer_AI_render_3d_1.jpg": {
+    "width": 2512,
+    "height": 1412,
+    "kind": "image",
+    "bytes": 1861012
+  },
+  "computer_AI_render_3d_2.jpg": {
+    "width": 810,
+    "height": 456,
+    "kind": "image",
+    "bytes": 100802
+  },
+  "globe_coin_render_3d_1.jpg": {
+    "width": 1400,
+    "height": 611,
+    "kind": "image",
+    "bytes": 319551
+  },
+  "globe_coin_render_3d_2.jpg": {
+    "width": 2512,
+    "height": 1412,
+    "kind": "image",
+    "bytes": 1114101
+  },
+  "globe_coin_render_3d_3.jpg": {
+    "width": 2512,
+    "height": 1413,
+    "kind": "image",
+    "bytes": 975580
+  },
+  "globe_coin_render_3d_4.jpg": {
+    "width": 2512,
+    "height": 1413,
+    "kind": "image",
+    "bytes": 641151
+  },
+  "Hero_ghx_main.jpg": {
+    "width": 2512,
+    "height": 1413,
+    "kind": "image",
+    "bytes": 1048309
+  },
+  "room_coin_render_3d_1.jpg": {
+    "width": 2512,
+    "height": 1413,
+    "kind": "image",
+    "bytes": 990344
+  },
+  "Tunel_coin_render_3d_1.jpg": {
+    "width": 1400,
+    "height": 491,
+    "kind": "image",
+    "bytes": 361339
+  },
+  "Tunel_coin_render_3d_2.jpg": {
+    "width": 2512,
+    "height": 1413,
+    "kind": "image",
+    "bytes": 1632551
+  },
+  "ai-viewport": {
+    "source": "AI_gif.gif",
+    "width": 800,
+    "height": 450,
+    "kind": "motion",
+    "frames": 113,
+    "duration": 4.52,
+    "bytes": 8561125
+  },
+  "ai-final": {
+    "source": "AI_color_gif.gif",
+    "width": 800,
+    "height": 450,
+    "kind": "motion",
+    "frames": 113,
+    "duration": 4.52,
+    "bytes": 8228133
+  },
+  "globe-viewport": {
+    "source": "globe_2.gif",
+    "width": 800,
+    "height": 450,
+    "kind": "motion",
+    "frames": 200,
+    "duration": 8.0,
+    "bytes": 4346965
+  },
+  "globe-final": {
+    "source": "globe_1.gif",
+    "width": 800,
+    "height": 450,
+    "kind": "motion",
+    "frames": 258,
+    "duration": 10.32,
+    "bytes": 1091263
+  },
+  "coins-viewport": {
+    "source": "multi_coin_prev_gif.gif",
+    "width": 800,
+    "height": 450,
+    "kind": "motion",
+    "frames": 247,
+    "duration": 9.88,
+    "bytes": 13936283
+  },
+  "coins-final": {
+    "source": "multi_coin_gif.gif",
+    "width": 800,
+    "height": 450,
+    "kind": "motion",
+    "frames": 247,
+    "duration": 9.88,
+    "bytes": 12752291
+  },
+  "room-layout": {
+    "source": "pawilon.gif",
+    "width": 800,
+    "height": 454,
+    "kind": "motion",
+    "frames": 192,
+    "duration": 7.68,
+    "bytes": 1582630
+  },
+  "room-viewport": {
+    "source": "Scena_GHX_scena_1_gif.gif",
+    "width": 1000,
+    "height": 562,
+    "kind": "motion",
+    "frames": 177,
+    "duration": 7.08,
+    "bytes": 12576084
+  },
+  "room-final": {
+    "source": "Scena_GHX_scena_1_color_gif.gif",
+    "width": 1000,
+    "height": 562,
+    "kind": "motion",
+    "frames": 177,
+    "duration": 7.08,
+    "bytes": 12852769
+  }
+}

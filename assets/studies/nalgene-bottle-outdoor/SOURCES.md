@@ -17,3 +17,5 @@ Original static image bytes; animated GIFs converted to silent H.264 loops (CRF 
 - 07-01.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/bddf81246767903.69cd83e904b1b.jpg
 - 10-01.png: https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/20cd43246767903.69ce60f111859.png
 - cover.jpg: https://mir-s3-cdn-cf.behance.net/project_modules/1400/15782e246767903.69cbcadc55611.jpg
+
+Homepage `cover-clean.jpg`: frame at 4.7 seconds from the owner-supplied Nalgene animation, selected before the large title appears. Original case-study assets remain unchanged.

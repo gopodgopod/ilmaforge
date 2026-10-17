@@ -51,21 +51,27 @@
 
 const PROJECTS = [
   {
+    id: 15, slug: "ghx-3d-scenes", title: "GHX — 3D Scenes",
+    tags: ["3d", "motion", "film"],
+    img: "assets/ghx-scenes/Hero_ghx_main.jpg",
+    kind: "ghx-scenes-case-study",
+  },
+  {
     id: 14, slug: "posnord", title: "Posnord",
     tags: ["3d", "motion", "product"],
-    img: "assets/posnord/01-hero.png",
+    img: "assets/posnord/03-table-perspective.png",
     kind: "posnord-case-study",
   },
   {
     id: 13, slug: "favorite", title: "Favorite",
     tags: ["3d", "motion", "product"],
-    img: "assets/favorite/01-hero.jpg",
+    img: "assets/favorite/02-spool-detail.jpg",
     kind: "favorite-case-study",
   },
   {
     id: 5, slug: "canal-plus", title: "CANAL+",
     tags: ["3d", "motion", "film"],
-    img: "assets/canal-plus/01-speedway-hero.jpg",
+    img: "assets/canal-plus/05-track-closeup.jpg",
     kind: "canal-case-study",
   },
   {
@@ -95,7 +101,7 @@ const PROJECTS = [
       "motion",
       "product"
     ],
-    "img": "assets/studies/nalgene-bottle-outdoor/cover.jpg",
+    "img": "assets/studies/nalgene-bottle-outdoor/cover-clean.jpg",
     "kind": "portfolio-study"
   },
   {
@@ -397,14 +403,16 @@ function openProject(id, fromSection, updateHistory = true) {
   const isDuoLife = project.kind === "duolife-case-study";
   document.getElementById("project").classList.toggle("is-duolife", isDuoLife);
   const isLure = project.kind === "lure-case-study";
+  const isGhxScenes = project.kind === "ghx-scenes-case-study";
+  document.getElementById("project").classList.toggle("is-ghx-scenes", isGhxScenes);
   const isGhx = project.kind === "ghx-case-study";
   const isStudy = project.kind === "portfolio-study";
   document.getElementById("project").classList.toggle("is-lure", isLure);
   document.getElementById("project").classList.toggle("is-ghx", isGhx);
   document.getElementById("project").classList.toggle("is-study", isStudy);
   document.getElementById("projHeaderEl").innerHTML =
-    isPosnord || isFavorite || isCanal || isDuoLife || isLure || isGhx || isStudy ? "" : buildProjectHeader(project);
-  document.getElementById("projContentEl").innerHTML = isPosnord ? buildPosnordCaseStudy() : isFavorite ? buildFavoriteCaseStudy() : isCanal ? buildCanalCaseStudy() : isDuoLife ? buildDuoLifeCaseStudy() : isLure ? buildLureCaseStudy() : isGhx ? buildGhxCaseStudy() : isStudy ? buildPortfolioStudy(project.slug) : `
+    isPosnord || isFavorite || isCanal || isDuoLife || isLure || isGhx || isGhxScenes || isStudy ? "" : buildProjectHeader(project);
+  document.getElementById("projContentEl").innerHTML = isPosnord ? buildPosnordCaseStudy() : isFavorite ? buildFavoriteCaseStudy() : isCanal ? buildCanalCaseStudy() : isDuoLife ? buildDuoLifeCaseStudy() : isLure ? buildLureCaseStudy() : isGhxScenes ? buildGhxScenesCaseStudy() : isGhx ? buildGhxCaseStudy() : isStudy ? buildPortfolioStudy(project.slug) : `
     <div class="proj-content">
       ${project.blocks.map((b) => buildBlock(b)).join("")}
       <div class="case-brand generic-brand"><a class="logo" href="/" onclick="navigate('home'); return false;" aria-label="ILMA — home">ILMA</a></div>
