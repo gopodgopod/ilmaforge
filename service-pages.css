@@ -1,0 +1,71 @@
+/* Long-form service guides. Shared ILMA colours and typography come from styles.css. */
+.service-page { cursor: auto; }
+.service-page a, .service-page button { cursor: pointer; }
+.service-page a:focus-visible { outline: 1px solid var(--accent); outline-offset: 6px; }
+.service-page main section { display: block; min-height: 0; }
+.service-page .nav-links { display: flex; }
+.service-skip { position: fixed; top: -100px; left: 16px; z-index: 1100; padding: 12px; color: #fff; background: #111; }
+.service-skip:focus { top: 8px; }
+.service-header { padding: clamp(52px, 7vw, 120px) var(--pad) 64px; }
+.service-eyebrow { display: block; color: var(--accent); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; line-height: 1.6; }
+.service-eyebrow span { color: #707070; }
+.service-header h1 { max-width: 20ch; margin: 30px 0 40px; color: #fff; font-size: clamp(2.5rem, 5.7vw, 6rem); line-height: 1.03; letter-spacing: -0.045em; font-weight: 500; text-wrap: balance; }
+.service-meta { display: flex; justify-content: space-between; gap: 24px; padding: 18px 0; border-top: 1px solid #303030; color: #888; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.service-lead { max-width: 840px; margin-top: 38px; font-size: clamp(1.1rem, 1.6vw, 1.5rem); line-height: 1.65; color: #d4d4d4; }
+.service-figure { margin-top: 40px; }
+.service-figure img { display: block; width: 100%; height: auto; max-height: 720px; object-fit: contain; }
+.service-figure figcaption { padding-top: 14px; color: #8e8e8e; font-size: 0.75rem; line-height: 1.6; }
+.service-hero { margin: 0; }
+.service-hero img { width: 100%; height: auto; max-height: 72svh; aspect-ratio: 2.1; object-fit: cover; }
+.service-hero figcaption { padding: 14px var(--pad) 0; }
+.service-body { display: grid; grid-template-columns: 200px minmax(0, 800px); gap: clamp(36px, 6vw, 96px); padding: 88px var(--pad) 16px; justify-content: space-between; }
+.service-contents { position: sticky; top: 96px; align-self: start; }
+.service-contents ol { list-style: none; margin-top: 18px; border-top: 1px solid #303030; }
+.service-contents li { padding: 12px 0; border-bottom: 1px solid #242424; }
+.service-contents a { font-size: 0.75rem; line-height: 1.6; color: #999; transition: color 0.2s; }
+.service-contents a:hover { color: #fff; }
+.service-section { position: relative; margin-bottom: 72px; scroll-margin-top: 100px; }
+.service-number { display: block; margin-bottom: 16px; color: var(--accent); font-size: 0.65rem; letter-spacing: 0.1em; }
+.service-section h2, .service-work h2, .service-contact h2, .service-more h2 { color: #fff; font-weight: 500; font-size: clamp(1.7rem, 2.8vw, 2.75rem); line-height: 1.12; letter-spacing: -0.03em; text-wrap: balance; }
+.service-prose p { color: #bcbcbc; font-size: 1rem; line-height: 1.9; margin-top: 22px; }
+.service-work, .service-contact, .service-more { padding: 64px var(--pad); }
+.service-work { border-top: 1px solid #303030; scroll-margin-top: 80px; }
+.service-work-heading h2 { margin-top: 18px; }
+.service-projects { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px; }
+.service-project { display: block; }
+.service-project img { display: block; width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; transition: filter 0.25s; }
+.service-project:hover img { filter: brightness(1.1); }
+.service-project h3 { display: flex; justify-content: space-between; gap: 12px; margin-top: 20px; color: #fff; font-size: 1.35rem; font-weight: 500; }
+.service-project h3 span { color: var(--accent); }
+.service-project p { margin-top: 12px; color: #aaa; max-width: 50ch; font-size: 0.9rem; line-height: 1.7; }
+.service-project-link { display: inline-block; color: #e3e3e3; margin-top: 16px; font-size: 0.7rem; text-decoration: underline; text-underline-offset: 4px; }
+.service-contact { padding-top: 88px; padding-bottom: 88px; margin-top: 16px; background: #151515; }
+.service-contact h2 { margin-top: 20px; font-size: clamp(2.2rem, 4vw, 4rem); }
+.service-contact p { max-width: 780px; margin-top: 24px; font-size: 1rem; line-height: 1.85; }
+.service-contact-link { display: inline-flex; align-items: center; gap: 44px; margin-top: 32px; padding-bottom: 12px; border-bottom: 1px solid #777; color: #fff; font-size: 1rem; }
+.service-contact-link span { color: var(--accent); }
+.service-more h2 { font-size: 1.6rem; margin-bottom: 28px; }
+.service-more a { display: flex; justify-content: space-between; gap: 20px; padding: 18px 0; border-top: 1px solid #282828; font-size: 0.9rem; }
+.service-more a:hover { color: #fff; }
+.service-more a span { color: var(--accent); }
+.service-footer { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: 36px var(--pad); border-top: 1px solid #303030; color: #888; font-size: 0.75rem; }
+@media (max-width: 960px) {
+  .service-body { grid-template-columns: 1fr; gap: 40px; padding-top: 52px; }
+  .service-contents { position: static; }
+  .service-contents ol { display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; }
+  .service-header h1 { max-width: 21ch; }
+  .service-prose { max-width: 800px; }
+}
+@media (max-width: 600px) {
+  .service-page .nav-links { gap: 16px; }
+  .service-page .nav-links a { font-size: 0.6rem; padding: 0; }
+  .service-header { padding-bottom: 40px; }
+  .service-header h1 { margin: 24px 0 30px; }
+  .service-lead { margin-top: 24px; }
+  .service-hero img { aspect-ratio: 1.35; }
+  .service-contents ol { display: block; }
+  .service-section { margin-bottom: 52px; }
+  .service-projects { grid-template-columns: 1fr; gap: 40px; }
+  .service-work, .service-more { padding-top: 48px; padding-bottom: 48px; }
+  .service-contact { padding-top: 56px; padding-bottom: 56px; }
+}

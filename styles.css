@@ -103,12 +103,27 @@ nav {
    HERO VIDEO
    ============================================================ */
 .hero-wrap {
-  position: relative; width: 100%; height: 60vh;
+  position: relative; width: 100%; height: 80vh; height: 80svh;
   overflow: hidden; background: #000;
   margin-top: calc(var(--nav-h) * -1);
   z-index: 1;
 }
 .hero-wrap video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-wrap::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(0,0,0,0.08) 25%, rgba(0,0,0,0.48) 100%);
+}
+.hero-copy {
+  position: absolute; inset: auto var(--pad) 12%; z-index: 2;
+  pointer-events: none;
+}
+.hero-heading {
+  color: #fff; font-weight: 700; letter-spacing: -0.055em;
+  line-height: 0.95; text-shadow: 0 2px 24px rgba(0,0,0,0.15);
+}
+.hero-heading span { display: block; }
+.hero-heading span:first-child { font-size: clamp(4.5rem, 12vw, 12rem); }
+.hero-heading span:last-child { font-size: clamp(1.65rem, 5.8vw, 6rem); margin-top: 0.18em; }
 .hero-wrap iframe {
   position: absolute;
   top: 50%;
@@ -168,6 +183,7 @@ nav {
   color: rgba(255,255,255,0.3);
 }
 .about-services { border-top: 0px solid rgba(255,255,255,0.07); padding-top: 0px; }
+#what-we-do { scroll-margin-top: 100px; }
 .about-services-title {
   font-size: 0.55rem; font-weight: 700;
   letter-spacing: 0.22em; text-transform: uppercase;
@@ -183,6 +199,15 @@ nav {
   content: ''; width: 4px; height: 4px;
   background: var(--accent); border-radius: 50%; flex-shrink: 0;
 }
+.about-services li a { display: block; width: 100%; padding: 2px 0; }
+.about-services li a > span { transition: color 0.2s; }
+.about-services li a small {
+  display: flex; justify-content: space-between; gap: 12px;
+  font-size: 0.65rem; line-height: 1.6; margin-top: 5px;
+  color: rgba(255,255,255,0.4);
+}
+.about-services li a:hover > span, .about-services li a:hover small { color: #fff; }
+.about-services li a:focus-visible { outline: 1px solid var(--accent); outline-offset: 5px; }
 
 /* ============================================================
    ABOUT SECTION (inline on home — kept for compatibility)
@@ -600,7 +625,7 @@ footer {
   :root { --pad: 6%; }
   .nav-links { display: none; }
   .nav-burger { display: flex; }
-  .about-inner { grid-template-columns: 1fr; gap: 32px; }
+  .about-inner, .about-body { grid-template-columns: 1fr; gap: 32px; }
   .about-stats { grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .project-grid { grid-template-columns: 1fr 1fr; }
   .proj-card.wide { grid-column: span 2; }
