@@ -118,7 +118,7 @@ nav {
   pointer-events: none;
 }
 .hero-heading {
-  color: #fff; font-weight: 700; letter-spacing: -0.055em;
+  color: #fff; font-weight: 400; letter-spacing: -0.055em; text-align: right;
   line-height: 0.95; text-shadow: 0 2px 24px rgba(0,0,0,0.15);
 }
 .hero-heading span { display: block; }
@@ -621,6 +621,9 @@ footer {
 /* ============================================================
    RESPONSIVE
    ============================================================ */
+@media (min-width: 1200px) {
+  .about-services ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; }
+}
 @media (max-width: 960px) {
   :root { --pad: 6%; }
   .nav-links { display: none; }
