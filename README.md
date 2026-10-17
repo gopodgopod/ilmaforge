@@ -60,3 +60,7 @@ Układ kafelków strony głównej jest naprzemienny: szeroki–mały, mały–sz
 ## GHX — 3D Scenes
 
 `project-ghx-scenes.js`, `project-ghx-scenes.css` and `assets/ghx-scenes/` contain the separate GHX scenes case study at `/project/ghx-3d-scenes`. The original `/project/ghx-trailer` remains available. Motion assets play on entering the viewport and pause outside it; reduced motion preferences are respected. The full film is pending. Asset provenance and conversion details are in `assets/ghx-scenes/SOURCES.md`.
+
+## GamerHash AI — New Model Hub
+
+`project-gamerhash-ai.js`, `project-gamerhash-ai.css` and `assets/gamerhash-ai/` contain the case study at `/project/gamerhash-ai-new-model-hub`. Text remains HTML. The main film will be added later; source notes live beside the images.
