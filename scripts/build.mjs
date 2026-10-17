@@ -3,6 +3,7 @@ import { copyFile, mkdir, rm, stat, readFile, writeFile } from 'node:fs/promises
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { buildServicePages } from './build-services.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const output = path.join(root, 'dist');
@@ -39,3 +40,4 @@ const html = await readFile(entry, 'utf8');
 await writeFile(entry, html.replace(/(src|href)="(\/[^"?#]+\.(?:js|css))"/g,
   (match, attribute, url) => versions.has(url) ? `${attribute}="${url}?v=${versions.get(url)}"` : match));
 console.log(`Prepared ${assets.length} site files in dist/.`);
+await buildServicePages({ root, output, versions });

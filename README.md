@@ -35,7 +35,13 @@ Portfolio studia ILMA: https://ilmaforge.com
 
 Dodatkowa gałąź `develop` nie jest potrzebna przy obecnym rozmiarze projektu. Gdy pracuje więcej osób, warto wymagać niezależnego zatwierdzenia PR przed połączeniem.
 
-## Sprawdzenie i publikacja
+## Strony usług i zapisany punkt powrotu
+
+`content/services.mjs` zawiera pięć oryginalnych artykułów o usługach ILMA. `scripts/build-services.mjs` generuje pełne strony HTML w `dist/services/<slug>/index.html`, ich metadane, dane strukturalne oraz mapę strony. Treść jest dostępna bez JavaScript. Wygląd artykułów ustawia `service-pages.css`, a linki znajdują się pod „What we do”. Po budowaniu uruchom `node scripts/check-services.mjs`.
+
+Wersję produkcyjną sprzed nowego hero i artykułów zachowuje gałąź `backup/2026-10-17-1821`. Szczegóły przywracania: [docs/ROLLBACK.md](docs/ROLLBACK.md). Tej gałęzi kopii zapasowej nie usuwaj podczas sprzątania.
+
+## Budowanie
 
 Wymagany jest Node.js 22 i Git. Po dodaniu nowych plików do Git uruchom:
 

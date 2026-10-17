@@ -26,8 +26,12 @@ jobs:
           node --check project-favorite.js
           node --check project-posnord.js
           node --check scripts/build.mjs
+          node --check scripts/build-services.mjs
+          node --check content/services.mjs
       - name: Build Cloudflare Pages output
         run: node scripts/build.mjs
+      - name: Check static service articles and SEO entry points
+        run: node scripts/check-services.mjs
       - name: Verify published entry points
         run: |
           test -s dist/index.html
@@ -47,3 +51,6 @@ jobs:
           test -s dist/project-posnord.js
           test -s dist/project-posnord.css
           test -s dist/_redirects
+          test -s dist/service-pages.css
+          test -s dist/sitemap.xml
+          test -s dist/robots.txt
