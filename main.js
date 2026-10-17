@@ -233,6 +233,9 @@ const PROJECTS = [
 
 ];
 
+// Homepage selection, in the order requested by the site owner.
+const HOME_PROJECT_ORDER = [15, 10, 6, 1, 9, 5, 8];
+
 /* ==============================================================
    UTILITY FUNCTIONS
    ============================================================== */
@@ -343,10 +346,16 @@ function renderGrid(gridId, activeTag, tagsId) {
   renderFilterButtons(tagsId, activeTag, gridId);
 
   const grid = document.getElementById(gridId);
+  const projects = gridId === "homeGrid"
+    ? [
+        ...HOME_PROJECT_ORDER.map((id) => PROJECTS.find((project) => project.id === id)).filter(Boolean),
+        ...PROJECTS.filter((project) => !HOME_PROJECT_ORDER.includes(project.id)),
+      ]
+    : PROJECTS;
   const filtered =
     activeTag === "all"
-      ? PROJECTS
-      : PROJECTS.filter((p) => p.tags.includes(activeTag));
+      ? projects
+      : projects.filter((p) => p.tags.includes(activeTag));
 
   const origin = gridId === "homeGrid" ? "home" : "works";
 
