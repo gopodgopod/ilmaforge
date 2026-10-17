@@ -5,7 +5,6 @@
 .ghxs-study section { display: block; min-height: 0; }
 .ghxs-hero { position: relative; }
 .ghxs-hero > img { aspect-ratio: 2.5; object-fit: cover; }
-.ghxs-wordmark { position: absolute; top: 45%; left: 10%; font-size: clamp(24px, 4.5vw, 80px); font-weight: 700; letter-spacing: -.04em; }
 .ghxs-body { width: 80%; max-width: 1600px; margin-inline: auto; display: grid; gap: var(--ghxs-space); padding-block: var(--ghxs-space); }
 .ghxs-copy { max-width: 860px; }
 .ghxs-copy h1, .ghxs-copy h2 { font-size: clamp(26px, 3vw, 48px); line-height: 1.08; text-transform: uppercase; font-weight: 700; letter-spacing: -.025em; margin-bottom: 24px; }
@@ -28,7 +27,6 @@
 @media (max-width: 700px) {
   .ghxs-body, .ghxs-footer { width: 90%; }
   .ghxs-hero > img { aspect-ratio: 16/10; }
-  .ghxs-wordmark { left: 5%; }
   .ghxs-gallery { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
   .ghxs-two, .ghxs-three { grid-template-columns: 1fr; gap: 20px; }
   .ghxs-comparison { gap: 8px; }
