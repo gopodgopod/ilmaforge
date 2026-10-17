@@ -20,6 +20,7 @@ jobs:
           node --check main.js
           node --check project-lure.js
           node --check project-ghx.js
+          node --check project-ghx-scenes.js
           node --check project-studies.js
           node --check project-duolife.js
           node --check project-canal.js
@@ -40,6 +41,10 @@ jobs:
           test -s dist/project-lure.css
           test -s dist/project-ghx.js
           test -s dist/project-ghx.css
+          test -s dist/project-ghx-scenes.js
+          test -s dist/project-ghx-scenes.css
+          test -s dist/assets/ghx-scenes/Hero_ghx_main.jpg
+          test -s dist/assets/ghx-scenes/room-final.mp4
           test -s dist/project-studies.js
           test -s dist/project-studies.css
           test -s dist/project-duolife.js

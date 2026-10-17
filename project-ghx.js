@@ -61,7 +61,7 @@ let ghxMotionObserver;
 function initGhxMotion() {
   if (ghxMotionObserver) ghxMotionObserver.disconnect();
   const projectPage = document.getElementById('project');
-  if (!projectPage.classList.contains('is-ghx') && !projectPage.classList.contains('is-study')) return;
+  if (!projectPage.classList.contains('is-ghx') && !projectPage.classList.contains('is-study') && !projectPage.classList.contains('is-ghx-scenes')) return;
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const videos = document.querySelectorAll('.ghx-motion');
   const load = (video) => {
